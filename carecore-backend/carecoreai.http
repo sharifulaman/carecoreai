@@ -1,0 +1,102 @@
+### CareCore API - REST Client
+### VS Code REST Client Extension
+
+@baseUrl = http://localhost:8080
+@contentType = application/json
+
+# ─────────────────────────────────────────
+# After login, paste your token below:
+@accessToken = YOUR_ACCESS_TOKEN
+@refreshToken = YOUR_REFRESH_TOKEN
+# ─────────────────────────────────────────
+
+
+### ══════════════════════════════
+###  AUTH
+### ══════════════════════════════
+
+### 1. Register Admin
+POST {{baseUrl}}/auth/register
+Content-Type: {{contentType}}
+
+{
+  "email": "admin@carecore.com",
+  "password": "Admin1234",
+  "full_name": "System Admin",
+  "role": "admin"
+}
+
+
+### 2. Login
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "admin@carecore.com",
+  "password": "Admin1234"
+}
+
+
+### 3. Get Current User (Me)
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{accessToken}}
+
+
+### 4. Refresh Token
+POST {{baseUrl}}/auth/refresh
+Content-Type: {{contentType}}
+
+{
+  "refresh_token": "{{refreshToken}}"
+}
+
+
+### ══════════════════════════════
+###  HOMES
+### ══════════════════════════════
+
+### 5. Create Home
+POST {{baseUrl}}/entities/Home
+Authorization: Bearer {{accessToken}}
+Content-Type: {{contentType}}
+
+{
+  "data": {
+    "name": "Sunrise House",
+    "type": "24_hours",
+    "address": "12 Oak Street, London",
+    "postcode": "E1 6RF",
+    "team_leader_id": "PASTE_STAFF_ID_HERE",
+    "status": "active"
+  }
+}
+
+
+### 6. Get All Homes
+GET {{baseUrl}}/entities/Home
+Authorization: Bearer {{accessToken}}
+
+
+### ══════════════════════════════
+###  RESIDENTS
+### ══════════════════════════════
+
+### 7. Create Resident
+POST {{baseUrl}}/entities/Resident
+Authorization: Bearer {{accessToken}}
+Content-Type: {{contentType}}
+
+{
+  "data": {
+    "display_name": "Alice M.",
+    "home_id": "PASTE_HOME_ID_HERE",
+    "risk_level": "low",
+    "status": "active",
+    "placement_type": "childrens_home"
+  }
+}
+
+
+### 8. Get Active Residents
+GET {{baseUrl}}/entities/Resident?status=active
+Authorization: Bearer {{accessToken}}
