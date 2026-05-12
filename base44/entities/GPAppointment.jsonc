@@ -1,0 +1,105 @@
+{
+  "name": "GPAppointment",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "appointment_type": {
+      "type": "string",
+      "enum": [
+        "gp",
+        "district_nurse",
+        "consultant",
+        "dentist",
+        "optician",
+        "physiotherapy",
+        "occupational_therapy",
+        "psychiatry",
+        "community_mental_health",
+        "speech_language",
+        "dietitian",
+        "hospital_outpatient",
+        "other"
+      ]
+    },
+    "appointment_datetime": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "clinician_name": {
+      "type": "string"
+    },
+    "clinician_contact": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "accompanied_by": {
+      "type": "string"
+    },
+    "capacity_considered": {
+      "type": "boolean",
+      "default": false
+    },
+    "outcome": {
+      "type": "string"
+    },
+    "follow_up_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "follow_up_notes": {
+      "type": "string"
+    },
+    "prescriptions_changed": {
+      "type": "boolean",
+      "default": false
+    },
+    "medication_change_notes": {
+      "type": "string"
+    },
+    "referral_made": {
+      "type": "boolean",
+      "default": false
+    },
+    "referral_to": {
+      "type": "string"
+    },
+    "documents_url": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "scheduled",
+        "completed",
+        "cancelled",
+        "did_not_attend"
+      ]
+    },
+    "cancellation_reason": {
+      "type": "string"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "appointment_type",
+    "appointment_datetime",
+    "created_by"
+  ]
+}

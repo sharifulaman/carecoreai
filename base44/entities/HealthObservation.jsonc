@@ -1,0 +1,78 @@
+{
+  "name": "HealthObservation",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "observation_type": {
+      "type": "string",
+      "enum": [
+        "blood_pressure",
+        "pulse",
+        "temperature",
+        "oxygen_saturation",
+        "weight",
+        "blood_glucose",
+        "fluid_intake",
+        "food_intake",
+        "bowel_movement",
+        "pressure_area",
+        "falls_risk",
+        "pain_score",
+        "mood_score",
+        "sleep_quality",
+        "behaviour_rating",
+        "other"
+      ]
+    },
+    "value_numeric": {
+      "type": "number"
+    },
+    "value_text": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "observation_datetime": {
+      "type": "string"
+    },
+    "recorded_by": {
+      "type": "string"
+    },
+    "within_normal_range": {
+      "type": "boolean"
+    },
+    "alert_triggered": {
+      "type": "boolean",
+      "default": false
+    },
+    "alert_actioned_by": {
+      "type": "string"
+    },
+    "alert_actioned_at": {
+      "type": "string"
+    },
+    "alert_action_taken": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "observation_type",
+    "observation_datetime",
+    "recorded_by"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "name": "PlacementFee",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "local_authority": {
+      "type": "string"
+    },
+    "la_contact_name": {
+      "type": "string"
+    },
+    "la_contact_email": {
+      "type": "string"
+    },
+    "la_reference": {
+      "type": "string"
+    },
+    "weekly_rate": {
+      "type": "number"
+    },
+    "monthly_equivalent": {
+      "type": "number"
+    },
+    "fee_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "fee_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "invoice_day": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "paused",
+        "ended"
+      ],
+      "default": "active"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "local_authority",
+    "weekly_rate",
+    "fee_start_date",
+    "created_by"
+  ]
+}

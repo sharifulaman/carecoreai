@@ -1,0 +1,207 @@
+{
+  "name": "Home",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "outreach",
+        "24_hours",
+        "care",
+        "18_plus"
+      ],
+      "default": "outreach",
+      "description": "Home classification"
+    },
+    "care_model": {
+      "type": "string",
+      "enum": [
+        "outreach",
+        "residential",
+        "both"
+      ]
+    },
+    "address": {
+      "type": "string"
+    },
+    "postcode": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "team_leader_id": {
+      "type": "string",
+      "description": "Primary team leader assigned to this home"
+    },
+    "privacy_mode": {
+      "type": "boolean",
+      "default": false
+    },
+    "compliance_framework": {
+      "type": "string",
+      "enum": [
+        "ofsted",
+        "cqc",
+        "custom"
+      ],
+      "default": "ofsted"
+    },
+    "default_language": {
+      "type": "string",
+      "default": "en"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "archived",
+        "vacant",
+        "maintenance"
+      ],
+      "default": "active"
+    },
+    "min_morning_staff": {
+      "type": "number",
+      "default": 0,
+      "description": "Minimum staff required for morning shifts"
+    },
+    "min_afternoon_staff": {
+      "type": "number",
+      "default": 0,
+      "description": "Minimum staff required for afternoon shifts"
+    },
+    "min_night_staff": {
+      "type": "number",
+      "default": 0,
+      "description": "Minimum staff required for night shifts"
+    },
+    "lease_start": {
+      "type": "string",
+      "format": "date",
+      "description": "Tenancy start date"
+    },
+    "lease_end": {
+      "type": "string",
+      "format": "date",
+      "description": "Tenancy end date \u2014 used for expiry alerts"
+    },
+    "monthly_rent": {
+      "type": "number",
+      "description": "Monthly rent amount in GBP"
+    },
+    "landlord_name": {
+      "type": "string",
+      "description": "Landlord full name or company"
+    },
+    "landlord_contact": {
+      "type": "string",
+      "description": "Landlord phone number"
+    },
+    "landlord_email": {
+      "type": "string",
+      "description": "Landlord email address"
+    },
+    "property_notes": {
+      "type": "string",
+      "description": "Notes about the building or tenancy"
+    },
+    "document_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of HomeDocument IDs associated with this home"
+    },
+    "rent_due_day": {
+      "type": "number",
+      "description": "Day of month rent is due (e.g. 1 = 1st of each month)"
+    },
+    "rent_paid_to_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date rent has been paid up to"
+    },
+    "rent_status": {
+      "type": "string",
+      "enum": [
+        "current",
+        "overdue",
+        "due_soon"
+      ],
+      "default": "current",
+      "description": "Current rent payment status"
+    },
+    "deposit_amount": {
+      "type": "number",
+      "description": "Deposit amount in GBP"
+    },
+    "deposit_held_by": {
+      "type": "string",
+      "description": "Who holds the deposit"
+    },
+    "next_rent_review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "gas_safety_expiry": {
+      "type": "string",
+      "format": "date",
+      "description": "Gas safety certificate expiry date"
+    },
+    "electrical_cert_expiry": {
+      "type": "string",
+      "format": "date",
+      "description": "EICR electrical certificate expiry date"
+    },
+    "fire_risk_assessment_expiry": {
+      "type": "string",
+      "format": "date",
+      "description": "Fire risk assessment expiry date"
+    },
+    "epc_expiry": {
+      "type": "string",
+      "format": "date",
+      "description": "Energy Performance Certificate expiry date"
+    },
+    "insurance_expiry": {
+      "type": "string",
+      "format": "date",
+      "description": "Building/contents insurance expiry date"
+    },
+    "pat_testing_expiry": {
+      "type": "string",
+      "format": "date",
+      "description": "Portable appliance testing expiry date"
+    },
+    "water_hygiene_expiry": {
+      "type": "string",
+      "format": "date",
+      "description": "Legionella/water hygiene risk assessment expiry date"
+    },
+    "last_inspection_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Last Ofsted/CQC inspection date"
+    },
+    "next_inspection_due": {
+      "type": "string",
+      "format": "date",
+      "description": "Next Ofsted/CQC inspection due date"
+    }
+  },
+  "required": [
+    "name",
+    "org_id",
+    "team_leader_id"
+  ]
+}

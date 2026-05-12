@@ -1,0 +1,68 @@
+{
+  "name": "WelcomePack",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string",
+      "description": "Organization ID"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id (UUID)"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "english",
+        "arabic",
+        "somali",
+        "kurdish_kurmanji",
+        "kurdish_sorani"
+      ],
+      "default": "english",
+      "description": "Document language"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "Uploaded file URL from base44.integrations.Core.UploadFile"
+    },
+    "file_name": {
+      "type": "string",
+      "description": "Original file name"
+    },
+    "file_type": {
+      "type": "string",
+      "enum": [
+        "pdf",
+        "docx"
+      ],
+      "description": "PDF or Word document"
+    },
+    "uploaded_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id (UUID)"
+    },
+    "uploaded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Only one active document per home per language"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Admin notes about this version (e.g. version history)"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "language",
+    "file_url",
+    "file_name",
+    "file_type",
+    "uploaded_by"
+  ]
+}

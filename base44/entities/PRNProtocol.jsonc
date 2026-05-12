@@ -1,0 +1,62 @@
+{
+  "name": "PRNProtocol",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "medication_record_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "indication": {
+      "type": "string"
+    },
+    "maximum_daily_dose": {
+      "type": "string"
+    },
+    "minimum_interval_hours": {
+      "type": "integer"
+    },
+    "signs_to_look_for": {
+      "type": "string"
+    },
+    "non_pharmacological_first": {
+      "type": "string"
+    },
+    "who_can_authorise": {
+      "type": "string",
+      "enum": [
+        "any_staff",
+        "senior_staff_only",
+        "team_leader_only"
+      ]
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "approved_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "medication_record_id",
+    "resident_id",
+    "home_id",
+    "indication",
+    "maximum_daily_dose",
+    "minimum_interval_hours",
+    "who_can_authorise",
+    "created_by"
+  ]
+}

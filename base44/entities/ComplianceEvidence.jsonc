@@ -1,0 +1,83 @@
+{
+  "name": "ComplianceEvidence",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "framework": {
+      "type": "string",
+      "enum": [
+        "cqc",
+        "local_authority",
+        "both"
+      ]
+    },
+    "kloe": {
+      "type": "string",
+      "enum": [
+        "safe",
+        "effective",
+        "caring",
+        "responsive",
+        "well_led",
+        "not_applicable"
+      ]
+    },
+    "la_monitoring_category": {
+      "type": "string"
+    },
+    "evidence_type": {
+      "type": "string",
+      "enum": [
+        "policy",
+        "observation",
+        "record",
+        "outcome",
+        "feedback",
+        "training",
+        "audit",
+        "inspection",
+        "meeting",
+        "other"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "date_of_evidence": {
+      "type": "string",
+      "format": "date"
+    },
+    "recorded_by": {
+      "type": "string"
+    },
+    "document_url": {
+      "type": "string"
+    },
+    "linked_entity_type": {
+      "type": "string"
+    },
+    "linked_entity_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "framework",
+    "evidence_type",
+    "title",
+    "date_of_evidence",
+    "recorded_by"
+  ]
+}

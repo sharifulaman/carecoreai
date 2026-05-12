@@ -1,0 +1,56 @@
+{
+  "name": "PlacementDetails",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "date_of_plan": {
+      "type": "string",
+      "format": "date"
+    },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Selected support domains"
+    },
+    "placement_history": {
+      "type": "string"
+    },
+    "la_placement_aims": {
+      "type": "string"
+    },
+    "parents_carers_aims": {
+      "type": "string"
+    },
+    "yp_placement_aims": {
+      "type": "string"
+    },
+    "completed_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "completed_by_name": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id"
+  ]
+}

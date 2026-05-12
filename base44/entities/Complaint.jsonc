@@ -1,0 +1,191 @@
+{
+  "name": "Complaint",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "received_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "received_by_name": {
+      "type": "string"
+    },
+    "received_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "received_method": {
+      "type": "string",
+      "enum": [
+        "in_person",
+        "phone",
+        "letter",
+        "email",
+        "other"
+      ]
+    },
+    "complainant_type": {
+      "type": "string",
+      "enum": [
+        "resident",
+        "parent",
+        "family_member",
+        "advocate",
+        "social_worker",
+        "other_professional",
+        "anonymous"
+      ]
+    },
+    "complainant_name": {
+      "type": "string"
+    },
+    "complainant_relationship": {
+      "type": "string"
+    },
+    "complainant_contact": {
+      "type": "string"
+    },
+    "complaint_type": {
+      "type": "string",
+      "enum": [
+        "care_quality",
+        "staff_conduct",
+        "accommodation",
+        "food",
+        "activities",
+        "contact_arrangements",
+        "decisions_made",
+        "discrimination",
+        "other"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "full_detail": {
+      "type": "string"
+    },
+    "is_representation": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if positive feedback (representation)"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "minor",
+        "moderate",
+        "serious",
+        "very_serious"
+      ]
+    },
+    "acknowledged": {
+      "type": "boolean",
+      "default": false
+    },
+    "acknowledged_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "investigated_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "investigated_by_name": {
+      "type": "string"
+    },
+    "investigation_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "investigation_outcome": {
+      "type": "string"
+    },
+    "outcome_category": {
+      "type": "string",
+      "enum": [
+        "upheld",
+        "partially_upheld",
+        "not_upheld",
+        "inconclusive"
+      ]
+    },
+    "actions_taken": {
+      "type": "string"
+    },
+    "lessons_learned": {
+      "type": "string"
+    },
+    "complainant_informed": {
+      "type": "boolean",
+      "default": false
+    },
+    "complainant_informed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "resident_informed": {
+      "type": "boolean",
+      "default": false
+    },
+    "resident_informed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "complainant_satisfied": {
+      "type": "boolean"
+    },
+    "escalated_to_ofsted": {
+      "type": "boolean",
+      "default": false
+    },
+    "ofsted_reference": {
+      "type": "string"
+    },
+    "target_resolution_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "received",
+        "investigating",
+        "resolved",
+        "escalated",
+        "closed"
+      ],
+      "default": "received"
+    },
+    "resolution_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "received_datetime",
+    "summary"
+  ]
+}

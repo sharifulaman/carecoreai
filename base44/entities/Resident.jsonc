@@ -1,0 +1,412 @@
+{
+  "name": "Resident",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "key_worker_id": {
+      "type": "string"
+    },
+    "team_leader_id": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "initials": {
+      "type": "string"
+    },
+    "privacy_mode": {
+      "type": "boolean",
+      "default": false
+    },
+    "dob": {
+      "type": "string",
+      "format": "date"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "ethnicity": {
+      "type": "string"
+    },
+    "nationality": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "default": "en"
+    },
+    "placement_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "placement_type": {
+      "type": "string",
+      "enum": [
+        "childrens_home",
+        "supported_accommodation",
+        "adult_care"
+      ]
+    },
+    "social_worker_name": {
+      "type": "string"
+    },
+    "social_worker_org": {
+      "type": "string"
+    },
+    "social_worker_phone": {
+      "type": "string"
+    },
+    "social_worker_email": {
+      "type": "string"
+    },
+    "iro_name": {
+      "type": "string"
+    },
+    "iro_contact": {
+      "type": "string"
+    },
+    "pa_name": {
+      "type": "string"
+    },
+    "pa_contact": {
+      "type": "string"
+    },
+    "family_contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "relationship": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "approved": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "address": {
+      "type": "string"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "low"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "on_leave",
+        "moved_on",
+        "archived"
+      ],
+      "default": "active"
+    },
+    "photo_url": {
+      "type": "string"
+    },
+    "education_status": {
+      "type": "string",
+      "enum": [
+        "enrolled_college",
+        "enrolled_school",
+        "neet",
+        "employed",
+        "training",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "education_provider": {
+      "type": "string"
+    },
+    "education_course": {
+      "type": "string"
+    },
+    "education_enrolment_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "education_expected_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "education_days_attended": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "education_contact_name": {
+      "type": "string"
+    },
+    "education_contact_phone": {
+      "type": "string"
+    },
+    "education_contact_email": {
+      "type": "string"
+    },
+    "education_notes": {
+      "type": "string"
+    },
+    "education_updated_at": {
+      "type": "string"
+    },
+    "nhs_number": {
+      "type": "string",
+      "description": "NHS Number"
+    },
+    "gp_name": {
+      "type": "string",
+      "description": "GP / Doctor name"
+    },
+    "gp_practice": {
+      "type": "string",
+      "description": "GP Practice / Surgery name"
+    },
+    "gp_address": {
+      "type": "string",
+      "description": "GP surgery address"
+    },
+    "gp_phone": {
+      "type": "string",
+      "description": "GP phone number"
+    },
+    "gp_email": {
+      "type": "string",
+      "description": "GP email"
+    },
+    "gp_registered_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date registered with GP"
+    },
+    "medical_conditions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "condition": {
+            "type": "string"
+          },
+          "diagnosed_date": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "List of medical conditions / diagnoses"
+    },
+    "allergies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "allergen": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "mild",
+              "moderate",
+              "severe",
+              "anaphylactic"
+            ]
+          },
+          "reaction": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Known allergies"
+    },
+    "dentist_name": {
+      "type": "string"
+    },
+    "dentist_practice": {
+      "type": "string"
+    },
+    "dentist_address": {
+      "type": "string"
+    },
+    "dentist_phone": {
+      "type": "string"
+    },
+    "dentist_last_appointment": {
+      "type": "string",
+      "format": "date"
+    },
+    "dentist_next_appointment": {
+      "type": "string",
+      "format": "date"
+    },
+    "optician_name": {
+      "type": "string"
+    },
+    "optician_practice": {
+      "type": "string"
+    },
+    "optician_address": {
+      "type": "string"
+    },
+    "optician_phone": {
+      "type": "string"
+    },
+    "optician_last_appointment": {
+      "type": "string",
+      "format": "date"
+    },
+    "optician_next_appointment": {
+      "type": "string",
+      "format": "date"
+    },
+    "optician_needs_glasses": {
+      "type": "boolean",
+      "default": false
+    },
+    "health_notes": {
+      "type": "string",
+      "description": "General health notes"
+    },
+    "health_updated_at": {
+      "type": "string"
+    },
+    "bank_account_name": {
+      "type": "string"
+    },
+    "bank_name": {
+      "type": "string"
+    },
+    "bank_sort_code": {
+      "type": "string"
+    },
+    "bank_account_number": {
+      "type": "string"
+    },
+    "bank_notes": {
+      "type": "string"
+    },
+    "solicitor_name": {
+      "type": "string"
+    },
+    "solicitor_firm": {
+      "type": "string"
+    },
+    "solicitor_phone": {
+      "type": "string"
+    },
+    "solicitor_email": {
+      "type": "string"
+    },
+    "solicitor_address": {
+      "type": "string"
+    },
+    "solicitor_case_ref": {
+      "type": "string",
+      "description": "Case reference number"
+    },
+    "solicitor_notes": {
+      "type": "string"
+    },
+    "leisure_gym_enrolled": {
+      "type": "boolean",
+      "default": false
+    },
+    "leisure_gym_name": {
+      "type": "string"
+    },
+    "leisure_gym_membership_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "leisure_leisure_centre": {
+      "type": "string",
+      "description": "Leisure centre name if enrolled"
+    },
+    "leisure_leisure_centre_enrolled": {
+      "type": "boolean",
+      "default": false
+    },
+    "leisure_football_club": {
+      "type": "string"
+    },
+    "leisure_football_enrolled": {
+      "type": "boolean",
+      "default": false
+    },
+    "leisure_other_clubs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "day": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Other clubs / activities (art, music, boxing, etc.)"
+    },
+    "leisure_interests": {
+      "type": "string",
+      "description": "General interests and hobbies"
+    },
+    "leisure_notes": {
+      "type": "string"
+    },
+    "leisure_updated_at": {
+      "type": "string"
+    },
+    "contracted_visits_per_week": {
+      "type": "number",
+      "description": "Outreach only: contracted visits per week by LA"
+    },
+    "minimum_contact_hours_per_week": {
+      "type": "number",
+      "description": "Outreach only: minimum contact hours per week"
+    },
+    "visit_frequency_notes": {
+      "type": "string",
+      "description": "Outreach only: notes on visit frequency or special arrangements"
+    }
+  },
+  "required": [
+    "display_name",
+    "org_id"
+  ]
+}

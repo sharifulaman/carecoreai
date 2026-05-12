@@ -1,0 +1,158 @@
+{
+  "name": "MealPlan",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "week_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "days": {
+      "type": "object",
+      "description": "Keyed by day name: monday, tuesday, etc.",
+      "properties": {
+        "monday": {
+          "type": "object",
+          "properties": {
+            "breakfast": {
+              "type": "string"
+            },
+            "lunch": {
+              "type": "string"
+            },
+            "dinner": {
+              "type": "string"
+            },
+            "snacks": {
+              "type": "string"
+            }
+          }
+        },
+        "tuesday": {
+          "type": "object",
+          "properties": {
+            "breakfast": {
+              "type": "string"
+            },
+            "lunch": {
+              "type": "string"
+            },
+            "dinner": {
+              "type": "string"
+            },
+            "snacks": {
+              "type": "string"
+            }
+          }
+        },
+        "wednesday": {
+          "type": "object",
+          "properties": {
+            "breakfast": {
+              "type": "string"
+            },
+            "lunch": {
+              "type": "string"
+            },
+            "dinner": {
+              "type": "string"
+            },
+            "snacks": {
+              "type": "string"
+            }
+          }
+        },
+        "thursday": {
+          "type": "object",
+          "properties": {
+            "breakfast": {
+              "type": "string"
+            },
+            "lunch": {
+              "type": "string"
+            },
+            "dinner": {
+              "type": "string"
+            },
+            "snacks": {
+              "type": "string"
+            }
+          }
+        },
+        "friday": {
+          "type": "object",
+          "properties": {
+            "breakfast": {
+              "type": "string"
+            },
+            "lunch": {
+              "type": "string"
+            },
+            "dinner": {
+              "type": "string"
+            },
+            "snacks": {
+              "type": "string"
+            }
+          }
+        },
+        "saturday": {
+          "type": "object",
+          "properties": {
+            "breakfast": {
+              "type": "string"
+            },
+            "lunch": {
+              "type": "string"
+            },
+            "dinner": {
+              "type": "string"
+            },
+            "snacks": {
+              "type": "string"
+            }
+          }
+        },
+        "sunday": {
+          "type": "object",
+          "properties": {
+            "breakfast": {
+              "type": "string"
+            },
+            "lunch": {
+              "type": "string"
+            },
+            "dinner": {
+              "type": "string"
+            },
+            "snacks": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "dietary_notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "week_start"
+  ]
+}

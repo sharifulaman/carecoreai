@@ -1,0 +1,105 @@
+{
+  "name": "OfstedNotification",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "notification_type": {
+      "type": "string",
+      "enum": [
+        "allegation_against_staff",
+        "serious_injury_to_child",
+        "missing_over_24_hours",
+        "death_of_child",
+        "police_involvement_serious",
+        "outbreak_of_infectious_disease",
+        "serious_accident",
+        "serious_complaint",
+        "placement_ended_unplanned",
+        "other_serious_event"
+      ]
+    },
+    "event_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the event occurred"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id (if staff involved)"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "event_summary": {
+      "type": "string",
+      "description": "Summary of the notifiable event"
+    },
+    "hours_to_notify": {
+      "type": "number",
+      "description": "Auto-calculated: hours between event_date and notified_datetime"
+    },
+    "notification_method": {
+      "type": "string",
+      "enum": [
+        "online_form",
+        "phone",
+        "email"
+      ]
+    },
+    "notified_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When Ofsted was notified"
+    },
+    "ofsted_reference_number": {
+      "type": "string"
+    },
+    "ofsted_contact_name": {
+      "type": "string"
+    },
+    "ofsted_response": {
+      "type": "string"
+    },
+    "linked_significant_event_id": {
+      "type": "string",
+      "description": "FK \u2192 SignificantEvent.id"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "notified",
+        "acknowledged",
+        "closed"
+      ],
+      "default": "pending"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "notification_type",
+    "event_date",
+    "event_summary"
+  ]
+}

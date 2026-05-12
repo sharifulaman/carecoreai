@@ -1,0 +1,140 @@
+{
+  "name": "LeaveRequest",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "leave_type": {
+      "type": "string",
+      "enum": [
+        "annual_leave",
+        "sick_leave",
+        "unpaid_leave",
+        "compassionate",
+        "maternity_paternity",
+        "toil"
+      ],
+      "default": "annual_leave"
+    },
+    "date_from": {
+      "type": "string",
+      "format": "date"
+    },
+    "date_to": {
+      "type": "string",
+      "format": "date"
+    },
+    "days_requested": {
+      "type": "number"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending"
+    },
+    "reviewed_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "reviewed_at": {
+      "type": "string"
+    },
+    "rejection_reason": {
+      "type": "string"
+    },
+    "ssp_eligible": {
+      "type": "boolean",
+      "description": "Whether SSP applies to this sick leave"
+    },
+    "ssp_amount": {
+      "type": "number",
+      "description": "Total SSP due in \u00a3"
+    },
+    "ssp_qualifying_days": {
+      "type": "number",
+      "description": "Number of qualifying days after waiting period"
+    },
+    "ssp_waiting_days": {
+      "type": "number",
+      "description": "Number of unpaid waiting days (max 3)"
+    },
+    "ssp_daily_rate": {
+      "type": "number",
+      "description": "Daily SSP rate used"
+    },
+    "ssp_calculated_at": {
+      "type": "string",
+      "description": "ISO timestamp of SSP calculation"
+    },
+    "ssp_ineligibility_reason": {
+      "type": "string",
+      "description": "Why SSP was not payable"
+    },
+    "ssp_linked_absence": {
+      "type": "boolean",
+      "description": "True if linked to a PIW within 8 weeks"
+    },
+    "self_cert_illness_type": {
+      "type": "string",
+      "enum": [
+        "cold_flu",
+        "injury",
+        "mental_health",
+        "other"
+      ],
+      "description": "Nature of illness from self-certification"
+    },
+    "self_cert_return_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date employee returned to work"
+    },
+    "self_cert_submitted": {
+      "type": "boolean",
+      "default": false
+    },
+    "fit_note_required": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if absence > 7 calendar days"
+    },
+    "fit_note_received_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "fit_note_expiry_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "fit_note_url": {
+      "type": "string",
+      "description": "URL of uploaded fit note document"
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "leave_type",
+    "date_from",
+    "date_to"
+  ]
+}

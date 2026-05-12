@@ -1,0 +1,83 @@
+{
+  "name": "KPIRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "visit_report_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "worker_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "is_key_worker_session": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_daily_summary": {
+      "type": "boolean",
+      "default": false
+    },
+    "visit_type": {
+      "type": "string"
+    },
+    "presentation": {
+      "type": "string"
+    },
+    "placement_condition": {
+      "type": "string"
+    },
+    "primary_purpose": {
+      "type": "string"
+    },
+    "college_status": {
+      "type": "string"
+    },
+    "life_skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "liaison": {
+      "type": "string"
+    },
+    "engagement_level": {
+      "type": "string"
+    },
+    "risk_level": {
+      "type": "string"
+    },
+    "independence_progress": {
+      "type": "string"
+    },
+    "health_adherence": {
+      "type": "string"
+    },
+    "appointment_type": {
+      "type": "string"
+    },
+    "appointment_details_notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "visit_report_id",
+    "resident_id",
+    "worker_id",
+    "home_id",
+    "date"
+  ]
+}

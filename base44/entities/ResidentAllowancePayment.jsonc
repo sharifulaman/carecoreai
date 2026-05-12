@@ -1,0 +1,60 @@
+{
+  "name": "ResidentAllowancePayment",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "allowance_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "payment_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": [
+        "cash",
+        "bank_transfer",
+        "voucher"
+      ]
+    },
+    "reason_for_variance": {
+      "type": "string"
+    },
+    "paid_by": {
+      "type": "string"
+    },
+    "received_by_resident": {
+      "type": "boolean",
+      "default": false
+    },
+    "resident_signature": {
+      "type": "boolean",
+      "default": false
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "allowance_id",
+    "resident_id",
+    "home_id",
+    "amount",
+    "payment_date",
+    "payment_method",
+    "paid_by"
+  ]
+}

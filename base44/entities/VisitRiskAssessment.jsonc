@@ -1,0 +1,135 @@
+{
+  "name": "VisitRiskAssessment",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "assessed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "assessed_by_name": {
+      "type": "string"
+    },
+    "assessment_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when assessment should be reviewed"
+    },
+    "address_known_to_others_of_concern": {
+      "type": "boolean",
+      "default": false,
+      "description": "Address known to people of concern"
+    },
+    "other_people_present_risk": {
+      "type": "boolean",
+      "default": false,
+      "description": "Risk from other people present at address"
+    },
+    "pet_risk": {
+      "type": "boolean",
+      "default": false,
+      "description": "Risk from pets at address"
+    },
+    "environmental_hazards": {
+      "type": "boolean",
+      "default": false,
+      "description": "Environmental hazards at address (e.g. fire, structural, utilities)"
+    },
+    "neighbourhood_risk": {
+      "type": "boolean",
+      "default": false,
+      "description": "Risk from neighbourhood (gangs, drug dealing, etc.)"
+    },
+    "location_risk_details": {
+      "type": "string",
+      "description": "Details of location-based risks"
+    },
+    "verbal_aggression_risk": {
+      "type": "boolean",
+      "default": false
+    },
+    "physical_aggression_risk": {
+      "type": "boolean",
+      "default": false
+    },
+    "self_harm_risk": {
+      "type": "boolean",
+      "default": false
+    },
+    "substance_use_present": {
+      "type": "boolean",
+      "default": false,
+      "description": "Risk from alcohol or drugs at address"
+    },
+    "resident_risk_details": {
+      "type": "string",
+      "description": "Details of resident-related risks"
+    },
+    "two_worker_visit_required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Visit must have minimum two workers"
+    },
+    "visit_duration_limit_minutes": {
+      "type": "number",
+      "description": "Maximum visit duration (null = no limit)"
+    },
+    "specific_precautions": {
+      "type": "string",
+      "description": "Specific safety precautions to take"
+    },
+    "emergency_exit_plan": {
+      "type": "string",
+      "description": "Plan if emergency evacuation needed"
+    },
+    "overall_risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "low"
+    },
+    "approved_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id (manager approval)"
+    },
+    "approved_by_name": {
+      "type": "string"
+    },
+    "approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "assessment_date",
+    "review_date",
+    "assessed_by_id"
+  ]
+}

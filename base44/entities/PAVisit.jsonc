@@ -1,0 +1,120 @@
+{
+  "name": "PAVisit",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "pa_details_id": {
+      "type": "string",
+      "description": "FK \u2192 PADetails.id"
+    },
+    "pa_name": {
+      "type": "string",
+      "description": "Denormalised"
+    },
+    "visit_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "visit_type": {
+      "type": "string",
+      "enum": [
+        "in_person",
+        "phone",
+        "video",
+        "unplanned",
+        "other"
+      ]
+    },
+    "location": {
+      "type": "string"
+    },
+    "duration_minutes": {
+      "type": "number"
+    },
+    "young_person_present": {
+      "type": "boolean",
+      "default": true
+    },
+    "topics_discussed": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "pathway_plan_review",
+          "accommodation_plans",
+          "education_employment",
+          "health_and_wellbeing",
+          "finances_and_benefits",
+          "relationships_and_support",
+          "identity_and_culture",
+          "concerns_or_issues",
+          "achievements_and_positives",
+          "other"
+        ]
+      }
+    },
+    "young_person_views": {
+      "type": "string"
+    },
+    "key_concerns": {
+      "type": "string"
+    },
+    "actions_agreed": {
+      "type": "string"
+    },
+    "pa_recommendations": {
+      "type": "string"
+    },
+    "next_visit_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_visit_type": {
+      "type": "string",
+      "enum": [
+        "in_person",
+        "phone",
+        "video",
+        "unplanned",
+        "other"
+      ]
+    },
+    "pathway_plan_reviewed": {
+      "type": "boolean",
+      "default": false
+    },
+    "pathway_plan_update_needed": {
+      "type": "boolean",
+      "default": false
+    },
+    "notes": {
+      "type": "string"
+    },
+    "recorded_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "recorded_by_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "visit_date"
+  ]
+}

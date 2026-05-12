@@ -1,0 +1,58 @@
+{
+  "name": "TrainingRequirement",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "default": "all"
+    },
+    "course_name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "expiry_months": {
+      "type": "integer",
+      "description": "0 = no expiry"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "is_mandatory": {
+      "type": "boolean",
+      "default": true
+    },
+    "mandatory": {
+      "type": "string"
+    },
+    "home_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "display_order": {
+      "type": "integer",
+      "default": 0
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "role",
+    "course_name"
+  ]
+}

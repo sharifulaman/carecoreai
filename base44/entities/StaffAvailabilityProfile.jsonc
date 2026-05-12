@@ -1,0 +1,167 @@
+{
+  "name": "StaffAvailabilityProfile",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id, unique"
+    },
+    "contracted_hours_per_week": {
+      "type": "number"
+    },
+    "employment_type": {
+      "type": "string",
+      "enum": [
+        "full_time",
+        "part_time",
+        "bank",
+        "agency",
+        "zero_hours"
+      ]
+    },
+    "max_hours_per_day": {
+      "type": "number",
+      "default": 12
+    },
+    "max_consecutive_days": {
+      "type": "integer",
+      "default": 6
+    },
+    "min_rest_hours_between_shifts": {
+      "type": "integer",
+      "default": 11
+    },
+    "preferred_shift_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "morning",
+          "afternoon",
+          "night",
+          "sleeping"
+        ]
+      }
+    },
+    "unavailable_shift_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "morning",
+          "afternoon",
+          "night",
+          "sleeping"
+        ]
+      }
+    },
+    "sleep_in_qualified": {
+      "type": "boolean",
+      "default": false
+    },
+    "waking_night_qualified": {
+      "type": "boolean",
+      "default": false
+    },
+    "first_aid_certified": {
+      "type": "boolean",
+      "default": false
+    },
+    "first_aid_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "medication_trained": {
+      "type": "boolean",
+      "default": false
+    },
+    "medication_training_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "medication_training_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "driving_licence": {
+      "type": "boolean",
+      "default": false
+    },
+    "vehicle_available": {
+      "type": "boolean",
+      "default": false
+    },
+    "manual_handling_trained": {
+      "type": "boolean",
+      "default": false
+    },
+    "manual_handling_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "safeguarding_trained": {
+      "type": "boolean",
+      "default": false
+    },
+    "safeguarding_level": {
+      "type": "string",
+      "enum": [
+        "level_1",
+        "level_2",
+        "level_3"
+      ]
+    },
+    "safeguarding_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "max_shifts_per_week": {
+      "type": "integer"
+    },
+    "preferred_days_off": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday",
+          "saturday",
+          "sunday"
+        ]
+      }
+    },
+    "fixed_days_off": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday",
+          "saturday",
+          "sunday"
+        ]
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "contracted_hours_per_week",
+    "employment_type"
+  ]
+}

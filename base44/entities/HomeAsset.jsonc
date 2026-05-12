@@ -1,0 +1,69 @@
+{
+  "name": "HomeAsset",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "furniture",
+        "appliance",
+        "electronics",
+        "vehicle",
+        "equipment",
+        "other"
+      ],
+      "default": "other"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "purchase_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "purchase_cost": {
+      "type": "number"
+    },
+    "condition": {
+      "type": "string",
+      "enum": [
+        "excellent",
+        "good",
+        "fair",
+        "poor",
+        "written_off"
+      ],
+      "default": "good"
+    },
+    "location_in_home": {
+      "type": "string"
+    },
+    "warranty_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "photo_url": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "name"
+  ]
+}

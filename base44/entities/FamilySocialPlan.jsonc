@@ -1,0 +1,55 @@
+{
+  "name": "FamilySocialPlan",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "family_background": {
+      "type": "string"
+    },
+    "family_contact_arrangements": {
+      "type": "string"
+    },
+    "social_network": {
+      "type": "string"
+    },
+    "relationship_goals": {
+      "type": "string"
+    },
+    "concerns": {
+      "type": "string"
+    },
+    "yp_views_on_family": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completed_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "completed_by_name": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id"
+  ]
+}

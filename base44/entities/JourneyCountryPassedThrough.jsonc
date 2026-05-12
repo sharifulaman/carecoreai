@@ -1,0 +1,76 @@
+{
+  "name": "JourneyCountryPassedThrough",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "life_story_id": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "approximate_dates": {
+      "type": "string"
+    },
+    "duration_stayed": {
+      "type": "string"
+    },
+    "applied_for_asylum": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "fingerprinted": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "detained": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "given_documents": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "stayed_in_camp_or_shelter": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id"
+  ]
+}

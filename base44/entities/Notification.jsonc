@@ -1,0 +1,65 @@
+{
+  "name": "Notification",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string",
+      "description": "User.id of the recipient"
+    },
+    "recipient_staff_id": {
+      "type": "string",
+      "description": "StaffProfile.id of recipient (for filtering by staffProfile)"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "handover",
+        "holiday",
+        "rota",
+        "alert",
+        "certification",
+        "general"
+      ],
+      "default": "general"
+    },
+    "related_module": {
+      "type": "string",
+      "description": "Used as display title"
+    },
+    "message": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "high",
+        "critical"
+      ],
+      "default": "normal"
+    },
+    "link_url": {
+      "type": "string",
+      "description": "Where to navigate when notification is clicked"
+    },
+    "related_record_id": {
+      "type": "string"
+    },
+    "read": {
+      "type": "boolean",
+      "default": false
+    },
+    "acknowledged": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "user_id",
+    "message"
+  ]
+}

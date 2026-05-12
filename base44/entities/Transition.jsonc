@@ -1,0 +1,93 @@
+{
+  "name": "Transition",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "worker_id": {
+      "type": "string"
+    },
+    "transition_type": {
+      "type": "string",
+      "enum": [
+        "move_on",
+        "pathway_planning",
+        "tenancy_setup",
+        "emergency_move",
+        "step_down"
+      ],
+      "default": "move_on"
+    },
+    "planned_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "actual_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "destination_address": {
+      "type": "string"
+    },
+    "destination_type": {
+      "type": "string",
+      "enum": [
+        "independent",
+        "supported_housing",
+        "family",
+        "foster_care",
+        "other"
+      ],
+      "default": "independent"
+    },
+    "pathway_stage": {
+      "type": "string",
+      "enum": [
+        "initial_assessment",
+        "planning",
+        "preparation",
+        "active_move",
+        "post_move_support",
+        "closed"
+      ],
+      "default": "planning"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "completed",
+        "cancelled",
+        "on_hold"
+      ],
+      "default": "active"
+    },
+    "support_needs": {
+      "type": "string"
+    },
+    "tenancy_ref": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "transition_type"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "CICReportSection",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "cic_report_id": {
+      "type": "string",
+      "description": "Foreign key to CICReport"
+    },
+    "section_key": {
+      "type": "string",
+      "enum": [
+        "accommodation",
+        "education",
+        "health",
+        "independence",
+        "family",
+        "immigration",
+        "behaviour",
+        "religion",
+        "finance"
+      ]
+    },
+    "section_label": {
+      "type": "string"
+    },
+    "going_well": {
+      "type": "string"
+    },
+    "concerns": {
+      "type": "string"
+    },
+    "needs_to_happen": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "cic_report_id",
+    "section_key",
+    "section_label"
+  ]
+}

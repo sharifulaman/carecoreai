@@ -1,0 +1,121 @@
+{
+  "name": "StaffExpense",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "expense_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "mileage",
+        "food",
+        "accommodation",
+        "equipment",
+        "training",
+        "uniform",
+        "other"
+      ],
+      "default": "other"
+    },
+    "description": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number",
+      "default": 0
+    },
+    "mileage_miles": {
+      "type": "number",
+      "description": "Miles claimed (mileage category only)"
+    },
+    "mileage_rate": {
+      "type": "number",
+      "default": 0.45,
+      "description": "Rate per mile used"
+    },
+    "vehicle_type": {
+      "type": "string",
+      "enum": [
+        "car",
+        "motorcycle",
+        "bicycle"
+      ],
+      "default": "car",
+      "description": "Vehicle type for HMRC mileage rate"
+    },
+    "receipt_url": {
+      "type": "string",
+      "description": "Uploaded receipt file URL"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "approved",
+        "rejected",
+        "paid"
+      ],
+      "default": "draft"
+    },
+    "submitted_at": {
+      "type": "string",
+      "description": "ISO timestamp when submitted"
+    },
+    "reviewed_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "description": "ISO timestamp of review"
+    },
+    "rejection_reason": {
+      "type": "string"
+    },
+    "payslip_id": {
+      "type": "string",
+      "description": "FK \u2192 Payslip.id \u2014 set when paid"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "deleted_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "expense_date",
+    "category",
+    "description",
+    "amount"
+  ]
+}

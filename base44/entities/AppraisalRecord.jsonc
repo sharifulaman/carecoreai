@@ -1,0 +1,181 @@
+{
+  "name": "AppraisalRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "appraiser_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id (manager conducting appraisal)"
+    },
+    "appraiser_name": {
+      "type": "string"
+    },
+    "appraisal_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_appraisal_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Automatically set to appraisal_date + 12 months"
+    },
+    "overall_rating": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Star rating (1-5)"
+    },
+    "performance_notes": {
+      "type": "string",
+      "description": "Manager observations and feedback"
+    },
+    "strengths": {
+      "type": "string",
+      "description": "Key strengths identified"
+    },
+    "areas_for_development": {
+      "type": "string",
+      "description": "Areas to improve"
+    },
+    "goals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID for goal"
+          },
+          "title": {
+            "type": "string",
+            "description": "Goal title"
+          },
+          "description": {
+            "type": "string"
+          },
+          "target_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "rag_status": {
+            "type": "string",
+            "enum": [
+              "green",
+              "amber",
+              "red"
+            ],
+            "default": "green"
+          },
+          "progress_notes": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean",
+            "default": false
+          },
+          "completed_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "previous_rag_status": {
+            "type": "string",
+            "enum": [
+              "green",
+              "amber",
+              "red"
+            ],
+            "description": "RAG status from previous appraisal (for carry-forward)"
+          }
+        }
+      },
+      "description": "Array of development goals"
+    },
+    "mid_year_checkin": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "overall_notes": {
+          "type": "string"
+        },
+        "goal_updates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "goal_id": {
+                "type": "string"
+              },
+              "rag_status": {
+                "type": "string",
+                "enum": [
+                  "green",
+                  "amber",
+                  "red"
+                ]
+              },
+              "progress_note": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "description": "Mid-year check-in record"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "excellent",
+        "good",
+        "satisfactory",
+        "below_expectations",
+        "improvement_plan"
+      ],
+      "description": "Overall appraisal outcome"
+    },
+    "employee_comments": {
+      "type": "string",
+      "description": "Employee's response to appraisal"
+    },
+    "pdf_document_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffDocument.id (stored appraisal PDF)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "completed",
+        "signed_off"
+      ],
+      "default": "draft"
+    },
+    "reviewed_by": {
+      "type": "string",
+      "description": "Senior manager approval"
+    },
+    "reviewed_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "appraisal_date"
+  ]
+}

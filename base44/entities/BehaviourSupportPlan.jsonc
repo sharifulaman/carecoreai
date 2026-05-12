@@ -1,0 +1,74 @@
+{
+  "name": "BehaviourSupportPlan",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "behaviours_of_concern": {
+      "type": "string"
+    },
+    "triggers": {
+      "type": "string"
+    },
+    "warning_signs": {
+      "type": "string"
+    },
+    "green_strategies": {
+      "type": "string"
+    },
+    "amber_strategies": {
+      "type": "string"
+    },
+    "red_strategies": {
+      "type": "string"
+    },
+    "physical_intervention_permitted": {
+      "type": "boolean",
+      "default": false
+    },
+    "physical_intervention_detail": {
+      "type": "string"
+    },
+    "prohibited_sanctions": {
+      "type": "string"
+    },
+    "post_incident_support": {
+      "type": "string"
+    },
+    "yp_involved_in_plan": {
+      "type": "boolean",
+      "default": false
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completed_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "completed_by_name": {
+      "type": "string"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id"
+  ]
+}

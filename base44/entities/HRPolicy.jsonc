@@ -1,0 +1,96 @@
+{
+  "name": "HRPolicy",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "policy_title": {
+      "type": "string"
+    },
+    "policy_code": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Safeguarding",
+        "Clinical",
+        "Compliance",
+        "Operations",
+        "Health & Safety",
+        "HR",
+        "Finance",
+        "IT & Data",
+        "Other"
+      ]
+    },
+    "policy_type": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "owner_department": {
+      "type": "string"
+    },
+    "current_version_number": {
+      "type": "string"
+    },
+    "current_file_url": {
+      "type": "string"
+    },
+    "current_file_name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Draft",
+        "Active",
+        "Archived"
+      ],
+      "default": "Draft"
+    },
+    "requires_acknowledgement": {
+      "type": "boolean",
+      "default": true
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "created_by_staff_id": {
+      "type": "string"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "archived_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "archived_by_staff_id": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "assignment_count": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "org_id",
+    "policy_title"
+  ]
+}

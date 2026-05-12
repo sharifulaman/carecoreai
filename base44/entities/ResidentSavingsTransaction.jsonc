@@ -1,0 +1,49 @@
+{
+  "name": "ResidentSavingsTransaction",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "savings_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "transaction_type": {
+      "type": "string",
+      "enum": [
+        "deposit",
+        "withdrawal"
+      ]
+    },
+    "amount": {
+      "type": "number"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "recorded_by": {
+      "type": "string"
+    },
+    "balance_after": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "org_id",
+    "savings_id",
+    "resident_id",
+    "transaction_type",
+    "amount",
+    "reason",
+    "date",
+    "recorded_by",
+    "balance_after"
+  ]
+}

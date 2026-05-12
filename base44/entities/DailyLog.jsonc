@@ -1,0 +1,231 @@
+{
+  "name": "DailyLog",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "shift_id": {
+      "type": "string",
+      "description": "FK \u2192 Shift.id (nullable)"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "worker_id": {
+      "type": "string",
+      "description": "Alias for staff_id \u2014 FK \u2192 StaffProfile.id"
+    },
+    "worker_name": {
+      "type": "string"
+    },
+    "recorded_by_role": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "log_time": {
+      "type": "string",
+      "description": "HH:mm format"
+    },
+    "log_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "title": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "details": {
+      "type": "string"
+    },
+    "log_type": {
+      "type": "string",
+      "enum": [
+        "Morning Log",
+        "Evening Log",
+        "Night Check",
+        "Wellbeing",
+        "Education",
+        "Nutrition",
+        "Activity",
+        "Key Work Session",
+        "Family Contact",
+        "Behaviour",
+        "Health",
+        "Medication",
+        "Incident",
+        "Visit Report",
+        "Professional Contact",
+        "Reflection",
+        "General Note"
+      ],
+      "default": "General Note"
+    },
+    "category": {
+      "type": "string"
+    },
+    "mood": {
+      "type": "string",
+      "enum": [
+        "Positive",
+        "Calm",
+        "Settled",
+        "Anxious",
+        "Low mood",
+        "Agitated",
+        "Angry",
+        "Withdrawn",
+        "Distressed",
+        "Unknown"
+      ]
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "None",
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ],
+      "default": "None"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "Home Staff",
+        "Team Leader",
+        "Manager",
+        "Admin Only",
+        "External Professional",
+        "Restricted"
+      ],
+      "default": "Home Staff"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Draft",
+        "Submitted",
+        "Review Required",
+        "Reviewed",
+        "Changes Requested",
+        "Escalated",
+        "Closed"
+      ],
+      "default": "Submitted"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_module": {
+      "type": "string",
+      "default": "daily_logs"
+    },
+    "source_entity_type": {
+      "type": "string",
+      "default": "manual_daily_log"
+    },
+    "source_entity_id": {
+      "type": "string",
+      "description": "ID of originating incident/visit report/etc."
+    },
+    "is_auto_generated": {
+      "type": "boolean",
+      "default": false
+    },
+    "requires_manager_review": {
+      "type": "boolean",
+      "default": false
+    },
+    "review_status": {
+      "type": "string",
+      "enum": [
+        "Not Required",
+        "Pending",
+        "Reviewed",
+        "Escalated"
+      ],
+      "default": "Not Required"
+    },
+    "reviewed_by": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "review_notes": {
+      "type": "string"
+    },
+    "follow_up_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "follow_up_due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "shift": {
+      "type": "string",
+      "enum": [
+        "morning",
+        "afternoon",
+        "night"
+      ]
+    },
+    "content": {
+      "type": "object",
+      "description": "Legacy field \u2014 structured log content"
+    },
+    "flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ai_summary": {
+      "type": "string"
+    },
+    "flagged": {
+      "type": "boolean",
+      "default": false
+    },
+    "flag_severity": {
+      "type": "number"
+    },
+    "acknowledged_by": {
+      "type": "string"
+    },
+    "acknowledged_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "worker_id",
+    "date"
+  ]
+}

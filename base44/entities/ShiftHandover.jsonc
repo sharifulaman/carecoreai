@@ -1,0 +1,251 @@
+{
+  "name": "ShiftHandover",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "shift": {
+      "type": "string",
+      "enum": [
+        "morning",
+        "afternoon",
+        "night"
+      ]
+    },
+    "outgoing_staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "outgoing_staff_name": {
+      "type": "string"
+    },
+    "incoming_staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "incoming_staff_name": {
+      "type": "string"
+    },
+    "resident_statuses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "resident_id": {
+            "type": "string"
+          },
+          "resident_name": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string",
+            "enum": [
+              "in_home",
+              "out",
+              "overnight_stay",
+              "hospital",
+              "missing"
+            ]
+          },
+          "mood": {
+            "type": "string",
+            "enum": [
+              "settled",
+              "anxious",
+              "distressed",
+              "angry",
+              "happy",
+              "withdrawn"
+            ]
+          },
+          "any_concerns": {
+            "type": "boolean"
+          },
+          "concern_notes": {
+            "type": "string"
+          },
+          "medication_given_this_shift": {
+            "type": "boolean"
+          },
+          "medication_notes": {
+            "type": "string"
+          },
+          "bed_time": {
+            "type": "string"
+          },
+          "sleep_check_completed": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "incidents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "incident_type": {
+            "type": "string",
+            "enum": [
+              "behaviour",
+              "missing",
+              "medical",
+              "property_damage",
+              "police_attendance",
+              "self_harm",
+              "other"
+            ]
+          },
+          "resident_id": {
+            "type": "string"
+          },
+          "resident_name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "action_taken": {
+            "type": "string"
+          },
+          "incident_report_id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "controlled_drug_balance_checked": {
+      "type": "boolean"
+    },
+    "medication_storage_secure": {
+      "type": "boolean"
+    },
+    "any_medication_issues": {
+      "type": "boolean"
+    },
+    "medication_notes": {
+      "type": "string"
+    },
+    "outstanding_tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "task": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "urgent",
+              "high",
+              "normal"
+            ]
+          },
+          "assigned_to": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "property_secure": {
+      "type": "boolean"
+    },
+    "any_maintenance_issues": {
+      "type": "boolean"
+    },
+    "maintenance_notes": {
+      "type": "string"
+    },
+    "cleaning_completed": {
+      "type": "boolean"
+    },
+    "visitors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "relationship": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "time_in": {
+            "type": "string"
+          },
+          "time_out": {
+            "type": "string"
+          },
+          "resident_visited": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "string"
+    },
+    "additional_notes": {
+      "type": "string"
+    },
+    "action_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "medications_noted": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "outgoing_signed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "incoming_acknowledged_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "incoming_acknowledged": {
+      "type": "boolean",
+      "default": false
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "acknowledged"
+      ],
+      "default": "draft"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "date",
+    "shift"
+  ]
+}

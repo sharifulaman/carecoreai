@@ -1,0 +1,163 @@
+{
+  "name": "BodyMap",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "recorded_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "recorded_by_name": {
+      "type": "string"
+    },
+    "recorded_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "discovery_circumstance": {
+      "type": "string",
+      "description": "How/when the mark was noticed"
+    },
+    "marks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID for this mark"
+          },
+          "body_location": {
+            "type": "string",
+            "description": "e.g. 'left forearm', 'right cheek'"
+          },
+          "body_side": {
+            "type": "string",
+            "enum": [
+              "front",
+              "back"
+            ]
+          },
+          "x_position": {
+            "type": "number",
+            "description": "0-100, percentage across body"
+          },
+          "y_position": {
+            "type": "number",
+            "description": "0-100, percentage down body"
+          },
+          "mark_type": {
+            "type": "string",
+            "enum": [
+              "bruise",
+              "cut",
+              "scratch",
+              "burn",
+              "bite",
+              "rash",
+              "swelling",
+              "tattoo",
+              "self_harm",
+              "other"
+            ]
+          },
+          "colour": {
+            "type": "string",
+            "description": "e.g. 'purple/yellow', 'red', 'brown'"
+          },
+          "size_cm": {
+            "type": "string",
+            "description": "e.g. '3x2cm'"
+          },
+          "description": {
+            "type": "string"
+          },
+          "child_explanation": {
+            "type": "string",
+            "description": "What the child said caused it"
+          },
+          "photo_url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "body_location",
+          "body_side",
+          "mark_type"
+        ]
+      }
+    },
+    "consistent_with_explanation": {
+      "type": "boolean",
+      "description": "Is injury pattern consistent with child's account"
+    },
+    "safeguarding_concern": {
+      "type": "boolean",
+      "default": false
+    },
+    "safeguarding_referral_made": {
+      "type": "boolean",
+      "default": false
+    },
+    "referral_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "referred_to": {
+      "type": "string",
+      "description": "e.g. 'Children's Social Care', 'Police'"
+    },
+    "manager_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "manager_notified_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "police_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "notes": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "reviewed",
+        "closed"
+      ],
+      "default": "open"
+    },
+    "reviewed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "recorded_datetime",
+    "marks"
+  ]
+}

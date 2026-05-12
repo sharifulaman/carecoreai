@@ -1,0 +1,144 @@
+{
+  "name": "SafeguardingRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "concern_type": {
+      "type": "string",
+      "enum": [
+        "physical",
+        "emotional",
+        "sexual",
+        "financial",
+        "neglect",
+        "self_neglect",
+        "discriminatory",
+        "institutional",
+        "domestic_abuse",
+        "modern_slavery"
+      ]
+    },
+    "date_of_concern": {
+      "type": "string",
+      "format": "date"
+    },
+    "date_reported_internally": {
+      "type": "string",
+      "format": "date"
+    },
+    "reported_by": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "immediate_risk": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "alleged_perpetrator_type": {
+      "type": "string",
+      "enum": [
+        "staff",
+        "visitor",
+        "another_resident",
+        "unknown",
+        "self",
+        "other"
+      ]
+    },
+    "immediate_action_taken": {
+      "type": "string"
+    },
+    "manager_informed": {
+      "type": "boolean",
+      "default": false
+    },
+    "manager_informed_at": {
+      "type": "string"
+    },
+    "manager_id": {
+      "type": "string"
+    },
+    "la_safeguarding_referred": {
+      "type": "boolean",
+      "default": false
+    },
+    "la_reference": {
+      "type": "string"
+    },
+    "la_referral_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "section_42_enquiry": {
+      "type": "boolean",
+      "default": false
+    },
+    "cqc_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "cqc_notification_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "police_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "police_reference": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "substantiated",
+        "unsubstantiated",
+        "inconclusive",
+        "under_investigation",
+        "closed_no_further_action"
+      ]
+    },
+    "outcome_notes": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "under_investigation",
+        "closed"
+      ]
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "concern_type",
+    "date_of_concern",
+    "date_reported_internally",
+    "reported_by",
+    "description",
+    "immediate_risk",
+    "immediate_action_taken"
+  ]
+}

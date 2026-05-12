@@ -1,0 +1,86 @@
+{
+  "name": "MAREntry",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "medication_record_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "scheduled_datetime": {
+      "type": "string"
+    },
+    "administered_datetime": {
+      "type": "string"
+    },
+    "administered_by": {
+      "type": "string"
+    },
+    "witnessed_by": {
+      "type": "string"
+    },
+    "administration_model_used": {
+      "type": "string",
+      "enum": [
+        "staff_administered",
+        "self_administered",
+        "prompted_self"
+      ]
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "administered",
+        "self_administered",
+        "prompted_and_taken",
+        "refused",
+        "not_available",
+        "resident_absent",
+        "omitted",
+        "spat_out",
+        "vomited_after"
+      ]
+    },
+    "refusal_reason": {
+      "type": "string"
+    },
+    "omission_reason": {
+      "type": "string"
+    },
+    "dose_given": {
+      "type": "string"
+    },
+    "variance": {
+      "type": "boolean",
+      "default": false
+    },
+    "variance_reason": {
+      "type": "string"
+    },
+    "late_administration": {
+      "type": "boolean",
+      "default": false
+    },
+    "late_reason": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "medication_record_id",
+    "resident_id",
+    "home_id",
+    "scheduled_datetime",
+    "outcome"
+  ]
+}

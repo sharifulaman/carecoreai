@@ -1,0 +1,110 @@
+{
+  "name": "PlacementInvoice",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "placement_fee_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "local_authority": {
+      "type": "string"
+    },
+    "invoice_number": {
+      "type": "string"
+    },
+    "invoice_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "period_from": {
+      "type": "string",
+      "format": "date"
+    },
+    "period_to": {
+      "type": "string",
+      "format": "date"
+    },
+    "days_in_period": {
+      "type": "integer"
+    },
+    "daily_rate": {
+      "type": "number"
+    },
+    "amount_due": {
+      "type": "number"
+    },
+    "additional_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "total_amount": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "sent",
+        "paid",
+        "disputed",
+        "overdue",
+        "void"
+      ],
+      "default": "draft"
+    },
+    "sent_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "paid_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "payment_reference": {
+      "type": "string"
+    },
+    "dispute_reason": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "generated_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "placement_fee_id",
+    "resident_id",
+    "home_id",
+    "local_authority",
+    "invoice_number",
+    "invoice_date",
+    "period_from",
+    "period_to",
+    "days_in_period",
+    "daily_rate",
+    "amount_due",
+    "total_amount",
+    "generated_by"
+  ]
+}

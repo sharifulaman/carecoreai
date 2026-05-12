@@ -1,0 +1,87 @@
+{
+  "name": "Bill",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "budget_id": {
+      "type": "string",
+      "description": "FK \u2192 HomeBudget.id (nullable) \u2014 links this bill to a budget for actuals vs budget reporting"
+    },
+    "bill_type": {
+      "type": "string",
+      "enum": [
+        "utilities",
+        "council_tax",
+        "insurance",
+        "cleaning",
+        "maintenance",
+        "rent",
+        "other"
+      ],
+      "default": "utilities"
+    },
+    "supplier": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "paid_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "paid",
+        "overdue",
+        "disputed"
+      ],
+      "default": "pending"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_direct_debit": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_recurring": {
+      "type": "boolean",
+      "default": false
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL to uploaded bill photo/document"
+    },
+    "image_file_name": {
+      "type": "string",
+      "description": "Original file name of the uploaded image"
+    },
+    "image_uploaded_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the image was uploaded"
+    }
+  },
+  "required": [
+    "org_id",
+    "bill_type",
+    "amount",
+    "due_date"
+  ]
+}

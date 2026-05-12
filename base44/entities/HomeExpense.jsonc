@@ -1,0 +1,87 @@
+{
+  "name": "HomeExpense",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "budget_id": {
+      "type": "string",
+      "description": "FK \u2192 HomeBudget.id (nullable) \u2014 links this expense to a budget for actuals vs budget reporting"
+    },
+    "expense_type": {
+      "type": "string",
+      "enum": [
+        "mileage",
+        "staff_expense",
+        "contractor",
+        "equipment",
+        "training",
+        "other"
+      ]
+    },
+    "amount": {
+      "type": "number"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "description": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "claimed_by": {
+      "type": "string"
+    },
+    "miles": {
+      "type": "number"
+    },
+    "mileage_rate": {
+      "type": "number"
+    },
+    "receipt_url": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "approved",
+        "rejected",
+        "paid"
+      ],
+      "default": "draft"
+    },
+    "submitted_at": {
+      "type": "string"
+    },
+    "approved_by": {
+      "type": "string"
+    },
+    "approved_at": {
+      "type": "string"
+    },
+    "rejected_reason": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "expense_type",
+    "amount",
+    "date",
+    "description",
+    "claimed_by"
+  ]
+}

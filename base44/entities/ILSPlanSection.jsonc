@@ -1,0 +1,76 @@
+{
+  "name": "ILSPlanSection",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "ils_plan_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "skill_area": {
+      "type": "string",
+      "enum": [
+        "cooking",
+        "budgeting",
+        "hygiene",
+        "transport",
+        "health",
+        "relationships",
+        "employment",
+        "education",
+        "custom"
+      ]
+    },
+    "custom_skill_name": {
+      "type": "string"
+    },
+    "current_level": {
+      "type": "string",
+      "enum": [
+        "no_awareness",
+        "developing",
+        "needs_support",
+        "independent_with_prompts",
+        "fully_independent"
+      ]
+    },
+    "goal": {
+      "type": "string"
+    },
+    "current_ability": {
+      "type": "string"
+    },
+    "support_needed": {
+      "type": "string"
+    },
+    "actions": {
+      "type": "string"
+    },
+    "target_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "progress_percentage": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 0
+    },
+    "notes": {
+      "type": "string"
+    },
+    "last_updated_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "ils_plan_id",
+    "resident_id",
+    "skill_area"
+  ]
+}

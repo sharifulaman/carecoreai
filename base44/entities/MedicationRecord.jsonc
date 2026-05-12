@@ -1,0 +1,159 @@
+{
+  "name": "MedicationRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "medication_name": {
+      "type": "string"
+    },
+    "brand_name": {
+      "type": "string"
+    },
+    "medication_type": {
+      "type": "string",
+      "enum": [
+        "regular",
+        "prn",
+        "controlled",
+        "topical",
+        "inhaler",
+        "eye_drops",
+        "patch",
+        "injection",
+        "supplement",
+        "other"
+      ]
+    },
+    "dose": {
+      "type": "string"
+    },
+    "frequency": {
+      "type": "string"
+    },
+    "times_of_day": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "route": {
+      "type": "string",
+      "enum": [
+        "oral",
+        "topical",
+        "inhaled",
+        "subcutaneous",
+        "intramuscular",
+        "rectal",
+        "transdermal",
+        "other"
+      ]
+    },
+    "prescribed_by": {
+      "type": "string"
+    },
+    "prescribed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "indication": {
+      "type": "string"
+    },
+    "special_instructions": {
+      "type": "string"
+    },
+    "controlled_drug": {
+      "type": "boolean",
+      "default": false
+    },
+    "controlled_drug_schedule": {
+      "type": "string",
+      "enum": [
+        "schedule_2",
+        "schedule_3",
+        "schedule_4",
+        "schedule_5"
+      ]
+    },
+    "administration_model": {
+      "type": "string",
+      "enum": [
+        "staff_administered",
+        "self_administered",
+        "prompted_self",
+        "covert"
+      ]
+    },
+    "covert_administration": {
+      "type": "boolean",
+      "default": false
+    },
+    "covert_authorisation_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "covert_mca_reference": {
+      "type": "string"
+    },
+    "stock_quantity": {
+      "type": "number"
+    },
+    "reorder_threshold": {
+      "type": "number"
+    },
+    "last_dispensed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "pharmacy_name": {
+      "type": "string"
+    },
+    "pharmacy_contact": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "suspended",
+        "discontinued"
+      ]
+    },
+    "discontinued_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "discontinued_reason": {
+      "type": "string"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "medication_name",
+    "dose",
+    "frequency",
+    "route",
+    "prescribed_by",
+    "prescribed_date",
+    "indication",
+    "administration_model",
+    "created_by"
+  ]
+}

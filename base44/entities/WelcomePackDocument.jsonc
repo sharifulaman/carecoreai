@@ -1,0 +1,65 @@
+{
+  "name": "WelcomePackDocument",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "English",
+        "Arabic",
+        "Somali",
+        "Kurdish",
+        "Kurdish Sorani"
+      ],
+      "default": "English"
+    },
+    "file_url": {
+      "type": "string"
+    },
+    "file_name": {
+      "type": "string"
+    },
+    "file_type": {
+      "type": "string",
+      "enum": [
+        "pdf",
+        "docx"
+      ],
+      "description": "PDF or Word document"
+    },
+    "uploaded_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "uploaded_by_name": {
+      "type": "string"
+    },
+    "uploaded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "language",
+    "file_url",
+    "file_name",
+    "file_type",
+    "uploaded_by"
+  ]
+}

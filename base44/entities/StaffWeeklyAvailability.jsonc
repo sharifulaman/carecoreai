@@ -1,0 +1,57 @@
+{
+  "name": "StaffWeeklyAvailability",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "day_of_week": {
+      "type": "string",
+      "enum": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ]
+    },
+    "is_available": {
+      "type": "boolean",
+      "default": true
+    },
+    "available_from": {
+      "type": "string",
+      "default": "07:00"
+    },
+    "available_until": {
+      "type": "string",
+      "default": "23:00"
+    },
+    "shift_type_pref": {
+      "type": "string",
+      "enum": [
+        "morning",
+        "afternoon",
+        "night",
+        "sleeping",
+        "any",
+        "none"
+      ],
+      "default": "any"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "day_of_week"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "BankHoliday",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Bank holiday date"
+    },
+    "name": {
+      "type": "string",
+      "description": "Bank holiday name (e.g., New Year's Day, Christmas Day)"
+    },
+    "region": {
+      "type": "string",
+      "enum": [
+        "england_wales",
+        "scotland",
+        "northern_ireland"
+      ],
+      "default": "england_wales",
+      "description": "UK region"
+    },
+    "year": {
+      "type": "integer",
+      "description": "Year of bank holiday"
+    },
+    "is_working_day_for_org": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether organisation operates on this bank holiday (care homes typically do)"
+    }
+  },
+  "required": [
+    "org_id",
+    "date",
+    "name",
+    "region",
+    "year"
+  ]
+}

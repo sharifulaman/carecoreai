@@ -1,0 +1,127 @@
+{
+  "name": "ApprovalWorkflow",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "entity_type": {
+      "type": "string",
+      "enum": [
+        "bill",
+        "visit_report",
+        "support_plan",
+        "expense_claim"
+      ],
+      "description": "Type of record being approved"
+    },
+    "entity_id": {
+      "type": "string",
+      "description": "FK to the related entity record"
+    },
+    "entity_reference": {
+      "type": "string",
+      "description": "Human-readable reference (bill number, etc)"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number",
+      "description": "For bills and expense claims"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending_tl",
+        "pending_admin",
+        "pending_finance",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending_tl"
+    },
+    "current_step": {
+      "type": "integer",
+      "default": 1,
+      "description": "1=TL review, 2=Admin review, 3=Finance review"
+    },
+    "submitted_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "submitted_by_name": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tl_approved_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "tl_approved_by_name": {
+      "type": "string"
+    },
+    "tl_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "admin_approved_by": {
+      "type": "string"
+    },
+    "admin_approved_by_name": {
+      "type": "string"
+    },
+    "admin_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "finance_approved_by": {
+      "type": "string"
+    },
+    "finance_approved_by_name": {
+      "type": "string"
+    },
+    "finance_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rejection_reason": {
+      "type": "string"
+    },
+    "rejected_by": {
+      "type": "string"
+    },
+    "rejected_by_name": {
+      "type": "string"
+    },
+    "rejected_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "posted_to_expenses": {
+      "type": "boolean",
+      "default": false
+    },
+    "expense_reference": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "entity_type",
+    "entity_id",
+    "home_id",
+    "submitted_by",
+    "submitted_at"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "SupportPlanSignoff",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "signed_off_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "signed_off_by_name": {
+      "type": "string"
+    },
+    "signed_off_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "next_review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "manager_notes": {
+      "type": "string"
+    },
+    "plan_version": {
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id"
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "name": "LAReview",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "review_type": {
+      "type": "string",
+      "enum": [
+        "looked_after_review",
+        "pathway_plan_review",
+        "placement_review",
+        "other"
+      ]
+    },
+    "chair_name": {
+      "type": "string"
+    },
+    "chair_role": {
+      "type": "string"
+    },
+    "attendees": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "young_person_attended": {
+      "type": "boolean",
+      "default": true
+    },
+    "young_person_views_shared": {
+      "type": "boolean",
+      "default": false
+    },
+    "key_decisions": {
+      "type": "string"
+    },
+    "pathway_plan_updated": {
+      "type": "boolean",
+      "default": false
+    },
+    "placement_continues": {
+      "type": "boolean",
+      "default": true
+    },
+    "any_concerns_raised": {
+      "type": "boolean",
+      "default": false
+    },
+    "concern_details": {
+      "type": "string"
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "responsible": {
+            "type": "string"
+          },
+          "target_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "completed": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "next_review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "review_date",
+    "key_decisions",
+    "next_review_date"
+  ]
+}

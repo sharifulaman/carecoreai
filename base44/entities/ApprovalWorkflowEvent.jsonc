@@ -1,0 +1,51 @@
+{
+  "name": "ApprovalWorkflowEvent",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "workflow_id": {
+      "type": "string",
+      "description": "FK \u2192 ApprovalWorkflow.id"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "submitted",
+        "approved",
+        "rejected",
+        "changes_requested",
+        "resubmitted",
+        "posted"
+      ],
+      "description": "Type of event"
+    },
+    "actor_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "actor_name": {
+      "type": "string"
+    },
+    "step": {
+      "type": "integer",
+      "description": "Approval step this event belongs to"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "workflow_id",
+    "event_type",
+    "actor_id",
+    "step",
+    "created_at"
+  ]
+}

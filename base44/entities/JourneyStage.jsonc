@@ -1,0 +1,102 @@
+{
+  "name": "JourneyStage",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "life_story_id": {
+      "type": "string"
+    },
+    "stage_number": {
+      "type": "number"
+    },
+    "from_country": {
+      "type": "string"
+    },
+    "from_city": {
+      "type": "string"
+    },
+    "to_country": {
+      "type": "string"
+    },
+    "to_city": {
+      "type": "string"
+    },
+    "departure_date": {
+      "type": "string"
+    },
+    "departure_date_approximate": {
+      "type": "boolean",
+      "default": true
+    },
+    "arrival_date": {
+      "type": "string"
+    },
+    "arrival_date_approximate": {
+      "type": "boolean",
+      "default": true
+    },
+    "approximate_duration": {
+      "type": "string"
+    },
+    "travel_methods": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "border_crossing_type": {
+      "type": "string"
+    },
+    "used_passport_or_id": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "travelled_alone": {
+      "type": "boolean",
+      "default": false
+    },
+    "travelled_with": {
+      "type": "string"
+    },
+    "arranged_by": {
+      "type": "string"
+    },
+    "where_stayed": {
+      "type": "string"
+    },
+    "harm_experienced": {
+      "type": "boolean",
+      "default": false
+    },
+    "safeguarding_concerns": {
+      "type": "string"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "low"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "stage_number"
+  ]
+}

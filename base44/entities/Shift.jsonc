@@ -1,0 +1,98 @@
+{
+  "name": "Shift",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "template_id": {
+      "type": "string",
+      "description": "FK \u2192 ShiftTemplate.id, optional"
+    },
+    "shift_type": {
+      "type": "string",
+      "enum": [
+        "morning",
+        "afternoon",
+        "night",
+        "sleeping"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "time_start": {
+      "type": "string"
+    },
+    "time_end": {
+      "type": "string"
+    },
+    "is_sleeping_shift": {
+      "type": "boolean",
+      "default": false
+    },
+    "staff_required": {
+      "type": "integer",
+      "default": 1
+    },
+    "assigned_staff": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of StaffProfile.id"
+    },
+    "acknowledged_by_staff": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Staff who acknowledged seeing this shift"
+    },
+    "lead_staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published",
+        "confirmed",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ],
+      "default": "draft"
+    },
+    "rota_id": {
+      "type": "string",
+      "description": "FK \u2192 Rota.id"
+    },
+    "overlap_minutes": {
+      "type": "integer",
+      "default": 30
+    },
+    "notes": {
+      "type": "string"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "shift_type",
+    "date",
+    "time_start",
+    "time_end",
+    "staff_required"
+  ]
+}

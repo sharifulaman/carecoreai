@@ -1,0 +1,76 @@
+{
+  "name": "PreviousAsylumClaim",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "life_story_id": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "application_date": {
+      "type": "string"
+    },
+    "application_date_approximate": {
+      "type": "boolean",
+      "default": false
+    },
+    "fingerprinted": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "interviewed": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "decision_received": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "refused",
+        "granted",
+        "withdrawn",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "documents_issued": {
+      "type": "string"
+    },
+    "reason_left_country": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id"
+  ]
+}

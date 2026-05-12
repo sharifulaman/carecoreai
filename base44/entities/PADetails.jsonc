@@ -1,0 +1,65 @@
+{
+  "name": "PADetails",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "pa_name": {
+      "type": "string"
+    },
+    "pa_organisation": {
+      "type": "string"
+    },
+    "pa_email": {
+      "type": "string"
+    },
+    "pa_phone": {
+      "type": "string"
+    },
+    "pa_allocated_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "pa_review_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Next PA review date"
+    },
+    "local_authority": {
+      "type": "string"
+    },
+    "la_social_worker_name": {
+      "type": "string"
+    },
+    "la_social_worker_email": {
+      "type": "string"
+    },
+    "la_social_worker_phone": {
+      "type": "string"
+    },
+    "la_area": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "pa_name"
+  ]
+}

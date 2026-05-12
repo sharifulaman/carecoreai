@@ -1,0 +1,213 @@
+{
+  "name": "Appointment",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string",
+      "description": "FK \u2192 Organisation.org_id"
+    },
+    "title": {
+      "type": "string",
+      "description": "Subject line of the appointment"
+    },
+    "appointment_type": {
+      "type": "string",
+      "enum": [
+        "gp_appointment",
+        "hospital_appointment",
+        "dental",
+        "optician",
+        "mental_health",
+        "social_worker_visit",
+        "iro_review",
+        "lac_review",
+        "court_hearing",
+        "school_meeting",
+        "college_meeting",
+        "key_worker_session",
+        "family_contact",
+        "counselling",
+        "probation",
+        "youth_offending",
+        "other"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "location_type": {
+      "type": "string",
+      "enum": [
+        "in_person",
+        "video_call",
+        "phone_call",
+        "home_visit"
+      ],
+      "default": "in_person"
+    },
+    "start_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "all_day": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_recurring": {
+      "type": "boolean",
+      "default": false
+    },
+    "recurrence_pattern": {
+      "type": "string",
+      "enum": [
+        "none",
+        "daily",
+        "weekly",
+        "fortnightly",
+        "monthly"
+      ],
+      "default": "none"
+    },
+    "recurrence_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "cancelled_dates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "ISO date strings (YYYY-MM-DD) of cancelled recurring instances"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "organiser_id": {
+      "type": "string"
+    },
+    "organiser_name": {
+      "type": "string"
+    },
+    "attendees": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "staff_id": {
+            "type": "string"
+          },
+          "staff_name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "response_status": {
+            "type": "string",
+            "enum": [
+              "accepted",
+              "declined",
+              "tentative",
+              "pending"
+            ],
+            "default": "pending"
+          },
+          "responded_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "external_attendees": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "organisation": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "reminder_minutes_before": {
+      "type": "integer",
+      "default": 15
+    },
+    "reminder_sent": {
+      "type": "boolean",
+      "default": false
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "scheduled",
+        "completed",
+        "cancelled",
+        "rescheduled",
+        "did_not_attend"
+      ],
+      "default": "scheduled"
+    },
+    "cancellation_reason": {
+      "type": "string"
+    },
+    "outcome_notes": {
+      "type": "string"
+    },
+    "follow_up_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "follow_up_notes": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "colour": {
+      "type": "string"
+    },
+    "is_private": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "deleted_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "title",
+    "appointment_type",
+    "start_datetime",
+    "end_datetime"
+  ]
+}

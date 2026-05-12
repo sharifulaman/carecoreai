@@ -1,0 +1,265 @@
+{
+  "name": "StaffProfile",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string",
+      "description": "Direct reference to User entity"
+    },
+    "full_name": {
+      "type": "string"
+    },
+    "preferred_name": {
+      "type": "string",
+      "description": "Preferred name or pronouns"
+    },
+    "email": {
+      "type": "string"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "Profile photo URL"
+    },
+    "employee_id": {
+      "type": "string",
+      "description": "Human-readable ID e.g. EMP-0001"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "admin_officer",
+        "team_leader",
+        "support_worker"
+      ],
+      "default": "support_worker"
+    },
+    "job_title": {
+      "type": "string"
+    },
+    "team_leader_id": {
+      "type": "string",
+      "description": "Team leader ID for support workers"
+    },
+    "reporting_manager_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "home_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "phone": {
+      "type": "string"
+    },
+    "dob": {
+      "type": "string",
+      "format": "date"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "nationality": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "emergency_contact_name": {
+      "type": "string"
+    },
+    "emergency_contact_phone": {
+      "type": "string"
+    },
+    "emergency_contact_relationship": {
+      "type": "string"
+    },
+    "dbs_number": {
+      "type": "string"
+    },
+    "dbs_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "dbs_issue_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "dbs_type": {
+      "type": "string",
+      "enum": [
+        "basic",
+        "standard",
+        "enhanced",
+        "enhanced_barred"
+      ],
+      "default": "enhanced"
+    },
+    "rtw_checked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Right to work check completed"
+    },
+    "rtw_check_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date RTW check was performed"
+    },
+    "rtw_document_type": {
+      "type": "string",
+      "enum": [
+        "uk_passport",
+        "irish_passport",
+        "biometric_card",
+        "settled_status_share_code",
+        "pre_settled_share_code",
+        "birth_certificate_plus_ni",
+        "certificate_of_naturalisation",
+        "other"
+      ],
+      "description": "Type of RTW document checked"
+    },
+    "rtw_share_code": {
+      "type": "string",
+      "description": "Share code for online RTW checks (masked)"
+    },
+    "rtw_expiry_date": {
+      "type": "string",
+      "format": "date",
+      "description": "RTW expiry date (null = indefinite)"
+    },
+    "rtw_follow_up_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of required share code recheck"
+    },
+    "rtw_document_url": {
+      "type": "string",
+      "description": "URL of uploaded RTW document scan"
+    },
+    "rtw_checked_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id of who performed the check"
+    },
+    "rtw_notes": {
+      "type": "string",
+      "description": "Notes on the RTW check"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "probation_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "probation_outcome": {
+      "type": "string",
+      "enum": [
+        "passed",
+        "extended",
+        "failed"
+      ],
+      "description": "Outcome of probation review"
+    },
+    "probation_reviewed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "contract_type": {
+      "type": "string",
+      "enum": [
+        "full_time",
+        "part_time",
+        "zero_hours",
+        "agency"
+      ],
+      "default": "full_time"
+    },
+    "contracted_weekly_hours": {
+      "type": "number",
+      "default": 37.5
+    },
+    "pay_type": {
+      "type": "string",
+      "enum": [
+        "hourly",
+        "salary"
+      ],
+      "default": "hourly"
+    },
+    "hourly_rate": {
+      "type": "number"
+    },
+    "annual_salary": {
+      "type": "number"
+    },
+    "pay_frequency": {
+      "type": "string",
+      "enum": [
+        "weekly",
+        "fortnightly",
+        "monthly"
+      ],
+      "default": "monthly"
+    },
+    "bank_sort_code": {
+      "type": "string"
+    },
+    "bank_account_number": {
+      "type": "string"
+    },
+    "ni_number": {
+      "type": "string"
+    },
+    "ni_category": {
+      "type": "string",
+      "default": "A",
+      "description": "NI category letter for RTI"
+    },
+    "tax_code": {
+      "type": "string"
+    },
+    "working_time_opt_out": {
+      "type": "boolean",
+      "default": false
+    },
+    "opt_out_signed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "opt_out_document_url": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "suspended",
+        "left"
+      ],
+      "default": "active"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "onboarding_checklist": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "org_id",
+    "full_name",
+    "role"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": "ResidentAllowance",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "weekly_amount": {
+      "type": "number"
+    },
+    "payment_day": {
+      "type": "string",
+      "enum": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ]
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": [
+        "cash",
+        "bank_transfer",
+        "voucher"
+      ]
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "independence_level": {
+      "type": "string",
+      "enum": [
+        "fully_managed",
+        "partially_managed",
+        "self_managed"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "weekly_amount",
+    "payment_day",
+    "payment_method",
+    "independence_level",
+    "created_by"
+  ]
+}

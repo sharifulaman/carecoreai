@@ -1,0 +1,74 @@
+{
+  "name": "CICReport",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "date_from": {
+      "type": "string",
+      "format": "date"
+    },
+    "date_to": {
+      "type": "string",
+      "format": "date"
+    },
+    "title": {
+      "type": "string"
+    },
+    "generated_by": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "saved"
+      ],
+      "default": "saved"
+    },
+    "report_data": {
+      "type": "object",
+      "properties": {
+        "placement_update": {
+          "type": "string"
+        },
+        "health_update": {
+          "type": "string"
+        },
+        "ils_update": {
+          "type": "string"
+        },
+        "education_update": {
+          "type": "string"
+        },
+        "finances_update": {
+          "type": "string"
+        }
+      }
+    },
+    "template_version": {
+      "type": "string",
+      "default": "v1"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "resident_name",
+    "home_id",
+    "date_from",
+    "date_to",
+    "title",
+    "generated_by"
+  ]
+}

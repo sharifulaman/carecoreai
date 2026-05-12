@@ -1,0 +1,87 @@
+{
+  "name": "ILSSessionLog",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "session_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "worker_id": {
+      "type": "string"
+    },
+    "worker_name": {
+      "type": "string"
+    },
+    "session_type": {
+      "type": "string",
+      "enum": [
+        "one_to_one",
+        "group",
+        "community_activity",
+        "home_visit",
+        "phone",
+        "other"
+      ]
+    },
+    "duration_minutes": {
+      "type": "number"
+    },
+    "domains_covered": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "skills_worked_on": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "young_person_engagement": {
+      "type": "string",
+      "enum": [
+        "excellent",
+        "good",
+        "reluctant",
+        "refused",
+        "partial"
+      ]
+    },
+    "session_notes": {
+      "type": "string"
+    },
+    "achievements_this_session": {
+      "type": "string"
+    },
+    "next_session_plan": {
+      "type": "string"
+    },
+    "next_session_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "session_date"
+  ]
+}

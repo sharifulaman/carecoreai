@@ -1,0 +1,184 @@
+{
+  "name": "FamilyContact",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "recorded_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "recorded_by_name": {
+      "type": "string"
+    },
+    "contact_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "contact_person_name": {
+      "type": "string"
+    },
+    "contact_person_relationship": {
+      "type": "string",
+      "enum": [
+        "mother",
+        "father",
+        "sibling",
+        "grandparent",
+        "aunt_uncle",
+        "other_family",
+        "friend",
+        "professional",
+        "unknown"
+      ]
+    },
+    "contact_person_relationship_other": {
+      "type": "string"
+    },
+    "contact_method": {
+      "type": "string",
+      "enum": [
+        "phone_call",
+        "video_call",
+        "in_person_visit",
+        "letter",
+        "text_message",
+        "social_media",
+        "other"
+      ]
+    },
+    "contact_initiated_by": {
+      "type": "string",
+      "enum": [
+        "resident",
+        "family",
+        "staff",
+        "court_order",
+        "la_arranged"
+      ]
+    },
+    "duration_minutes": {
+      "type": "number"
+    },
+    "location": {
+      "type": "string"
+    },
+    "was_supervised": {
+      "type": "boolean",
+      "default": false
+    },
+    "supervised_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "supervised_by_name": {
+      "type": "string"
+    },
+    "mood_before": {
+      "type": "string",
+      "enum": [
+        "happy",
+        "calm",
+        "anxious",
+        "distressed",
+        "angry",
+        "withdrawn",
+        "excited",
+        "neutral"
+      ]
+    },
+    "mood_after": {
+      "type": "string",
+      "enum": [
+        "happy",
+        "calm",
+        "anxious",
+        "distressed",
+        "angry",
+        "withdrawn",
+        "excited",
+        "neutral"
+      ]
+    },
+    "resident_engagement": {
+      "type": "string",
+      "enum": [
+        "positive",
+        "neutral",
+        "reluctant",
+        "refused",
+        "distressed"
+      ]
+    },
+    "resident_comments": {
+      "type": "string"
+    },
+    "any_concerns": {
+      "type": "boolean",
+      "default": false
+    },
+    "concern_details": {
+      "type": "string"
+    },
+    "safeguarding_concern": {
+      "type": "boolean",
+      "default": false
+    },
+    "la_to_be_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "la_notified_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "contact_to_be_reviewed": {
+      "type": "boolean",
+      "default": false
+    },
+    "review_reason": {
+      "type": "string"
+    },
+    "is_court_ordered": {
+      "type": "boolean",
+      "default": false
+    },
+    "court_order_reference": {
+      "type": "string"
+    },
+    "next_contact_planned": {
+      "type": "boolean",
+      "default": false
+    },
+    "next_contact_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "contact_datetime",
+    "contact_person_name",
+    "contact_method"
+  ]
+}

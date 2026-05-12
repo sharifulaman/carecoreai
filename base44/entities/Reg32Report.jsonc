@@ -1,0 +1,97 @@
+{
+  "name": "Reg32Report",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "review_period_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_period_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "reviewer_name": {
+      "type": "string"
+    },
+    "reviewer_organisation": {
+      "type": "string"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "submitted_to_ofsted_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "ofsted_reference": {
+      "type": "string"
+    },
+    "submitted_to_la_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "yp_involvement_method": {
+      "type": "string"
+    },
+    "strengths_narrative": {
+      "type": "string"
+    },
+    "areas_for_improvement_narrative": {
+      "type": "string"
+    },
+    "action_plan_narrative": {
+      "type": "string"
+    },
+    "selected_yp_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "selected_event_ids_strengths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "selected_event_ids_improvements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "selected_event_ids_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "manager_notes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "complete",
+        "submitted"
+      ],
+      "default": "draft"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "review_period_start",
+    "review_period_end"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "name": "VisitReport",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "worker_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id or user email"
+    },
+    "worker_name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "time_start": {
+      "type": "string",
+      "description": "HH:mm format"
+    },
+    "time_end": {
+      "type": "string",
+      "description": "HH:mm format"
+    },
+    "duration_minutes": {
+      "type": "number"
+    },
+    "action_text": {
+      "type": "string"
+    },
+    "outcome_text": {
+      "type": "string"
+    },
+    "recommendations_text": {
+      "type": "string"
+    },
+    "kpi_data": {
+      "type": "object",
+      "description": "KPI metrics for this visit"
+    },
+    "daily_log_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "DailyLogs that informed this visit report"
+    },
+    "is_key_worker_session": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this is a key worker session (not a reportable visit)"
+    },
+    "is_daily_summary": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this report also appears in Daily Summary tab"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "reviewed",
+        "approved"
+      ],
+      "default": "draft"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "worker_id",
+    "date"
+  ]
+}

@@ -1,0 +1,495 @@
+{
+  "name": "JourneyLifeStoryRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "country_of_origin": {
+      "type": "string"
+    },
+    "home_town": {
+      "type": "string"
+    },
+    "full_name_used": {
+      "type": "string"
+    },
+    "other_names": {
+      "type": "string"
+    },
+    "dob_claimed": {
+      "type": "string",
+      "format": "date"
+    },
+    "age_disputed": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "nationality": {
+      "type": "string"
+    },
+    "ethnicity": {
+      "type": "string"
+    },
+    "religion": {
+      "type": "string"
+    },
+    "language_spoken": {
+      "type": "string"
+    },
+    "interpreter_required": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "preferred_interpreter_language": {
+      "type": "string"
+    },
+    "last_address_in_home_country": {
+      "type": "string"
+    },
+    "identity_notes": {
+      "type": "string"
+    },
+    "reason_for_leaving_categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reason_for_leaving_summary": {
+      "type": "string"
+    },
+    "what_happened_before_leaving": {
+      "type": "string"
+    },
+    "who_was_threat_from": {
+      "type": "string"
+    },
+    "problems_start_date": {
+      "type": "string"
+    },
+    "yp_directly_harmed": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "family_member_harmed": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "reported_to_police": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "not_safe",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "why_authorities_couldnt_protect": {
+      "type": "string"
+    },
+    "who_decided_to_leave": {
+      "type": "string"
+    },
+    "what_would_happen_if_stayed": {
+      "type": "string"
+    },
+    "had_passport": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "passport_used_type": {
+      "type": "string"
+    },
+    "id_used": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "document_taken_away": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "document_taken_by": {
+      "type": "string"
+    },
+    "travelled_by_air": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "travelled_by_rail": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "travelled_by_boat": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "travelled_by_car_or_lorry": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "documents_currently_held": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "journey_arranged_by": {
+      "type": "string"
+    },
+    "smuggler_involved": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "forced_or_controlled": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "exploitation_indicators": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "threats_from_helpers": {
+      "type": "string"
+    },
+    "helpers_notes": {
+      "type": "string"
+    },
+    "money_paid_for_journey": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "approximate_total_amount": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "paid_by": {
+      "type": "string"
+    },
+    "money_borrowed": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "debt_outstanding": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "repayment_demanded_by": {
+      "type": "string"
+    },
+    "threat_due_to_debt": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "funding_notes": {
+      "type": "string"
+    },
+    "uk_arrival_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "uk_arrival_date_approximate": {
+      "type": "boolean",
+      "default": false
+    },
+    "uk_arrival_place": {
+      "type": "string"
+    },
+    "uk_arrival_method": {
+      "type": "string"
+    },
+    "arrived_alone": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "who_was_with_them": {
+      "type": "string"
+    },
+    "claimed_asylum_immediately": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "uk_asylum_claim_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "first_authority_contacted": {
+      "type": "string"
+    },
+    "was_detained": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "age_assessed": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "pending",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "local_authority": {
+      "type": "string"
+    },
+    "home_office_reference": {
+      "type": "string"
+    },
+    "solicitor_name": {
+      "type": "string"
+    },
+    "solicitor_firm": {
+      "type": "string"
+    },
+    "solicitor_contact": {
+      "type": "string"
+    },
+    "arrival_notes": {
+      "type": "string"
+    },
+    "asylum_claimed_in_uk": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "solicitor_assigned": {
+      "type": "boolean",
+      "default": false
+    },
+    "fear_of_return_summary": {
+      "type": "string"
+    },
+    "what_yp_fears_if_returned": {
+      "type": "string"
+    },
+    "who_would_harm_them": {
+      "type": "string"
+    },
+    "why_targeted": {
+      "type": "string"
+    },
+    "family_able_to_protect": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "police_able_to_protect": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "safe_internal_relocation": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "recent_contact_confirming_risk": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "fear_risk_categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "yp_emotional_response": {
+      "type": "string"
+    },
+    "fear_notes": {
+      "type": "string"
+    },
+    "generated_statement": {
+      "type": "string"
+    },
+    "statement_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "under_review",
+        "changes_requested",
+        "reviewed",
+        "statement_ready"
+      ],
+      "default": "draft"
+    },
+    "workflow_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "under_review",
+        "changes_requested",
+        "reviewed",
+        "statement_ready"
+      ],
+      "default": "draft"
+    },
+    "completion_percentage": {
+      "type": "number",
+      "default": 0
+    },
+    "interpreter_needed": {
+      "type": "boolean",
+      "default": false
+    },
+    "submitted_by": {
+      "type": "string"
+    },
+    "reviewed_by": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "review_notes": {
+      "type": "string"
+    },
+    "updated_by_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id"
+  ]
+}

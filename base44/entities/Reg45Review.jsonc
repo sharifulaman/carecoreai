@@ -1,0 +1,155 @@
+{
+  "name": "Reg45Review",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "review_year": {
+      "type": "string",
+      "description": "e.g. '2025-2026'"
+    },
+    "period_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "period_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "prepared_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "prepared_by_name": {
+      "type": "string"
+    },
+    "approved_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "approved_by_name": {
+      "type": "string"
+    },
+    "reg44_reports_completed": {
+      "type": "integer"
+    },
+    "reg44_reports_missed": {
+      "type": "integer"
+    },
+    "overall_ratings_breakdown": {
+      "type": "object",
+      "properties": {
+        "outstanding": {
+          "type": "integer"
+        },
+        "good": {
+          "type": "integer"
+        },
+        "requires_improvement": {
+          "type": "integer"
+        },
+        "inadequate": {
+          "type": "integer"
+        }
+      }
+    },
+    "total_recommendations_made": {
+      "type": "integer"
+    },
+    "recommendations_actioned": {
+      "type": "integer"
+    },
+    "recommendations_outstanding": {
+      "type": "integer"
+    },
+    "total_complaints": {
+      "type": "integer"
+    },
+    "upheld_complaints": {
+      "type": "integer"
+    },
+    "resolved_within_timescale": {
+      "type": "integer"
+    },
+    "escalated_to_ofsted": {
+      "type": "integer"
+    },
+    "total_incidents": {
+      "type": "integer"
+    },
+    "physical_interventions": {
+      "type": "integer"
+    },
+    "missing_from_home_episodes": {
+      "type": "integer"
+    },
+    "police_attendances": {
+      "type": "integer"
+    },
+    "ofsted_notifications_made": {
+      "type": "integer"
+    },
+    "average_staff_count": {
+      "type": "number"
+    },
+    "staff_turnover_rate": {
+      "type": "number",
+      "description": "Percentage"
+    },
+    "training_compliance_pct": {
+      "type": "number"
+    },
+    "supervision_compliance_pct": {
+      "type": "number"
+    },
+    "quality_of_care_assessment": {
+      "type": "string"
+    },
+    "children_outcomes_assessment": {
+      "type": "string"
+    },
+    "safeguarding_effectiveness": {
+      "type": "string"
+    },
+    "leadership_assessment": {
+      "type": "string"
+    },
+    "improvements_made_this_year": {
+      "type": "string"
+    },
+    "areas_for_development": {
+      "type": "string"
+    },
+    "priorities_for_next_year": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "approved",
+        "published"
+      ],
+      "default": "draft"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "review_year",
+    "period_start",
+    "period_end"
+  ]
+}

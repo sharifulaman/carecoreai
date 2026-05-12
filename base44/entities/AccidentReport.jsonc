@@ -1,0 +1,89 @@
+{
+  "name": "AccidentReport",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "reported_by_id": {
+      "type": "string"
+    },
+    "reported_by_name": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "accident",
+        "illness",
+        "near_miss",
+        "injury"
+      ],
+      "default": "accident"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "time": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "injuries": {
+      "type": "string"
+    },
+    "first_aid_given": {
+      "type": "boolean",
+      "default": false
+    },
+    "first_aid_details": {
+      "type": "string"
+    },
+    "hospital_attendance": {
+      "type": "boolean",
+      "default": false
+    },
+    "witness_name": {
+      "type": "string"
+    },
+    "follow_up_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "follow_up_notes": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "reviewed",
+        "closed"
+      ],
+      "default": "open"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "date",
+    "description"
+  ]
+}

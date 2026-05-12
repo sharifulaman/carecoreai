@@ -1,0 +1,245 @@
+{
+  "name": "MoveOnPlan",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "created_by_id": {
+      "type": "string"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "target_move_on_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "move_on_type": {
+      "type": "string",
+      "enum": [
+        "independent_tenancy",
+        "supported_lodgings",
+        "social_housing",
+        "private_rented",
+        "staying_put",
+        "family",
+        "other"
+      ]
+    },
+    "move_on_type_notes": {
+      "type": "string"
+    },
+    "accommodation_identified": {
+      "type": "boolean",
+      "default": false
+    },
+    "accommodation_address": {
+      "type": "string"
+    },
+    "accommodation_type": {
+      "type": "string"
+    },
+    "landlord_name": {
+      "type": "string"
+    },
+    "landlord_contact": {
+      "type": "string"
+    },
+    "tenancy_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "tenancy_confirmed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "tenancy_type": {
+      "type": "string",
+      "enum": [
+        "assured_shorthold",
+        "social",
+        "shared",
+        "licence",
+        "other"
+      ]
+    },
+    "rent_amount_weekly": {
+      "type": "number"
+    },
+    "deposit_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "deposit_amount": {
+      "type": "number"
+    },
+    "deposit_source": {
+      "type": "string"
+    },
+    "deposit_arranged": {
+      "type": "boolean",
+      "default": false
+    },
+    "universal_credit_submitted": {
+      "type": "boolean",
+      "default": false
+    },
+    "universal_credit_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "housing_benefit_calculated": {
+      "type": "boolean",
+      "default": false
+    },
+    "benefits_sufficient_for_rent": {
+      "type": "boolean"
+    },
+    "shortfall_amount": {
+      "type": "number"
+    },
+    "shortfall_plan": {
+      "type": "string"
+    },
+    "furniture_pack_needed": {
+      "type": "boolean",
+      "default": false
+    },
+    "furniture_pack_arranged": {
+      "type": "boolean",
+      "default": false
+    },
+    "furniture_pack_cost": {
+      "type": "number"
+    },
+    "furniture_pack_funder": {
+      "type": "string"
+    },
+    "setting_up_home_grant_applied": {
+      "type": "boolean",
+      "default": false
+    },
+    "setting_up_home_grant_amount": {
+      "type": "number"
+    },
+    "bank_account_active": {
+      "type": "boolean",
+      "default": false
+    },
+    "utility_accounts_set_up": {
+      "type": "boolean",
+      "default": false
+    },
+    "gp_registered_at_new_address": {
+      "type": "boolean",
+      "default": false
+    },
+    "royal_mail_redirect": {
+      "type": "boolean",
+      "default": false
+    },
+    "contact_details_updated": {
+      "type": "boolean",
+      "default": false
+    },
+    "support_network_identified": {
+      "type": "boolean",
+      "default": false
+    },
+    "support_network_details": {
+      "type": "string"
+    },
+    "staying_close_applicable": {
+      "type": "boolean",
+      "default": false
+    },
+    "staying_close_arrangement": {
+      "type": "string"
+    },
+    "staying_close_frequency": {
+      "type": "string"
+    },
+    "support_provider": {
+      "type": "string"
+    },
+    "support_provider_contact": {
+      "type": "string"
+    },
+    "support_frequency": {
+      "type": "string"
+    },
+    "support_duration_months": {
+      "type": "number"
+    },
+    "emergency_contact_if_crisis": {
+      "type": "string"
+    },
+    "la_agreed": {
+      "type": "boolean",
+      "default": false
+    },
+    "la_agreement_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "la_agreed_by": {
+      "type": "string"
+    },
+    "young_person_agrees": {
+      "type": "boolean"
+    },
+    "young_person_comments": {
+      "type": "string"
+    },
+    "parent_consulted": {
+      "type": "boolean",
+      "default": false
+    },
+    "pa_signed_off": {
+      "type": "boolean",
+      "default": false
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "no_plan",
+        "planning",
+        "accommodation_found",
+        "benefits_ready",
+        "confirmed",
+        "moved_out",
+        "breakdown"
+      ],
+      "default": "no_plan"
+    },
+    "move_out_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "breakdown_reason": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id"
+  ]
+}

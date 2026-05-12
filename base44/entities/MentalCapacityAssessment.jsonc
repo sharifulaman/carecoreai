@@ -1,0 +1,83 @@
+{
+  "name": "MentalCapacityAssessment",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "assessment_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "assessed_by": {
+      "type": "string"
+    },
+    "decision_in_question": {
+      "type": "string"
+    },
+    "assessment_trigger": {
+      "type": "string",
+      "enum": [
+        "routine",
+        "change_in_condition",
+        "new_decision_required",
+        "legal_requirement",
+        "other"
+      ]
+    },
+    "understands_information": {
+      "type": "boolean"
+    },
+    "retains_information": {
+      "type": "boolean"
+    },
+    "weighs_information": {
+      "type": "boolean"
+    },
+    "communicates_decision": {
+      "type": "boolean"
+    },
+    "has_capacity": {
+      "type": "boolean"
+    },
+    "lacks_capacity_reason": {
+      "type": "string"
+    },
+    "best_interest_decision": {
+      "type": "string"
+    },
+    "best_interest_who_involved": {
+      "type": "string"
+    },
+    "dols_triggered": {
+      "type": "boolean",
+      "default": false
+    },
+    "mha_considered": {
+      "type": "boolean",
+      "default": false
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "assessment_date",
+    "assessed_by",
+    "decision_in_question",
+    "has_capacity"
+  ]
+}

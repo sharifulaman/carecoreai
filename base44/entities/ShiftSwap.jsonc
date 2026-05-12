@@ -1,0 +1,72 @@
+{
+  "name": "ShiftSwap",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "requesting_staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "requesting_staff_name": {
+      "type": "string"
+    },
+    "requesting_shift_id": {
+      "type": "string",
+      "description": "FK \u2192 Shift.id"
+    },
+    "requesting_shift_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "target_staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "target_staff_name": {
+      "type": "string"
+    },
+    "target_shift_id": {
+      "type": "string",
+      "description": "FK \u2192 Shift.id"
+    },
+    "target_shift_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "target_accepted",
+        "target_declined",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending"
+    },
+    "target_responded_at": {
+      "type": "string"
+    },
+    "reviewed_by": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "requesting_staff_id",
+    "requesting_shift_id",
+    "target_staff_id",
+    "target_shift_id"
+  ]
+}

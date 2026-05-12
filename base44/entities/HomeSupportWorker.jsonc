@@ -1,0 +1,29 @@
+{
+  "name": "HomeSupportWorker",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "Foreign key to Home"
+    },
+    "support_worker_id": {
+      "type": "string",
+      "description": "Foreign key to StaffProfile"
+    },
+    "assigned_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "support_worker_id"
+  ]
+}
