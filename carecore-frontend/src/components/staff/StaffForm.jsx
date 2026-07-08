@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { NativeSelect } from "@/components/ui/native-select";
 import { SelectItem } from "@/components/ui/select";
-import { X, Eye, EyeOff } from "lucide-react";
+import { X, Eye, EyeOff, Info } from "lucide-react";
 import { ORG_ID, ROLE_LABELS } from "@/lib/roleConfig";
 import PhotoUpload from "./PhotoUpload";
 
@@ -23,6 +23,7 @@ export default function StaffForm({ homes, teamLeaders = [], onSubmit, onClose, 
     end_date: "",
     status: "pending",
     is_support_role: "",
+    working_time_opt_out: false,
     employment_type: "",
     home_ids: [],
     assigned_accommodation_categories: [],
@@ -107,6 +108,7 @@ export default function StaffForm({ homes, teamLeaders = [], onSubmit, onClose, 
     const payload = { ...form };
     payload.annual_salary = payload.annual_salary ? parseFloat(payload.annual_salary) : 0;
     payload.is_support_role = Boolean(form.is_support_role);
+    payload.working_time_opt_out = Boolean(form.working_time_opt_out);
     
     // Backend expects null for empty dates, not empty strings
     if (!payload.dbs_expiry) payload.dbs_expiry = null;
@@ -227,15 +229,31 @@ export default function StaffForm({ homes, teamLeaders = [], onSubmit, onClose, 
             {errors.employment_type && <p className="text-xs text-destructive mt-1">{errors.employment_type}</p>}
           </div>
 
-          <div className="flex items-center h-full pt-4">
+          <div className="flex items-center gap-6 h-full pt-4">
             <label className="flex items-center gap-2 text-sm font-medium cursor-pointer">
-              <input 
-                type="checkbox" 
-                checked={Boolean(form.is_support_role)} 
-                onChange={e => update("is_support_role", e.target.checked)} 
-                className="w-4 h-4 text-primary rounded border-input cursor-pointer" 
+              <input
+                type="checkbox"
+                checked={Boolean(form.is_support_role)}
+                onChange={e => update("is_support_role", e.target.checked)}
+                className="w-4 h-4 text-primary rounded border-input cursor-pointer"
               />
               Is this a support role?
+            </label>
+
+            <label className="flex items-center gap-1.5 text-sm font-medium cursor-pointer">
+              <input
+                type="checkbox"
+                checked={Boolean(form.working_time_opt_out)}
+                onChange={e => update("working_time_opt_out", e.target.checked)}
+                className="w-4 h-4 text-primary rounded border-input cursor-pointer"
+              />
+              WTR Opt-Out
+              <span
+                title="Working Time Regulations 1998: staff are capped at an average 48-hour working week unless they voluntarily opt out in writing. Tick this if the staff member has signed an opt-out agreement."
+                className="inline-flex"
+              >
+                <Info className="w-3.5 h-3.5 text-muted-foreground" />
+              </span>
             </label>
           </div>
 

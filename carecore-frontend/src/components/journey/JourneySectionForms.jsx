@@ -3,6 +3,7 @@ import { Plus, MoreVertical, AlertTriangle, CheckCircle2 } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import { toast } from "sonner";
 import { ORG_ID } from "@/lib/roleConfig";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 const YNU = ({ label, field, value, onChange }) => (
@@ -76,10 +77,12 @@ export function FamilySection({ familyMembers, residentId, lifeStoryId, onRefres
     setEditMember(null);
   };
 
-  const handleDelete = async (id) => {
-    await base44.entities.JourneyFamilyMember.delete(id);
-    toast.success("Removed");
-    onRefresh();
+  const handleDelete = (member) => {
+    confirmDeleteToast(`"${member.name || "this family member"}"`, async () => {
+      await base44.entities.JourneyFamilyMember.delete(member.id);
+      toast.success("Removed");
+      onRefresh();
+    });
   };
 
   return (
@@ -128,7 +131,7 @@ export function FamilySection({ familyMembers, residentId, lifeStoryId, onRefres
                     {openMenu === m.id && (
                       <div className="absolute right-2 top-8 bg-white border border-slate-200 rounded-xl shadow-lg z-10 min-w-[120px] py-1">
                         <button onClick={() => { setEditMember(m); setShowModal(true); setOpenMenu(null); }} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50">Edit</button>
-                        <button onClick={() => { handleDelete(m.id); setOpenMenu(null); }} className="w-full text-left px-4 py-2 text-xs hover:bg-red-50 text-red-600">Delete</button>
+                        <button onClick={() => { handleDelete(m); setOpenMenu(null); }} className="w-full text-left px-4 py-2 text-xs hover:bg-red-50 text-red-600">Delete</button>
                       </div>
                     )}
                   </td>
@@ -269,10 +272,12 @@ export function CountriesSection({ countries, residentId, lifeStoryId, onRefresh
     setShowModal(false);
   };
 
-  const handleDelete = async (id) => {
-    await base44.entities.JourneyCountryPassedThrough.delete(id);
-    toast.success("Removed");
-    onRefresh();
+  const handleDelete = (country) => {
+    confirmDeleteToast(`"${country.country || "this country entry"}"`, async () => {
+      await base44.entities.JourneyCountryPassedThrough.delete(country.id);
+      toast.success("Removed");
+      onRefresh();
+    });
   };
 
   return (
@@ -315,7 +320,7 @@ export function CountriesSection({ countries, residentId, lifeStoryId, onRefresh
                   <td className="px-3 py-2.5">
                     <div className="flex gap-1">
                       <button onClick={() => { setEditCountry(c); setShowModal(true); }} className="text-xs text-purple-600 hover:underline">Edit</button>
-                      <button onClick={() => handleDelete(c.id)} className="text-xs text-red-400 hover:underline ml-1">Delete</button>
+                      <button onClick={() => handleDelete(c)} className="text-xs text-red-400 hover:underline ml-1">Delete</button>
                     </div>
                   </td>
                 </tr>
@@ -479,10 +484,15 @@ export function AsylumClaimsSection({ claims, residentId, lifeStoryId, onRefresh
     setShowModal(false);
   };
 
-  const handleDelete = async (id) => {
-    await base44.entities.PreviousAsylumClaim.delete(id);
-    toast.success("Removed");
-    onRefresh();
+  const handleDelete = (claim) => {
+    const label = claim.application_date
+      ? `the asylum claim from ${claim.application_date}`
+      : "this asylum claim";
+    confirmDeleteToast(label, async () => {
+      await base44.entities.PreviousAsylumClaim.delete(claim.id);
+      toast.success("Removed");
+      onRefresh();
+    });
   };
 
   return (
@@ -518,7 +528,7 @@ export function AsylumClaimsSection({ claims, residentId, lifeStoryId, onRefresh
                   <td className="px-3 py-2.5">
                     <div className="flex gap-1">
                       <button onClick={() => { setEditClaim(c); setShowModal(true); }} className="text-xs text-purple-600 hover:underline">Edit</button>
-                      <button onClick={() => handleDelete(c.id)} className="text-xs text-red-400 hover:underline ml-1">Del</button>
+                      <button onClick={() => handleDelete(c)} className="text-xs text-red-400 hover:underline ml-1">Del</button>
                     </div>
                   </td>
                 </tr>
@@ -685,10 +695,12 @@ export function EvidenceSection({ evidenceDocs, residentId, lifeStoryId, staffPr
     setShowModal(false);
   };
 
-  const handleDelete = async (id) => {
-    await base44.entities.JourneyEvidenceDocument.delete(id);
-    toast.success("Removed");
-    onRefresh();
+  const handleDelete = (doc) => {
+    confirmDeleteToast(`"${doc.document_name || doc.document_type || "this document"}"`, async () => {
+      await base44.entities.JourneyEvidenceDocument.delete(doc.id);
+      toast.success("Removed");
+      onRefresh();
+    });
   };
 
   return (
@@ -725,7 +737,7 @@ export function EvidenceSection({ evidenceDocs, residentId, lifeStoryId, staffPr
                   <td className="px-3 py-2.5">
                     <div className="flex gap-1">
                       <button onClick={() => { setEditDoc(d); setShowModal(true); }} className="text-xs text-purple-600 hover:underline">Edit</button>
-                      <button onClick={() => handleDelete(d.id)} className="text-xs text-red-400 hover:underline ml-1">Del</button>
+                      <button onClick={() => handleDelete(d)} className="text-xs text-red-400 hover:underline ml-1">Del</button>
                     </div>
                   </td>
                 </tr>

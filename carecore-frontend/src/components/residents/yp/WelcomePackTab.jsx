@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Upload, Trash2, FileText, Loader2, X } from "lucide-react";
 import { toast } from "sonner";
 import { ORG_ID } from "@/lib/roleConfig";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 import PDFViewer from "./PDFViewer";
 
 const LANGUAGES = ["English", "Arabic", "Somali", "Kurdish", "Kurdish Sorani"];
@@ -207,8 +208,12 @@ export default function WelcomePackTab({ resident, staffProfile }) {
                 isAdmin={isAdmin}
                 isResident={!isAdmin}
                 onDelete={() => {
-                  deleteDocMutation.mutate(selectedDocId);
-                  setSelectedDocId(null);
+                  const doc = documents.find(d => d.id === selectedDocId);
+                  const label = doc?.file_name ? `"${doc.file_name}"` : "this welcome pack document";
+                  confirmDeleteToast(label, () => {
+                    deleteDocMutation.mutate(selectedDocId);
+                    setSelectedDocId(null);
+                  });
                 }}
               />
             ) : (

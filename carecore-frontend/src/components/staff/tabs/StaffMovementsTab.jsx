@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Plus, Trash2, FileText } from "lucide-react";
 import { toast } from "sonner";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 
 export default function StaffMovementsTab({ staff, homes, canEditStaff }) {
   const qc = useQueryClient();
@@ -89,6 +90,13 @@ export default function StaffMovementsTab({ staff, homes, canEditStaff }) {
     onError: (err) => toast.error(`Error: ${err.message}`),
   });
 
+  const handleDeleteMovement = (movement) => {
+    const staffName = staffMap[movement.staff_id]?.full_name;
+    confirmDeleteToast(staffName ? `"${staffName}"` : "this movement record", () => {
+      deleteMutation.mutate(movement.id);
+    });
+  };
+
   return (
     <div className="mt-4 space-y-4">
       <div className="flex items-center justify-between">
@@ -119,7 +127,7 @@ export default function StaffMovementsTab({ staff, homes, canEditStaff }) {
                 {canEditStaff && (
                   <div className="flex items-center gap-1">
                     <Button variant="ghost" size="sm" onClick={() => { setEditingId(movement.id); setForm(movement); setShowForm(true); }} className="text-xs h-7">Edit</Button>
-                    <Button variant="ghost" size="sm" onClick={() => deleteMutation.mutate(movement.id)} className="text-red-600 hover:text-red-700 h-7">
+                    <Button variant="ghost" size="sm" onClick={() => handleDeleteMovement(movement)} className="text-red-600 hover:text-red-700 h-7">
                       <Trash2 className="w-3.5 h-3.5" />
                     </Button>
                   </div>

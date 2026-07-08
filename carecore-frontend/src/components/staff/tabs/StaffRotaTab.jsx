@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ChevronLeft, ChevronRight, Plus, Send, Copy, Trash2, RefreshCw } from "lucide-react";
 import { format, startOfWeek, addDays, addWeeks, subWeeks, parseISO, isSameDay } from "date-fns";
 import { toast } from "sonner";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 import QuickCreateShiftModal from "@/components/shifts/QuickCreateShiftModal";
 
 const SHIFT_COLORS = {
@@ -259,7 +260,7 @@ export default function StaffRotaTab({ user, staff = [], homes = [] }) {
                             <button
                               className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 text-white rounded-full hidden group-hover:flex items-center justify-center hover:bg-red-600"
                               style={{ fontSize: 8 }}
-                              onClick={(e) => { e.stopPropagation(); deleteShift.mutate(shift.id); }}
+                              onClick={(e) => { e.stopPropagation(); confirmDeleteToast(`${member.full_name}'s shift on ${format(date, "d MMM yyyy")}`, () => { deleteShift.mutate(shift.id); }); }}
                             >×</button>
                           )}
                         </div>

@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Plus, Pencil, Trash2, X, Check } from "lucide-react";
 import { toast } from "sonner";
 import { ORG_ID } from "@/lib/roleConfig";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 
 const SHIFT_TYPES = ["day", "night", "bank", "management", "outreach", "other"];
 
@@ -233,7 +234,7 @@ export default function TwentyFourHoursHousing() {
                     <button onClick={() => openEdit(s)} className="text-muted-foreground hover:text-primary transition-colors">
                       <Pencil className="w-4 h-4" />
                     </button>
-                    <button onClick={() => remove.mutate(s.id)} className="text-muted-foreground hover:text-destructive transition-colors">
+                    <button onClick={() => { confirmDeleteToast(`"${s.name || "this shift"}"`, () => { remove.mutate(s.id); }); }} className="text-muted-foreground hover:text-destructive transition-colors">
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>

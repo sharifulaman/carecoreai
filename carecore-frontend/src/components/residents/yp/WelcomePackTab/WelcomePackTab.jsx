@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Upload, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import { ORG_ID } from "@/lib/roleConfig";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 import WelcomePackLanguageSelector from "./WelcomePackLanguageSelector";
 import WelcomePackUploadModal from "./WelcomePackUploadModal";
 import WelcomePackViewer from "./WelcomePackViewer";
@@ -102,9 +103,10 @@ export default function WelcomePackTab({ resident, staffProfile, homes = [], use
           selectedLanguage={selectedLanguage}
           isAdmin={isAdmin}
           onDelete={() => {
-            if (confirm(`Are you sure you want to remove the ${selectedLanguage} welcome pack for ${currentHome?.name}? Residents and staff will no longer be able to view it.`)) {
+            const label = currentHome?.name ? `the ${selectedLanguage} welcome pack for "${currentHome.name}"` : "this welcome pack";
+            confirmDeleteToast(label, () => {
               deleteMutation.mutate(currentDocument.id);
-            }
+            });
           }}
         />
       ) : (

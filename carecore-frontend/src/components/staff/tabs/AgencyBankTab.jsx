@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Plus, Trash2, Search, LayoutGrid, List, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 import AgencyBankUsageForm from "../AgencyBankUsageForm";
 
 export default function AgencyBankTab({ staff, homes, isAdminOrTL }) {
@@ -44,6 +45,12 @@ export default function AgencyBankTab({ staff, homes, isAdminOrTL }) {
     },
     onError: (err) => toast.error(`Error: ${err.message}`),
   });
+
+  const handleDeleteUsage = (usage) => {
+    confirmDeleteToast(`"${usage.worker_name_or_reference}"`, () => {
+      deleteMutation.mutate(usage.id);
+    });
+  };
 
   const TYPES = [...new Set(usages.map(u => u.agency_bank_type).filter(Boolean))];
   const STATUSES = [...new Set(usages.map(u => u.status).filter(Boolean))];
@@ -145,7 +152,7 @@ export default function AgencyBankTab({ staff, homes, isAdminOrTL }) {
                   <div className="flex items-center gap-1">
                     {canEdit && <Button variant="ghost" size="sm" onClick={() => { setEditingUsage(usage); setShowForm(true); }} className="text-xs h-7">Edit</Button>}
                     {canDelete && (
-                      <Button variant="ghost" size="sm" onClick={() => deleteMutation.mutate(usage.id)} className="text-red-600 hover:text-red-700 h-7">
+                      <Button variant="ghost" size="sm" onClick={() => handleDeleteUsage(usage)} className="text-red-600 hover:text-red-700 h-7">
                         <Trash2 className="w-3.5 h-3.5" />
                       </Button>
                     )}

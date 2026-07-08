@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Plus, Trash2, FileText } from "lucide-react";
 import { toast } from "sonner";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 
 export default function EducationRecordTab({ residents, homes, staff, isAdminOrTL }) {
   const qc = useQueryClient();
@@ -207,7 +208,7 @@ export default function EducationRecordTab({ residents, homes, staff, isAdminOrT
                 {isAdminOrTL && (
                   <div className="flex items-center gap-1">
                     <Button variant="ghost" size="sm" onClick={() => handleEditRecord(record)} className="text-xs h-7">Edit</Button>
-                    <Button variant="ghost" size="sm" onClick={() => deleteMutation.mutate(record.id)} className="text-red-600 hover:text-red-700 h-7">
+                    <Button variant="ghost" size="sm" onClick={() => confirmDeleteToast(record.education_provider_name ? `"${record.education_provider_name}"` : "this education record", () => deleteMutation.mutate(record.id))} className="text-red-600 hover:text-red-700 h-7">
                       <Trash2 className="w-3.5 h-3.5" />
                     </Button>
                   </div>

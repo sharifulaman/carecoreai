@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Plus, Pencil, Trash2, Sun, Moon, CheckCircle2, XCircle } from "lucide-react";
 import { toast } from "sonner";
 import { useModuleActions } from "@/lib/PermissionContext";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 
 const SHIFT_ICONS = {
   morning: <Sun className="w-4 h-4 text-amber-500" />,
@@ -111,6 +112,12 @@ export default function ShiftTemplatesTab({ homeId, homeName }) {
 
   const toggleActive = (t) => updateMutation.mutate({ id: t.id, data: { active: !t.active } });
 
+  const handleDelete = (t) => {
+    confirmDeleteToast(`"${t.name || "this shift template"}"`, () => {
+      deleteMutation.mutate(t.id);
+    });
+  };
+
   const active = templates
     .filter(t => t.active !== false)
     .sort((a, b) => (SHIFT_ORDER[a.shift_type] || 5) - (SHIFT_ORDER[b.shift_type] || 5) || (a.time_start || "").localeCompare(b.time_start || ""));
@@ -181,7 +188,7 @@ export default function ShiftTemplatesTab({ homeId, homeName }) {
                     <button onClick={() => { setEditingId(t.id); setShowForm(false); }} className="p-1.5 rounded-lg hover:bg-muted transition-colors">
                       <Pencil className="w-4 h-4 text-muted-foreground" />
                     </button>
-                    <button onClick={() => deleteMutation.mutate(t.id)} className="p-1.5 rounded-lg hover:bg-red-50 transition-colors">
+                    <button onClick={() => handleDelete(t)} className="p-1.5 rounded-lg hover:bg-red-50 transition-colors">
                       <Trash2 className="w-4 h-4 text-red-400" />
                     </button>
                   </div>
@@ -206,7 +213,7 @@ export default function ShiftTemplatesTab({ homeId, homeName }) {
                     <button onClick={() => toggleActive(t)} className="p-1.5 rounded-lg hover:bg-muted transition-colors" title="Reactivate">
                       <XCircle className="w-4 h-4 text-muted-foreground" />
                     </button>
-                    <button onClick={() => deleteMutation.mutate(t.id)} className="p-1.5 rounded-lg hover:bg-red-50 transition-colors">
+                    <button onClick={() => handleDelete(t)} className="p-1.5 rounded-lg hover:bg-red-50 transition-colors">
                       <Trash2 className="w-4 h-4 text-red-400" />
                     </button>
                   </div>

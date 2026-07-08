@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Trash2, Plus, Loader2 } from 'lucide-react';
+import { confirmDeleteToast } from '@/lib/confirmDeleteToast';
 
 export default function OrganisationOfficerForm({ isOpen, onClose, onSave }) {
   const [officers, setOfficers] = useState([]);
@@ -57,16 +58,18 @@ export default function OrganisationOfficerForm({ isOpen, onClose, onSave }) {
     }
   };
 
-  const handleDelete = async (id) => {
-    try {
-      setLoading(true);
-      await base44.entities.OrganisationOfficer.delete(id);
-      await fetchOfficers();
-    } catch (e) {
-      console.error('Error deleting officer:', e);
-    } finally {
-      setLoading(false);
-    }
+  const handleDelete = (officer) => {
+    confirmDeleteToast(`"${officer.name || "this officer"}"`, async () => {
+      try {
+        setLoading(true);
+        await base44.entities.OrganisationOfficer.delete(officer.id);
+        await fetchOfficers();
+      } catch (e) {
+        console.error('Error deleting officer:', e);
+      } finally {
+        setLoading(false);
+      }
+    });
   };
 
   const handleEdit = (officer, index) => {
@@ -193,7 +196,7 @@ export default function OrganisationOfficerForm({ isOpen, onClose, onSave }) {
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => handleDelete(officer.id)}
+                        onClick={() => handleDelete(officer)}
                         disabled={loading}
                       >
                         <Trash2 className="h-4 w-4" />

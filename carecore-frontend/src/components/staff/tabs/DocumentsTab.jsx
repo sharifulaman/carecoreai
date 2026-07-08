@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge";
 import { Upload, Download, Trash2, Plus, X, FileText, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 import { ORG_ID } from "@/lib/roleConfig";
 import { differenceInDays, parseISO } from "date-fns";
 import { logAudit } from "@/lib/logAudit";
@@ -225,6 +226,12 @@ export default function DocumentsTab({ staffId, staffName, user }) {
     },
   });
 
+  const handleDeleteDoc = (doc) => {
+    confirmDeleteToast(`"${doc.title}"`, () => {
+      deleteMutation.mutate(doc);
+    });
+  };
+
   const grouped = DOC_TYPES.reduce((acc, t) => {
     acc[t.value] = docs.filter(d => d.document_type === t.value);
     return acc;
@@ -276,7 +283,7 @@ export default function DocumentsTab({ staffId, staffName, user }) {
                         </a>
                       )}
                       {canDelete && (
-                        <Button size="icon" variant="ghost" className="h-7 w-7 text-destructive" onClick={() => deleteMutation.mutate(doc)}>
+                        <Button size="icon" variant="ghost" className="h-7 w-7 text-destructive" onClick={() => handleDeleteDoc(doc)}>
                           <Trash2 className="w-3 h-3" />
                         </Button>
                       )}

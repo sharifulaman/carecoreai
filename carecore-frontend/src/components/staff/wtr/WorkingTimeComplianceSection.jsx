@@ -18,7 +18,7 @@ function BreachDetailModal({ result, onClose }) {
         <div className="flex items-center justify-between p-4 border-b border-border">
           <div>
             <h3 className="font-semibold">{result.staff_name}</h3>
-            <p className="text-xs text-muted-foreground">Working Time Compliance Details</p>
+            <p className="text-xs text-muted-foreground">Working Time Regulations Details</p>
           </div>
           <button onClick={onClose}><X className="w-4 h-4 text-muted-foreground" /></button>
         </div>
@@ -144,7 +144,7 @@ export default function WorkingTimeComplianceSection({ staff = [], homes = [] })
     <div className="space-y-4">
       <div className="flex items-center justify-between flex-wrap gap-2">
         <div>
-          <h3 className="font-semibold">Working Time Compliance (WTR 1998)</h3>
+          <h3 className="font-semibold">Working Time Regulations (WTR 1998)</h3>
           <p className="text-xs text-muted-foreground mt-0.5">
             Checks 48h average, 11h rest, 24h rest/week, break entitlement, young worker rules.
           </p>

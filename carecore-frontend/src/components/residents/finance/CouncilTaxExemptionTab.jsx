@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Plus, Pencil, Trash2 } from 'lucide-react';
 import { ORG_ID } from '@/lib/roleConfig';
 import { toast } from 'sonner';
+import { confirmDeleteToast } from '@/lib/confirmDeleteToast';
 
 const EXEMPTION_TYPES = {
   care_leaver: 'Care Leaver',
@@ -422,7 +423,7 @@ export default function CouncilTaxExemptionTab({ residents, homes, staff, user, 
                   <Button
                     size="sm"
                     variant="ghost"
-                    onClick={() => deleteMutation.mutate(exemption.id)}
+                    onClick={() => confirmDeleteToast(exemption.council_name ? `"${exemption.council_name}"` : "this council tax exemption", () => deleteMutation.mutate(exemption.id))}
                     className="text-xs gap-1 text-red-600 hover:text-red-700"
                   >
                     <Trash2 className="w-3 h-3" /> Delete

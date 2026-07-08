@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 import VacancyForm from "../../hr/VacancyForm";
 
 export default function VacanciesTab({ staff, homes, isAdminOrTL }) {
@@ -36,6 +37,12 @@ export default function VacanciesTab({ staff, homes, isAdminOrTL }) {
     },
     onError: (err) => toast.error(`Error: ${err.message}`),
   });
+
+  const handleDeleteVacancy = (vacancy) => {
+    confirmDeleteToast(`"${vacancy.vacancy_role}"`, () => {
+      deleteMutation.mutate(vacancy.id);
+    });
+  };
 
   const openVacancies = vacancies.filter(v => v.status === "open").length;
 
@@ -74,7 +81,7 @@ export default function VacanciesTab({ staff, homes, isAdminOrTL }) {
                     <div className="flex items-center gap-1">
                       {canEdit && <Button variant="ghost" size="sm" onClick={() => { setEditingId(vacancy.id); setShowForm(true); }} className="text-xs h-7">Edit</Button>}
                       {canDelete && (
-                        <Button variant="ghost" size="sm" onClick={() => deleteMutation.mutate(vacancy.id)} className="text-red-600 hover:text-red-700 h-7">
+                        <Button variant="ghost" size="sm" onClick={() => handleDeleteVacancy(vacancy)} className="text-red-600 hover:text-red-700 h-7">
                           <Trash2 className="w-3.5 h-3.5" />
                         </Button>
                       )}

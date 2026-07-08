@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 import { Loader2 } from 'lucide-react';
+import { confirmDeleteToast } from '@/lib/confirmDeleteToast';
 
 export default function StaffServiceAssignmentForm({ staffId, staffName, isOpen, onClose, onSave, canEdit = true }) {
   const [loading, setLoading] = useState(false);
@@ -74,16 +75,19 @@ export default function StaffServiceAssignmentForm({ staffId, staffName, isOpen,
     }
   };
 
-  const handleDeleteAssignment = async (id) => {
-    try {
-      setLoading(true);
-      await base44.entities.StaffServiceAssignment.delete(id);
-      await fetchData();
-    } catch (e) {
-      console.error('Error deleting assignment:', e);
-    } finally {
-      setLoading(false);
-    }
+  const handleDeleteAssignment = (assignment) => {
+    const label = assignment.home_name ? `"${assignment.home_name}"` : "this service assignment";
+    confirmDeleteToast(label, async () => {
+      try {
+        setLoading(true);
+        await base44.entities.StaffServiceAssignment.delete(assignment.id);
+        await fetchData();
+      } catch (e) {
+        console.error('Error deleting assignment:', e);
+      } finally {
+        setLoading(false);
+      }
+    });
   };
 
   return (
@@ -190,7 +194,7 @@ export default function StaffServiceAssignmentForm({ staffId, staffName, isOpen,
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => handleDeleteAssignment(assignment.id)}
+                        onClick={() => handleDeleteAssignment(assignment)}
                         disabled={loading}
                       >
                         Remove

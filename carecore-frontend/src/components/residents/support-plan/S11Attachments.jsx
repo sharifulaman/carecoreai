@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Upload, FileText, Trash2 } from "lucide-react";
 import { toast } from "sonner";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 
 const DOC_TYPES = [
   { value: "support_plan", label: "Support Plan" },
@@ -67,10 +68,13 @@ export default function S11Attachments({ residentId, homeId, staffProfile, readO
     }
   };
 
-  const handleDelete = async (doc) => {
-    await secureGateway.delete("ResidentDocument", doc.id);
-    qc.invalidateQueries({ queryKey: ["resident-docs", residentId] });
-    toast.success("Document removed");
+  const handleDelete = (doc) => {
+    const label = doc.file_name ? `"${doc.file_name}"` : "this document";
+    confirmDeleteToast(label, async () => {
+      await secureGateway.delete("ResidentDocument", doc.id);
+      qc.invalidateQueries({ queryKey: ["resident-docs", residentId] });
+      toast.success("Document removed");
+    });
   };
 
   if (isLoading) return <div className="py-6 text-center text-sm text-muted-foreground">Loading...</div>;

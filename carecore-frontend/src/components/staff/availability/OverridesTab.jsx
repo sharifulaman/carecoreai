@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { ORG_ID } from "@/lib/roleConfig";
 import { toast } from "sonner";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 import { Plus, X, Check, Clock, ChevronDown, ChevronUp, AlertTriangle } from "lucide-react";
 import { useModuleActions } from "@/lib/PermissionContext";
 
@@ -140,7 +141,7 @@ export default function OverridesTab({ staffMember, user, myStaffProfile }) {
                 <Button size="sm" className="h-6 text-xs bg-green-600 hover:bg-green-700 gap-1" onClick={() => approveMutation.mutate({ id: o.id, override: o })}>
                   <Check className="w-3 h-3" />Approve
                 </Button>
-                <Button size="sm" variant="outline" className="h-6 text-xs text-red-600 border-red-200 gap-1" onClick={() => deleteMutation.mutate(o.id)}>
+                <Button size="sm" variant="outline" className="h-6 text-xs text-red-600 border-red-200 gap-1" onClick={() => confirmDeleteToast(`this holiday request (${formatDate(o.date_from)} – ${formatDate(o.date_to)})`, () => { deleteMutation.mutate(o.id); })}>
                   <X className="w-3 h-3" />Decline
                 </Button>
               </div>
@@ -167,7 +168,7 @@ export default function OverridesTab({ staffMember, user, myStaffProfile }) {
                   ? <Check className="w-3.5 h-3.5 text-green-500 shrink-0" />
                   : <Clock className="w-3.5 h-3.5 text-amber-500 shrink-0" />}
                 {(isAdminOrTL || (!o.approved && o.submitted_by === myStaffProfile?.id)) && (
-                  <button onClick={() => deleteMutation.mutate(o.id)} className="text-muted-foreground hover:text-red-500 transition-colors">
+                  <button onClick={() => confirmDeleteToast(`this ${(TYPE_LABELS[o.override_type] || "override").toLowerCase()} (${formatDate(o.date_from)} – ${formatDate(o.date_to)})`, () => { deleteMutation.mutate(o.id); })} className="text-muted-foreground hover:text-red-500 transition-colors">
                     <X className="w-3.5 h-3.5" />
                   </button>
                 )}

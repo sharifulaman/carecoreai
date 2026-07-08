@@ -17,7 +17,7 @@ export default function HRDashboardComplianceInsights({
       <div className="bg-card rounded-xl border border-border p-5">
         <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
           <CheckCircle className="w-4 h-4 text-green-600" />
-          Working Time Compliance (WTR)
+          Working Time Regulations (WTR)
         </h3>
         <div className="space-y-3">
           <div>

@@ -372,20 +372,6 @@ export default function HRDashboardTabNew({ user, staffProfile: propStaffProfile
         }}
       />
 
-      {/* Training Matrix */}
-      <HRDashboardTrainingMatrix
-        filteredStaff={filteredStaff}
-        activeCourses={activeCourses}
-        recordMap={recordMap}
-        requirements={requirements}
-        staffProfile={propStaffProfile}
-        homes={homes}
-        panelFilters={panelFilters}
-        onRecordSaved={() => {
-          queryClient.refetchQueries({ queryKey: ["training-records"] });
-          queryClient.refetchQueries({ queryKey: ["staff"] });
-        }}
-      />
 
       {/* Compliance Insights */}
       <HRDashboardComplianceInsights

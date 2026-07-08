@@ -9,6 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Plus, Trash2, FileText, AlertTriangle, Clock, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { ORG_ID } from "@/lib/roleConfig";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 import { createNotification } from "@/lib/createNotification";
 import { useWorkflowTrigger } from "@/hooks/useWorkflowTrigger";
 
@@ -344,7 +345,7 @@ export default function LegalRestrictionsTab({ residents, homes, staff = [], isA
                     {isAdminOrTL && (
                       <div className="flex items-center gap-1">
                         <Button variant="ghost" size="sm" onClick={() => { setOrderForm(order); setEditingOrderId(order.id); setOrderErrors({}); setShowOrderForm(true); }} className="text-xs h-7">Edit</Button>
-                        <Button variant="ghost" size="sm" onClick={() => deleteOrderMutation.mutate(order.id)} className="text-red-600 hover:text-red-700 h-7"><Trash2 className="w-3.5 h-3.5" /></Button>
+                        <Button variant="ghost" size="sm" onClick={() => confirmDeleteToast(order.court_order_reference ? `"${order.court_order_reference}"` : "this legal restriction", () => deleteOrderMutation.mutate(order.id))} className="text-red-600 hover:text-red-700 h-7"><Trash2 className="w-3.5 h-3.5" /></Button>
                       </div>
                     )}
                   </div>
@@ -491,7 +492,7 @@ export default function LegalRestrictionsTab({ residents, homes, staff = [], isA
                           </Button>
                         )}
                         <Button variant="ghost" size="sm" className="text-xs h-7" onClick={() => { setWarningForm(w); setEditingWarningId(w.id); setWarningErrors({}); setShowWarningForm(true); }}>Edit</Button>
-                        <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700 h-7" onClick={() => deleteWarningMutation.mutate(w.id)}><Trash2 className="w-3.5 h-3.5" /></Button>
+                        <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700 h-7" onClick={() => confirmDeleteToast(w.issued_date ? `the ${WARNING_LEVEL_LABELS[w.warning_level] || "warning letter"} issued on ${new Date(w.issued_date).toLocaleDateString("en-GB")}` : "this warning letter", () => deleteWarningMutation.mutate(w.id))}><Trash2 className="w-3.5 h-3.5" /></Button>
                       </div>
                     )}
                   </div>

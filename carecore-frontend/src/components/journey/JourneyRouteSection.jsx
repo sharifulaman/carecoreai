@@ -4,6 +4,7 @@ import { base44 } from "@/api/base44Client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { ORG_ID } from "@/lib/roleConfig";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 
 const TRAVEL_METHODS = ["Walking", "Car", "Taxi", "Bus", "Lorry", "Train", "Boat", "Small boat", "Plane", "Hidden in vehicle", "On foot across border", "Unknown", "Other"];
 
@@ -145,10 +146,13 @@ export default function JourneyRouteSection({ stages, residentId, lifeStoryId, o
   const [editStage, setEditStage] = useState(null);
   const [openMenu, setOpenMenu] = useState(null);
 
-  const handleDelete = async (id) => {
-    await base44.entities.JourneyStage.delete(id);
-    toast.success("Stage deleted");
-    onRefresh();
+  const handleDelete = (stage) => {
+    const label = `Stage ${stage.stage_number} (${stage.from_country || "?"} → ${stage.to_country || "?"})`;
+    confirmDeleteToast(label, async () => {
+      await base44.entities.JourneyStage.delete(stage.id);
+      toast.success("Stage deleted");
+      onRefresh();
+    });
   };
 
   const sorted = [...stages].sort((a, b) => (a.stage_number || 0) - (b.stage_number || 0));
@@ -237,7 +241,7 @@ export default function JourneyRouteSection({ stages, residentId, lifeStoryId, o
                       {openMenu === s.id && (
                         <div className="absolute right-2 top-8 bg-white border border-slate-200 rounded-xl shadow-lg z-10 min-w-[120px] py-1">
                           <button onClick={() => { setEditStage(s); setShowModal(true); setOpenMenu(null); }} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 text-slate-700">Edit</button>
-                          <button onClick={() => { handleDelete(s.id); setOpenMenu(null); }} className="w-full text-left px-4 py-2 text-xs hover:bg-red-50 text-red-600">Delete</button>
+                          <button onClick={() => { handleDelete(s); setOpenMenu(null); }} className="w-full text-left px-4 py-2 text-xs hover:bg-red-50 text-red-600">Delete</button>
                         </div>
                       )}
                     </td>

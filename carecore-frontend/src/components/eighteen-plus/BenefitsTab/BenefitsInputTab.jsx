@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Plus, X, AlertCircle } from "lucide-react";
 import { ORG_ID } from "@/lib/roleConfig";
 import { useModuleActions } from "@/lib/PermissionContext";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 
 const BENEFIT_TYPES = [
   { key: "universal_credit", label: "Universal Credit", color: "blue" },
@@ -246,7 +247,12 @@ export default function BenefitsInputTab({ residents }) {
                   </span>
                   {canDelete && (
                     <button
-                      onClick={() => deleteMutation.mutate(benefit.id)}
+                      onClick={() => {
+                        const label = BENEFIT_TYPES.find(b => b.key === benefit.benefit_type)?.label;
+                        confirmDeleteToast(label ? `"${label}"` : "this benefit entry", () => {
+                          deleteMutation.mutate(benefit.id);
+                        });
+                      }}
                       className="text-muted-foreground hover:text-foreground"
                     >
                       <X className="w-3.5 h-3.5" />

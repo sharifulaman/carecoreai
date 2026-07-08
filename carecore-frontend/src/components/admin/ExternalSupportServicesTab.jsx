@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Plus, Edit2, Trash2, Eye } from "lucide-react";
 import { toast } from "sonner";
+import { confirmDeleteToast } from "@/lib/confirmDeleteToast";
 import ExternalSupportServiceModal from "./ExternalSupportServiceModal";
 
 export default function ExternalSupportServicesTab() {
@@ -147,7 +148,7 @@ export default function ExternalSupportServicesTab() {
                         <button onClick={() => { setSelectedService(service); setShowModal(true); }} className="p-1.5 hover:bg-blue-50 rounded transition-colors text-slate-400 hover:text-blue-600">
                           <Edit2 className="w-4 h-4" />
                         </button>
-                        <button onClick={() => deleteMutation.mutate(service.id)} className="p-1.5 hover:bg-red-50 rounded transition-colors text-slate-400 hover:text-red-600">
+                        <button onClick={() => { confirmDeleteToast(`"${service.agency_organisation_name || "this service"}"`, () => { deleteMutation.mutate(service.id); }); }} className="p-1.5 hover:bg-red-50 rounded transition-colors text-slate-400 hover:text-red-600">
                           <Trash2 className="w-4 h-4" />
                         </button>
                       </div>

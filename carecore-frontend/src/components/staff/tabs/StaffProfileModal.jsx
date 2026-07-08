@@ -559,7 +559,7 @@ export default function StaffProfileModal({ member, user, homes = [], allStaff =
           {/* DOCUMENTS */}
           {activeTab === "documents" && (
             <div className="space-y-6">
-              {/* Contracts Timeline */}
+              {/* Contracts Timeline
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <p className="text-sm font-semibold text-muted-foreground">Employment Contracts</p>
@@ -573,7 +573,7 @@ export default function StaffProfileModal({ member, user, homes = [], allStaff =
                   )}
                 </div>
                 <ContractTimeline staffId={member.id} user={user} isAdmin={isAdmin} />
-              </div>
+              </div> */}
 
               {/* Other Documents */}
               <div>
