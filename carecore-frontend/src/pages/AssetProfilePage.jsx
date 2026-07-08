@@ -509,7 +509,7 @@ export default function AssetProfilePage() {
   const { data: asset, isLoading, error } = useQuery({
     queryKey: ["asset-profile", id],
     queryFn: async () => {
-      const API_BASE = (import.meta.env.VITE_API_URL || "http://localhost:8080").replace(/\/$/, "");
+      const API_BASE = import.meta.env.DEV ? '/api' : (import.meta.env.VITE_API_BASE_URL || "http://localhost:8080/api").replace(/\/$/, "");
       const token = sessionStorage.getItem("access_token");
       const headers = { "Content-Type": "application/json" };
       if (token) headers["Authorization"] = `Bearer ${token}`;

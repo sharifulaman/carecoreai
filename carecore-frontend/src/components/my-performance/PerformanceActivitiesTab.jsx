@@ -34,7 +34,7 @@ const PAGE_SIZE = 20;
 
 async function fetchActivities({ type, period, dateFrom, dateTo, page }) {
   const token = sessionStorage.getItem("access_token") || sessionStorage.getItem("token");
-  const base = (import.meta.env.VITE_API_URL || "http://localhost:8080").replace(/\/$/, "");
+  const base = import.meta.env.DEV ? '/api' : (import.meta.env.VITE_API_BASE_URL || "http://localhost:8080/api").replace(/\/$/, "");
 
   const params = new URLSearchParams({ type, page, page_size: PAGE_SIZE });
   if (dateFrom && dateTo) {

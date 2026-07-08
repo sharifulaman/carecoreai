@@ -345,7 +345,7 @@ export default function TimesheetsTab({ user, staff = [], homes = [], staffProfi
     setGenerating(true);
     try {
       const token = sessionStorage.getItem("access_token") || sessionStorage.getItem("token");
-      const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:8080').replace(/\/$/, '');
+      const API_BASE = import.meta.env.DEV ? '/api' : (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api').replace(/\/$/, '');
       const response = await fetch(`${API_BASE}/business/timesheet/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },

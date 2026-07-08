@@ -37,7 +37,7 @@ const PERIOD_OPTIONS = [
 
 function fetchPerformanceSummary(period) {
   const token = sessionStorage.getItem("access_token") || sessionStorage.getItem("token");
-  const base = (import.meta.env.VITE_API_URL || "http://localhost:8080").replace(/\/$/, "");
+  const base = import.meta.env.DEV ? '/api' : (import.meta.env.VITE_API_BASE_URL || "http://localhost:8080/api").replace(/\/$/, "");
   return fetch(`${base}/business/my-performance/summary?period=${period}`, {
     headers: { Authorization: `Bearer ${token}` },
   }).then(r => {

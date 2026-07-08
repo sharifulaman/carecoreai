@@ -79,7 +79,7 @@ export default function InviteStaffModal({ onClose, onSuccess }) {
     try {
       const token = sessionStorage.getItem("access_token");
       const res = await fetch(
-        `${(import.meta.env.VITE_API_URL || "http://localhost:8080").replace(/\/$/, "")}/auth/invite`,
+        `${import.meta.env.DEV ? '/api' : (import.meta.env.VITE_API_BASE_URL || "http://localhost:8080/api").replace(/\/$/, "")}/auth/invite`,
         {
           method: "POST",
           headers: {

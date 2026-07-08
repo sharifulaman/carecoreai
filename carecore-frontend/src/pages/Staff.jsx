@@ -314,7 +314,7 @@ export default function Staff() {
       if (password && inviteEmail) {
         try {
           // @ts-ignore
-          const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:8080').replace(/\/$/, '');
+          const API_BASE = import.meta.env.DEV ? '/api' : (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api').replace(/\/$/, '');
           const token = window.sessionStorage.getItem('access_token');
           if (!token) throw new Error('You are not logged in — please refresh and try again.');
           const res = await fetch(`${API_BASE}/auth/invite`, {
