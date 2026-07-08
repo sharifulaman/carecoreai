@@ -1,0 +1,93 @@
+{
+  "name": "ImmediateNotice",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "placement_record_id": {
+      "type": "string",
+      "description": "FK \u2192 PlacementRecord.id"
+    },
+    "notice_given": {
+      "type": "boolean",
+      "description": "Was notice given to local authority?"
+    },
+    "notice_given_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time notice was given"
+    },
+    "planned_placement_end_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Planned placement end date/time"
+    },
+    "notice_period_hours": {
+      "type": "number",
+      "description": "Auto-calculated: hours between notice_given_datetime and planned_placement_end_datetime"
+    },
+    "is_immediate_36_hours_or_less": {
+      "type": "boolean",
+      "description": "Auto-calculated: true if notice_period_hours <= 36"
+    },
+    "reason_for_immediate_notice": {
+      "type": "string",
+      "description": "Reason for the short notice"
+    },
+    "safeguarding_reason": {
+      "type": "string",
+      "description": "If applicable, specific safeguarding concern"
+    },
+    "notified_person_name": {
+      "type": "string",
+      "description": "Local authority person/contact who was notified"
+    },
+    "notified_person_role": {
+      "type": "string"
+    },
+    "notified_person_phone": {
+      "type": "string"
+    },
+    "notified_person_email": {
+      "type": "string"
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs of supporting evidence (emails, call logs, etc)"
+    },
+    "manager_approval_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "manager_approval_by": {
+      "type": "string",
+      "description": "Staff member who approved the notice"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "notice_given"
+  ]
+}

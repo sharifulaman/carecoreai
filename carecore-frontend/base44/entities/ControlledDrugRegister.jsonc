@@ -1,0 +1,76 @@
+{
+  "name": "ControlledDrugRegister",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "medication_record_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "entry_type": {
+      "type": "string",
+      "enum": [
+        "received",
+        "administered",
+        "destroyed",
+        "transferred",
+        "returned_to_pharmacy",
+        "balance_check"
+      ]
+    },
+    "quantity_in": {
+      "type": "number"
+    },
+    "quantity_out": {
+      "type": "number"
+    },
+    "running_balance": {
+      "type": "number"
+    },
+    "transaction_datetime": {
+      "type": "string"
+    },
+    "recorded_by": {
+      "type": "string"
+    },
+    "witnessed_by": {
+      "type": "string"
+    },
+    "witness_role": {
+      "type": "string"
+    },
+    "supplier_name": {
+      "type": "string"
+    },
+    "destruction_method": {
+      "type": "string"
+    },
+    "balance_discrepancy": {
+      "type": "boolean",
+      "default": false
+    },
+    "discrepancy_notes": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "medication_record_id",
+    "entry_type",
+    "running_balance",
+    "transaction_datetime",
+    "recorded_by",
+    "witnessed_by"
+  ]
+}

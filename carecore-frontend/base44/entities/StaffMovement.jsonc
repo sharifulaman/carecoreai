@@ -1,0 +1,110 @@
+{
+  "name": "StaffMovement",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "staff_role": {
+      "type": "string"
+    },
+    "movement_type": {
+      "type": "string",
+      "enum": [
+        "new_starter",
+        "leaver",
+        "role_change",
+        "service_reassignment"
+      ],
+      "description": "Type of staff movement"
+    },
+    "movement_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "is_support_role": {
+      "type": "boolean",
+      "description": "Is this a support worker role (not management/admin)?"
+    },
+    "previous_role": {
+      "type": "string"
+    },
+    "new_role": {
+      "type": "string"
+    },
+    "employment_type": {
+      "type": "string",
+      "enum": [
+        "permanent",
+        "agency",
+        "bank",
+        "contractor",
+        "temporary"
+      ]
+    },
+    "previous_home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "previous_home_name": {
+      "type": "string"
+    },
+    "new_home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "new_home_name": {
+      "type": "string"
+    },
+    "accommodation_category_affected": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ]
+    },
+    "service_type_affected": {
+      "type": "string",
+      "enum": [
+        "outreach",
+        "eighteen_plus",
+        "twenty_four_hours"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "recorded_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "recorded_by_name": {
+      "type": "string"
+    },
+    "recorded_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "movement_type",
+    "movement_date",
+    "is_support_role"
+  ]
+}

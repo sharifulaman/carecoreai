@@ -1,0 +1,337 @@
+{
+  "name": "PathwayPlan",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "personal_adviser_name": {
+      "type": "string"
+    },
+    "personal_adviser_contact": {
+      "type": "string"
+    },
+    "created_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "default": 1
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "health_and_development": {
+      "type": "object",
+      "properties": {
+        "current_situation": {
+          "type": "string"
+        },
+        "needs": {
+          "type": "string"
+        },
+        "support_planned": {
+          "type": "string"
+        },
+        "who_responsible": {
+          "type": "string"
+        },
+        "target_date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "education_training_employment": {
+      "type": "object",
+      "properties": {
+        "current_situation": {
+          "type": "string"
+        },
+        "needs": {
+          "type": "string"
+        },
+        "support_planned": {
+          "type": "string"
+        },
+        "who_responsible": {
+          "type": "string"
+        },
+        "target_date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "financial_capability": {
+      "type": "object",
+      "properties": {
+        "current_situation": {
+          "type": "string"
+        },
+        "needs": {
+          "type": "string"
+        },
+        "support_planned": {
+          "type": "string"
+        },
+        "who_responsible": {
+          "type": "string"
+        },
+        "target_date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "accommodation": {
+      "type": "object",
+      "properties": {
+        "current_situation": {
+          "type": "string"
+        },
+        "needs": {
+          "type": "string"
+        },
+        "support_planned": {
+          "type": "string"
+        },
+        "who_responsible": {
+          "type": "string"
+        },
+        "target_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "planned_accommodation_at_18": {
+          "type": "string"
+        },
+        "accommodation_identified": {
+          "type": "boolean"
+        },
+        "address": {
+          "type": "string"
+        },
+        "tenancy_support_needed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "family_and_social_relationships": {
+      "type": "object",
+      "properties": {
+        "current_situation": {
+          "type": "string"
+        },
+        "needs": {
+          "type": "string"
+        },
+        "support_planned": {
+          "type": "string"
+        },
+        "who_responsible": {
+          "type": "string"
+        },
+        "target_date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "identity_and_self_care": {
+      "type": "object",
+      "properties": {
+        "current_situation": {
+          "type": "string"
+        },
+        "needs": {
+          "type": "string"
+        },
+        "support_planned": {
+          "type": "string"
+        },
+        "who_responsible": {
+          "type": "string"
+        },
+        "target_date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "emotional_and_behavioural_development": {
+      "type": "object",
+      "properties": {
+        "current_situation": {
+          "type": "string"
+        },
+        "needs": {
+          "type": "string"
+        },
+        "support_planned": {
+          "type": "string"
+        },
+        "who_responsible": {
+          "type": "string"
+        },
+        "target_date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "contingency_plan": {
+      "type": "string"
+    },
+    "young_person_consulted": {
+      "type": "boolean",
+      "default": false
+    },
+    "young_person_agrees": {
+      "type": "boolean"
+    },
+    "young_person_goals": {
+      "type": "string",
+      "description": "Young person's own words about their goals"
+    },
+    "young_person_concerns": {
+      "type": "string"
+    },
+    "tenancy_ready": {
+      "type": "boolean",
+      "default": false,
+      "description": "18+ specific"
+    },
+    "tenancy_ready_assessment": {
+      "type": "string"
+    },
+    "tenancy_target_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "tenancy_type_preference": {
+      "type": "string"
+    },
+    "tenancy_area_preference": {
+      "type": "string"
+    },
+    "financially_independent": {
+      "type": "boolean",
+      "default": false
+    },
+    "financial_support_still_needed": {
+      "type": "string"
+    },
+    "benefits_in_place": {
+      "type": "boolean",
+      "default": false
+    },
+    "savings_target": {
+      "type": "number"
+    },
+    "current_savings": {
+      "type": "number",
+      "description": "Read from ResidentSavings.balance"
+    },
+    "has_trusted_adult": {
+      "type": "boolean",
+      "default": false
+    },
+    "trusted_adult_name": {
+      "type": "string"
+    },
+    "trusted_adult_relationship": {
+      "type": "string"
+    },
+    "trusted_adult_contact": {
+      "type": "string"
+    },
+    "has_positive_peer_network": {
+      "type": "boolean",
+      "default": false
+    },
+    "family_support_available": {
+      "type": "boolean",
+      "default": false
+    },
+    "family_support_notes": {
+      "type": "string"
+    },
+    "staying_close_eligible": {
+      "type": "boolean",
+      "default": false
+    },
+    "staying_close_offer_made": {
+      "type": "boolean",
+      "default": false
+    },
+    "staying_close_accepted": {
+      "type": "boolean",
+      "default": false
+    },
+    "staying_close_arrangement_details": {
+      "type": "string"
+    },
+    "staying_close_provider": {
+      "type": "string"
+    },
+    "staying_close_frequency": {
+      "type": "string"
+    },
+    "my_goal_accommodation": {
+      "type": "string",
+      "description": "Where do I want to live?"
+    },
+    "my_goal_employment": {
+      "type": "string",
+      "description": "What do I want to do?"
+    },
+    "my_goal_relationships": {
+      "type": "string",
+      "description": "Who do I want in my life?"
+    },
+    "my_goal_life": {
+      "type": "string",
+      "description": "What does my ideal life look like?"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "reviewed"
+      ],
+      "default": "draft"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "effective_date",
+    "review_date"
+  ]
+}

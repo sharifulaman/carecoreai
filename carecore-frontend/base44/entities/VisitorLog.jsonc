@@ -1,0 +1,103 @@
+{
+  "name": "VisitorLog",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "recorded_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "recorded_by_name": {
+      "type": "string"
+    },
+    "visit_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "arrival_time": {
+      "type": "string",
+      "description": "HH:MM format"
+    },
+    "departure_time": {
+      "type": "string",
+      "description": "HH:MM format"
+    },
+    "visitor_name": {
+      "type": "string"
+    },
+    "visitor_organisation": {
+      "type": "string"
+    },
+    "visitor_role": {
+      "type": "string"
+    },
+    "visitor_relationship": {
+      "type": "string",
+      "enum": [
+        "social_worker",
+        "iro",
+        "parent",
+        "family",
+        "solicitor",
+        "health_professional",
+        "ofsted_inspector",
+        "contractor",
+        "police",
+        "other"
+      ]
+    },
+    "purpose_of_visit": {
+      "type": "string"
+    },
+    "resident_visited_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_visited_name": {
+      "type": "string"
+    },
+    "staff_who_authorised": {
+      "type": "string"
+    },
+    "dbs_checked": {
+      "type": "boolean",
+      "default": false
+    },
+    "dbs_check_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "signed_in": {
+      "type": "boolean",
+      "default": true
+    },
+    "any_concerns": {
+      "type": "boolean",
+      "default": false
+    },
+    "concern_notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "visit_date",
+    "arrival_time",
+    "visitor_name",
+    "purpose_of_visit"
+  ]
+}

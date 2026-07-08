@@ -1,0 +1,157 @@
+{
+  "name": "PersonalCareRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "shift": {
+      "type": "string",
+      "enum": [
+        "morning",
+        "afternoon",
+        "night"
+      ]
+    },
+    "bath_shower": {
+      "type": "string",
+      "enum": [
+        "independent",
+        "prompted",
+        "assisted",
+        "full_assist",
+        "declined",
+        "not_applicable"
+      ]
+    },
+    "oral_hygiene": {
+      "type": "string",
+      "enum": [
+        "independent",
+        "prompted",
+        "assisted",
+        "full_assist",
+        "declined"
+      ]
+    },
+    "hair_care": {
+      "type": "string",
+      "enum": [
+        "independent",
+        "prompted",
+        "assisted",
+        "full_assist",
+        "declined",
+        "not_applicable"
+      ]
+    },
+    "shaving": {
+      "type": "string",
+      "enum": [
+        "independent",
+        "prompted",
+        "assisted",
+        "full_assist",
+        "declined",
+        "not_applicable"
+      ]
+    },
+    "nail_care": {
+      "type": "boolean"
+    },
+    "skin_condition": {
+      "type": "string",
+      "enum": [
+        "good",
+        "dry",
+        "red",
+        "broken",
+        "pressure_area_noted"
+      ]
+    },
+    "continence": {
+      "type": "string",
+      "enum": [
+        "continent",
+        "incontinent",
+        "catheter",
+        "stoma",
+        "pads_used",
+        "toileted_with_assist"
+      ]
+    },
+    "fluid_intake_ml": {
+      "type": "integer"
+    },
+    "meal_eaten": {
+      "type": "string",
+      "enum": [
+        "all",
+        "most",
+        "half",
+        "little",
+        "refused",
+        "not_applicable"
+      ]
+    },
+    "mood": {
+      "type": "string",
+      "enum": [
+        "happy",
+        "calm",
+        "settled",
+        "anxious",
+        "agitated",
+        "low",
+        "confused",
+        "distressed",
+        "elevated"
+      ]
+    },
+    "behaviour_noted": {
+      "type": "boolean"
+    },
+    "behaviour_notes": {
+      "type": "string"
+    },
+    "mobility_noted": {
+      "type": "string"
+    },
+    "repositioned": {
+      "type": "boolean"
+    },
+    "repositioning_times": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "weight_recorded": {
+      "type": "boolean"
+    },
+    "recorded_by": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "date",
+    "shift",
+    "recorded_by"
+  ]
+}

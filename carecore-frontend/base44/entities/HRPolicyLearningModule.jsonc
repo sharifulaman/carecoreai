@@ -1,0 +1,57 @@
+{
+  "name": "HRPolicyLearningModule",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "module_number": {
+      "type": "number"
+    },
+    "module_title": {
+      "type": "string"
+    },
+    "module_summary": {
+      "type": "string"
+    },
+    "learning_content": {
+      "type": "string"
+    },
+    "key_points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "staff_responsibilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "practical_example": {
+      "type": "string"
+    },
+    "compliance_reminder": {
+      "type": "string"
+    },
+    "estimated_duration_minutes": {
+      "type": "number"
+    },
+    "display_order": {
+      "type": "number"
+    },
+    "is_required": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "org_id",
+    "course_id",
+    "module_title"
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "name": "Organisation",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string",
+      "description": "Unique organisation identifier"
+    },
+    "name": {
+      "type": "string"
+    },
+    "app_name": {
+      "type": "string",
+      "default": "CareCore AI"
+    },
+    "logo_url": {
+      "type": "string"
+    },
+    "primary_colour": {
+      "type": "string",
+      "default": "#4B8BF5"
+    },
+    "default_language": {
+      "type": "string",
+      "default": "en"
+    },
+    "default_theme": {
+      "type": "string",
+      "enum": [
+        "light",
+        "dark"
+      ],
+      "default": "light"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "session_timeout_hours": {
+      "type": "number",
+      "default": 8
+    },
+    "failed_login_attempts_limit": {
+      "type": "number",
+      "default": 5
+    },
+    "lockout_duration_minutes": {
+      "type": "number",
+      "default": 15
+    },
+    "min_password_length": {
+      "type": "number",
+      "default": 8
+    },
+    "require_number": {
+      "type": "boolean",
+      "default": true
+    },
+    "require_special_char": {
+      "type": "boolean",
+      "default": false
+    },
+    "gps_clock_in_enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "paye_reference": {
+      "type": "string",
+      "description": "HMRC PAYE Reference (format: 123/AB456)"
+    },
+    "accounts_office_ref": {
+      "type": "string",
+      "description": "Accounts Office Reference (format: 123PA00012345)"
+    },
+    "hr_policy": {
+      "type": "object",
+      "description": "HR Policy configuration",
+      "properties": {
+        "annual_leave_days": {
+          "type": "number",
+          "default": 28
+        },
+        "leave_year_start": {
+          "type": "string",
+          "default": "04-01"
+        },
+        "max_consecutive_leave_days": {
+          "type": "number",
+          "default": 14
+        },
+        "min_notice_days": {
+          "type": "number",
+          "default": 7
+        },
+        "max_staff_off_per_home": {
+          "type": "number",
+          "default": 2
+        },
+        "carry_over_allowed": {
+          "type": "boolean",
+          "default": true
+        },
+        "max_carry_over_days": {
+          "type": "number",
+          "default": 5
+        },
+        "sick_leave_trigger": {
+          "type": "number",
+          "default": 3
+        },
+        "probation_months": {
+          "type": "number",
+          "default": 6
+        },
+        "probation_alert_days": {
+          "type": "number",
+          "default": 14
+        },
+        "dbs_renewal_reminder_days": {
+          "type": "number",
+          "default": 90
+        },
+        "dbs_required": {
+          "type": "boolean",
+          "default": true
+        },
+        "supervision_max_weeks": {
+          "type": "number",
+          "default": 8
+        },
+        "appraisal_max_months": {
+          "type": "number",
+          "default": 12
+        },
+        "supervision_alert_days": {
+          "type": "number",
+          "default": 7
+        },
+        "training_alert_days": {
+          "type": "number",
+          "default": 60
+        },
+        "overtime_threshold_hours": {
+          "type": "number",
+          "default": 37.5
+        },
+        "overtime_rate_multiplier": {
+          "type": "number",
+          "default": 1.5
+        },
+        "sleep_in_allowance": {
+          "type": "number",
+          "default": 50
+        },
+        "on_call_allowance": {
+          "type": "number",
+          "default": 25
+        },
+        "pension_employer_pct": {
+          "type": "number",
+          "default": 3
+        },
+        "pension_employee_pct": {
+          "type": "number",
+          "default": 5
+        },
+        "default_tax_code": {
+          "type": "string",
+          "default": "1257L"
+        },
+        "require_clock_in": {
+          "type": "boolean",
+          "default": true
+        },
+        "clock_in_grace_minutes": {
+          "type": "number",
+          "default": 15
+        },
+        "auto_clock_out_hours": {
+          "type": "number",
+          "default": 13
+        }
+      }
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

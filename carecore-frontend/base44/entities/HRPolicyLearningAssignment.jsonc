@@ -1,0 +1,95 @@
+{
+  "name": "HRPolicyLearningAssignment",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_version": {
+      "type": "string"
+    },
+    "policy_title": {
+      "type": "string"
+    },
+    "course_title": {
+      "type": "string"
+    },
+    "assigned_to_staff_id": {
+      "type": "string"
+    },
+    "assigned_to_staff_name": {
+      "type": "string"
+    },
+    "assigned_to_role": {
+      "type": "string"
+    },
+    "assigned_to_department": {
+      "type": "string"
+    },
+    "assigned_to_home_id": {
+      "type": "string"
+    },
+    "assignment_type": {
+      "type": "string",
+      "enum": [
+        "Individual Staff",
+        "Role Based",
+        "Department Based",
+        "Home Based",
+        "All Staff"
+      ],
+      "default": "Individual Staff"
+    },
+    "assigned_by": {
+      "type": "string"
+    },
+    "assigned_at": {
+      "type": "string"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "mandatory": {
+      "type": "boolean",
+      "default": true
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Assigned",
+        "Not Started",
+        "In Progress",
+        "Quiz Pending",
+        "Failed",
+        "Passed",
+        "Acknowledgement Pending",
+        "Completed",
+        "Overdue",
+        "Exempted"
+      ],
+      "default": "Assigned"
+    },
+    "reminder_count": {
+      "type": "number",
+      "default": 0
+    },
+    "last_reminder_sent_at": {
+      "type": "string"
+    },
+    "completed_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "course_id",
+    "assigned_to_staff_id"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "PettyCash",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "opening_balance": {
+      "type": "number"
+    },
+    "current_balance": {
+      "type": "number"
+    },
+    "float_threshold": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "closed"
+      ],
+      "default": "active"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "opening_balance",
+    "current_balance",
+    "float_threshold",
+    "created_by"
+  ]
+}

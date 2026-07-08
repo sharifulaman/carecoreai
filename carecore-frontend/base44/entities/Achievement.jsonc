@@ -1,0 +1,76 @@
+{
+  "name": "Achievement",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "recorded_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "recorded_by_name": {
+      "type": "string"
+    },
+    "achievement_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "education",
+        "employment",
+        "health",
+        "independence",
+        "relationships",
+        "sport_activity",
+        "creative",
+        "personal_growth",
+        "community",
+        "other"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "celebrated_how": {
+      "type": "string"
+    },
+    "shared_with_la": {
+      "type": "boolean",
+      "default": false
+    },
+    "shared_with_family": {
+      "type": "boolean",
+      "default": false
+    },
+    "photo_url": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "achievement_date",
+    "title"
+  ]
+}

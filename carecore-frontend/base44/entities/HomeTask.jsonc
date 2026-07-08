@@ -1,0 +1,80 @@
+{
+  "name": "HomeTask",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "task",
+        "meeting",
+        "appointment"
+      ],
+      "default": "task"
+    },
+    "assigned_to_id": {
+      "type": "string"
+    },
+    "assigned_to_name": {
+      "type": "string"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "due_time": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "completed_at": {
+      "type": "string"
+    },
+    "completed_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "title",
+    "due_date"
+  ]
+}

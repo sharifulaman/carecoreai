@@ -1,0 +1,70 @@
+{
+  "name": "JourneyFamilyMember",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "life_story_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "relationship": {
+      "type": "string"
+    },
+    "approximate_age": {
+      "type": "string"
+    },
+    "current_location": {
+      "type": "string"
+    },
+    "last_known_address": {
+      "type": "string"
+    },
+    "contact_status": {
+      "type": "string",
+      "enum": [
+        "in_contact",
+        "not_in_contact",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "last_contact_date": {
+      "type": "string"
+    },
+    "safety_status": {
+      "type": "string",
+      "enum": [
+        "safe",
+        "unsafe",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "risks_to_family": {
+      "type": "string"
+    },
+    "contact_details_known": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id"
+  ]
+}

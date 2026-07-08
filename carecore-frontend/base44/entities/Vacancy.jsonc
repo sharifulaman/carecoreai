@@ -1,0 +1,188 @@
+{
+  "name": "Vacancy",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "vacancy_reference": {
+      "type": "string",
+      "description": "Auto-generated reference: VAC-YYYY-000001"
+    },
+    "vacancy_role": {
+      "type": "string",
+      "description": "Job title / role being recruited for"
+    },
+    "is_support_role": {
+      "type": "boolean",
+      "description": "Is this a support worker role (not management/admin)?"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "service_type": {
+      "type": "string",
+      "enum": [
+        "outreach",
+        "eighteen_plus",
+        "twenty_four_hours"
+      ],
+      "description": "Service type for this vacancy"
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ],
+      "description": "Accommodation category this vacancy supports"
+    },
+    "number_of_posts": {
+      "type": "number",
+      "description": "Number of posts available (e.g. 2 FTE vacancies)"
+    },
+    "employment_type": {
+      "type": "string",
+      "enum": [
+        "permanent",
+        "fixed_term",
+        "temporary"
+      ],
+      "description": "Type of employment for this vacancy"
+    },
+    "contract_hours": {
+      "type": "number",
+      "description": "Contracted hours per week (e.g. 37.5)"
+    },
+    "salary_or_hourly_rate": {
+      "type": "number"
+    },
+    "pay_type": {
+      "type": "string",
+      "enum": [
+        "salary",
+        "hourly"
+      ],
+      "description": "Salary or hourly rate"
+    },
+    "vacancy_opened_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "vacancy_closed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "target_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Target start date for successful candidate"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "filled",
+        "cancelled",
+        "on_hold"
+      ],
+      "default": "open",
+      "description": "Current status of the vacancy"
+    },
+    "reason_for_vacancy": {
+      "type": "string",
+      "enum": [
+        "new_post",
+        "replacement",
+        "maternity_cover",
+        "expansion",
+        "restructure",
+        "other"
+      ]
+    },
+    "reason_details": {
+      "type": "string",
+      "description": "Additional details about vacancy reason"
+    },
+    "recruiting_manager_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "recruiting_manager_name": {
+      "type": "string"
+    },
+    "job_description_url": {
+      "type": "string",
+      "description": "URL to uploaded job description document"
+    },
+    "person_specification_url": {
+      "type": "string",
+      "description": "URL to person specification document"
+    },
+    "applications_received": {
+      "type": "number",
+      "default": 0
+    },
+    "interviews_scheduled": {
+      "type": "number",
+      "default": 0
+    },
+    "filled_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id when vacancy is filled"
+    },
+    "filled_by_name": {
+      "type": "string"
+    },
+    "filled_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "cancellation_reason": {
+      "type": "string",
+      "description": "If status is cancelled, reason why"
+    },
+    "cancellation_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "created_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "created_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_updated_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "last_updated_date": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "vacancy_role",
+    "is_support_role",
+    "home_id",
+    "service_type",
+    "accommodation_category",
+    "number_of_posts",
+    "vacancy_opened_date",
+    "status"
+  ]
+}

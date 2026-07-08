@@ -1,0 +1,12 @@
+# Runtime logs
+backend_out.txt
+backend_err.txt
+
+# Compiled binary
+carecore-backend
+carecore-backend.exe
+
+# Environment
+.env.local
+
+.env

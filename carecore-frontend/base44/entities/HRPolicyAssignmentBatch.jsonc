@@ -1,0 +1,88 @@
+{
+  "name": "HRPolicyAssignmentBatch",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_title": {
+      "type": "string"
+    },
+    "policy_version_id": {
+      "type": "string"
+    },
+    "policy_version_number": {
+      "type": "string"
+    },
+    "assignment_name": {
+      "type": "string"
+    },
+    "assignment_scope": {
+      "type": "string",
+      "enum": [
+        "Individual",
+        "Multiple Staff",
+        "All Staff",
+        "Department",
+        "Role",
+        "Home",
+        "Group",
+        "Mixed"
+      ]
+    },
+    "assigned_by_staff_id": {
+      "type": "string"
+    },
+    "assigned_by_name": {
+      "type": "string"
+    },
+    "assigned_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "requires_acknowledgement": {
+      "type": "boolean",
+      "default": true
+    },
+    "reminder_enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "reminder_frequency": {
+      "type": "string",
+      "enum": [
+        "Daily",
+        "Every 3 days",
+        "Weekly",
+        "Fortnightly"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Active",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Active"
+    },
+    "staff_count": {
+      "type": "number",
+      "default": 0
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "policy_id"
+  ]
+}

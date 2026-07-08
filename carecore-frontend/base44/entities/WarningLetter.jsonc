@@ -1,0 +1,152 @@
+{
+  "name": "WarningLetter",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "issued_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "issued_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "issued_by_name": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string",
+      "enum": [
+        "behaviour",
+        "property_damage",
+        "abusive_language",
+        "non_compliance_house_rules",
+        "threatening_behaviour",
+        "other"
+      ],
+      "description": "Primary reason for warning"
+    },
+    "reason_detail": {
+      "type": "string",
+      "description": "Full description of the incident or behaviour leading to the warning"
+    },
+    "warning_level": {
+      "type": "string",
+      "enum": [
+        "verbal_warning",
+        "first_written_warning",
+        "final_written_warning",
+        "notice_to_quit"
+      ],
+      "default": "first_written_warning"
+    },
+    "yp_response": {
+      "type": "string",
+      "description": "YP's response or reaction to the warning"
+    },
+    "yp_acknowledgement_required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Does the YP need to formally acknowledge this warning letter?"
+    },
+    "yp_acknowledged": {
+      "type": "boolean",
+      "default": false,
+      "description": "Has the YP acknowledged the warning letter in their workspace?"
+    },
+    "yp_acknowledged_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "witness_name": {
+      "type": "string"
+    },
+    "follow_up_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "follow_up_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "follow_up_notes": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "acknowledged",
+        "disputed",
+        "escalated",
+        "resolved",
+        "no_further_action"
+      ],
+      "default": "acknowledged"
+    },
+    "document_url": {
+      "type": "string",
+      "description": "Uploaded warning letter document"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "pending_manager_approval",
+        "approved",
+        "active",
+        "resolved",
+        "appealed"
+      ],
+      "default": "draft"
+    },
+    "workflow_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "pending_manager_approval",
+        "manager_approved",
+        "sent_to_yp",
+        "yp_acknowledged",
+        "posted"
+      ],
+      "default": "draft"
+    },
+    "manager_approved_by_name": {
+      "type": "string"
+    },
+    "manager_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "approval_workflow_id": {
+      "type": "string",
+      "description": "FK \u2192 ApprovalWorkflow.id"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "issued_date",
+    "reason",
+    "warning_level"
+  ]
+}

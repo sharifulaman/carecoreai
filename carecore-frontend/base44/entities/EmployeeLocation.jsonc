@@ -1,0 +1,55 @@
+{
+  "name": "EmployeeLocation",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "staff_role": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "number"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "accuracy": {
+      "type": "number"
+    },
+    "heading": {
+      "type": "number"
+    },
+    "speed": {
+      "type": "number"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "tracking_consent": {
+      "type": "boolean",
+      "default": false
+    },
+    "consent_given_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "latitude",
+    "longitude"
+  ]
+}

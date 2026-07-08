@@ -1,0 +1,49 @@
+{
+  "name": "WellbeingCheckIn",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id \u2014 null for anonymous"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "month": {
+      "type": "string",
+      "description": "YYYY-MM"
+    },
+    "mood_rating": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "workload_rating": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "support_rating": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_anonymous": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "org_id",
+    "month",
+    "mood_rating",
+    "workload_rating",
+    "support_rating"
+  ]
+}

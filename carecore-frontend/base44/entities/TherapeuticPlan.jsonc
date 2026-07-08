@@ -1,0 +1,96 @@
+{
+  "name": "TherapeuticPlan",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "emotional_needs_summary": {
+      "type": "string"
+    },
+    "trauma_history_summary": {
+      "type": "string"
+    },
+    "camhs_involved": {
+      "type": "boolean",
+      "default": false
+    },
+    "camhs_tier": {
+      "type": "string",
+      "enum": [
+        "Tier 1",
+        "Tier 2",
+        "Tier 3",
+        "Tier 4"
+      ]
+    },
+    "camhs_therapist_name": {
+      "type": "string"
+    },
+    "camhs_frequency": {
+      "type": "string"
+    },
+    "therapy_type": {
+      "type": "string"
+    },
+    "other_therapeutic_services": {
+      "type": "string"
+    },
+    "staff_therapeutic_approach": {
+      "type": "string"
+    },
+    "attachment_relationship_notes": {
+      "type": "string"
+    },
+    "emotional_regulation_strategies": {
+      "type": "string"
+    },
+    "life_story_work": {
+      "type": "boolean",
+      "default": false
+    },
+    "life_story_worker": {
+      "type": "string"
+    },
+    "therapeutic_goals": {
+      "type": "string"
+    },
+    "progress_notes": {
+      "type": "string"
+    },
+    "yp_understands_plan": {
+      "type": "boolean",
+      "default": false
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completed_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "completed_by_name": {
+      "type": "string"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id"
+  ]
+}

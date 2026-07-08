@@ -1,0 +1,69 @@
+{
+  "name": "ComplianceEvidence",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "compliance_item_id": {
+      "type": "string"
+    },
+    "file_url": {
+      "type": "string"
+    },
+    "file_name": {
+      "type": "string"
+    },
+    "file_type": {
+      "type": "string"
+    },
+    "evidence_type": {
+      "type": "string"
+    },
+    "issue_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "uploaded_by_name": {
+      "type": "string"
+    },
+    "uploaded_by_staff_id": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_latest": {
+      "type": "boolean",
+      "default": true
+    },
+    "requires_manager_review": {
+      "type": "boolean",
+      "default": false
+    },
+    "review_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "changes_requested"
+      ],
+      "default": "pending"
+    },
+    "reviewed_by": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "compliance_item_id"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "name": "MaintenanceSchedule",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "applies_to_all_homes": {
+      "type": "boolean",
+      "default": false
+    },
+    "schedule_title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "maintenance_type": {
+      "type": "string",
+      "enum": [
+        "service",
+        "inspection",
+        "test",
+        "contractor_visit",
+        "planned_repair",
+        "compliance_check",
+        "other"
+      ],
+      "default": "service"
+    },
+    "frequency": {
+      "type": "string",
+      "enum": [
+        "one_off",
+        "weekly",
+        "monthly",
+        "quarterly",
+        "biannually",
+        "yearly",
+        "custom"
+      ],
+      "default": "yearly"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_due_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "assigned_to_name": {
+      "type": "string"
+    },
+    "contractor_name": {
+      "type": "string"
+    },
+    "estimated_cost": {
+      "type": "number"
+    },
+    "reminder_days_before": {
+      "type": "number",
+      "default": 7
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "paused",
+        "completed",
+        "cancelled"
+      ],
+      "default": "active"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "created_by_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "schedule_title",
+    "category",
+    "frequency",
+    "next_due_at"
+  ]
+}

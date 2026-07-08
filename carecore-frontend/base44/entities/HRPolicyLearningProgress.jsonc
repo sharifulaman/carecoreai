@@ -1,0 +1,86 @@
+{
+  "name": "HRPolicyLearningProgress",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "assignment_id": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string"
+    },
+    "started_at": {
+      "type": "string"
+    },
+    "last_accessed_at": {
+      "type": "string"
+    },
+    "completed_modules_count": {
+      "type": "number",
+      "default": 0
+    },
+    "total_modules_count": {
+      "type": "number",
+      "default": 0
+    },
+    "progress_percentage": {
+      "type": "number",
+      "default": 0
+    },
+    "completed_module_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "quiz_attempts": {
+      "type": "number",
+      "default": 0
+    },
+    "highest_score": {
+      "type": "number",
+      "default": 0
+    },
+    "latest_score": {
+      "type": "number",
+      "default": 0
+    },
+    "quiz_passed": {
+      "type": "boolean",
+      "default": false
+    },
+    "passed_at": {
+      "type": "string"
+    },
+    "completed_at": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Not Started",
+        "In Progress",
+        "Quiz Pending",
+        "Failed",
+        "Passed",
+        "Acknowledgement Pending",
+        "Completed"
+      ],
+      "default": "Not Started"
+    }
+  },
+  "required": [
+    "org_id",
+    "assignment_id",
+    "course_id",
+    "staff_id"
+  ]
+}

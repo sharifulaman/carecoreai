@@ -1,0 +1,329 @@
+{
+  "name": "Complaint",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "complaint_id": {
+      "type": "string",
+      "description": "Auto-generated reference"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ]
+    },
+    "complaint_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "received_by_id": {
+      "type": "string"
+    },
+    "received_by_name": {
+      "type": "string"
+    },
+    "received_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "received_method": {
+      "type": "string",
+      "enum": [
+        "in_person",
+        "phone",
+        "letter",
+        "email",
+        "other"
+      ]
+    },
+    "complainant_source": {
+      "type": "string",
+      "enum": [
+        "child",
+        "parent_carer",
+        "local_authority",
+        "professional",
+        "staff",
+        "neighbour_community",
+        "other"
+      ]
+    },
+    "is_child_complainant": {
+      "type": "boolean"
+    },
+    "complainant_name": {
+      "type": "string"
+    },
+    "complainant_relationship": {
+      "type": "string"
+    },
+    "complainant_contact": {
+      "type": "string"
+    },
+    "complaint_type": {
+      "type": "string",
+      "enum": [
+        "care_quality",
+        "staff_conduct",
+        "accommodation",
+        "food",
+        "activities",
+        "contact_arrangements",
+        "decisions_made",
+        "discrimination",
+        "safeguarding",
+        "other"
+      ]
+    },
+    "complaint_details": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "minor",
+        "moderate",
+        "serious",
+        "very_serious"
+      ]
+    },
+    "acknowledged": {
+      "type": "boolean",
+      "default": false
+    },
+    "acknowledged_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "investigated_by_id": {
+      "type": "string"
+    },
+    "investigated_by_name": {
+      "type": "string"
+    },
+    "investigation_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "investigation_outcome": {
+      "type": "string"
+    },
+    "outcome_category": {
+      "type": "string",
+      "enum": [
+        "upheld",
+        "partially_upheld",
+        "not_upheld",
+        "inconclusive"
+      ]
+    },
+    "actions_taken": {
+      "type": "string"
+    },
+    "lessons_learned": {
+      "type": "string"
+    },
+    "complainant_informed": {
+      "type": "boolean",
+      "default": false
+    },
+    "complainant_informed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "resident_informed": {
+      "type": "boolean",
+      "default": false
+    },
+    "resident_informed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "complainant_satisfied": {
+      "type": "boolean"
+    },
+    "escalated_to_ofsted": {
+      "type": "boolean",
+      "default": false
+    },
+    "ofsted_reference": {
+      "type": "string"
+    },
+    "target_resolution_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "resolution_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "days_open": {
+      "type": "number"
+    },
+    "annex_a_reportable": {
+      "type": "boolean",
+      "default": true
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "received",
+        "under_review",
+        "response_issued",
+        "resolved",
+        "escalated",
+        "closed"
+      ],
+      "default": "received"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "outcome_complaint_outcome": {
+      "type": "string",
+      "enum": [
+        "upheld",
+        "partially_upheld",
+        "not_upheld",
+        "resolved_informally",
+        "withdrawn",
+        "escalated_externally"
+      ],
+      "description": "Phase 7: Complaint Outcome"
+    },
+    "outcome_response_given": {
+      "type": "boolean",
+      "description": "Phase 7: Response given to young person?"
+    },
+    "outcome_yp_understood": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "partially",
+        "not_confirmed"
+      ],
+      "description": "Phase 7: Young person understood outcome?"
+    },
+    "outcome_impact_on_yp": {
+      "type": "string",
+      "description": "Phase 7: Impact on young person"
+    },
+    "outcome_service_learning": {
+      "type": "string",
+      "description": "Phase 7: Service learning identified"
+    },
+    "outcome_practice_changed": {
+      "type": "boolean",
+      "description": "Phase 7: Was practice changed?"
+    },
+    "outcome_what_changed": {
+      "type": "string",
+      "description": "Phase 7: What changed in practice?"
+    },
+    "outcome_apology_given": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "not_applicable"
+      ],
+      "description": "Phase 7: Apology given?"
+    },
+    "outcome_follow_up_required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Phase 7: Follow-up required?"
+    },
+    "outcome_follow_up_action": {
+      "type": "string",
+      "description": "Phase 7: Follow-up action"
+    },
+    "outcome_responsible_person_id": {
+      "type": "string",
+      "description": "Phase 7: FK \u2192 StaffProfile.id"
+    },
+    "outcome_responsible_person_name": {
+      "type": "string"
+    },
+    "outcome_target_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Phase 7: Target date for follow-up"
+    },
+    "outcome_manager_review_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "changes_requested",
+        "escalated",
+        "closed"
+      ],
+      "default": "pending",
+      "description": "Phase 7: Manager review status"
+    },
+    "outcome_manager_review_note": {
+      "type": "string",
+      "description": "Phase 7: Manager review note"
+    },
+    "outcome_recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "outcome_recorded_by_id": {
+      "type": "string"
+    },
+    "outcome_recorded_by_name": {
+      "type": "string"
+    },
+    "manager_review_status": {
+      "type": "string",
+      "enum": [
+        "submitted",
+        "pending_review",
+        "reviewed"
+      ],
+      "default": "submitted"
+    },
+    "manager_review_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "manager_review_by_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "received_datetime",
+    "complaint_details"
+  ]
+}

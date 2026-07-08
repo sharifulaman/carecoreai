@@ -1,0 +1,226 @@
+{
+  "name": "ContingencyPlan",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "version_number": {
+      "type": "string",
+      "description": "e.g. v1.0, v1.1"
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "under_review",
+        "superseded"
+      ],
+      "default": "draft"
+    },
+    "covers_permanent_closure": {
+      "type": "boolean",
+      "default": false
+    },
+    "covers_temporary_closure": {
+      "type": "boolean",
+      "default": false
+    },
+    "covers_registration_conditions": {
+      "type": "boolean",
+      "default": false
+    },
+    "covers_registration_suspension": {
+      "type": "boolean",
+      "default": false
+    },
+    "covers_registration_cancellation": {
+      "type": "boolean",
+      "default": false
+    },
+    "children_transfer_plan": {
+      "type": "string"
+    },
+    "emergency_accommodation_arrangements": {
+      "type": "string"
+    },
+    "la_notification_process": {
+      "type": "string"
+    },
+    "child_notification_process": {
+      "type": "string"
+    },
+    "support_continuity_plan": {
+      "type": "string"
+    },
+    "records_transfer_responsible_person": {
+      "type": "string"
+    },
+    "records_transfer_process": {
+      "type": "string"
+    },
+    "records_storage_interim": {
+      "type": "string"
+    },
+    "records_transfer_timescale": {
+      "type": "string"
+    },
+    "data_protection_measures": {
+      "type": "string"
+    },
+    "staff_notification_process": {
+      "type": "string"
+    },
+    "designated_lead_during_cessation_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "designated_lead_during_cessation_name": {
+      "type": "string"
+    },
+    "rsm_responsibilities": {
+      "type": "string"
+    },
+    "ofsted_notification_process": {
+      "type": "string"
+    },
+    "other_stakeholder_notifications": {
+      "type": "string"
+    },
+    "la_copies_sent": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "la_name": {
+            "type": "string"
+          },
+          "sent_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "sent_by_id": {
+            "type": "string"
+          },
+          "sent_by_name": {
+            "type": "string"
+          },
+          "contact_name": {
+            "type": "string"
+          },
+          "contact_email": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "email",
+              "letter",
+              "portal",
+              "hand_delivered"
+            ]
+          },
+          "confirmed_received": {
+            "type": "boolean",
+            "default": false
+          },
+          "confirmation_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "prepared_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "prepared_by_name": {
+      "type": "string"
+    },
+    "prepared_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "reviewed_by_name": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "approved_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "approved_by_name": {
+      "type": "string"
+    },
+    "approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "document_url": {
+      "type": "string"
+    },
+    "document_file_name": {
+      "type": "string"
+    },
+    "document_uploaded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "document_uploaded_by_id": {
+      "type": "string"
+    },
+    "previous_version_id": {
+      "type": "string",
+      "description": "FK \u2192 ContingencyPlan.id"
+    },
+    "superseded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "superseded_by_id": {
+      "type": "string"
+    },
+    "change_summary": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "version_number",
+    "effective_date",
+    "review_date",
+    "children_transfer_plan",
+    "la_notification_process",
+    "records_transfer_responsible_person",
+    "records_transfer_process",
+    "ofsted_notification_process",
+    "prepared_by_id"
+  ]
+}

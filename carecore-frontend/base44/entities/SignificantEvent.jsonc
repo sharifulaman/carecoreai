@@ -1,0 +1,132 @@
+{
+  "name": "SignificantEvent",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "recorded_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "recorded_by_name": {
+      "type": "string"
+    },
+    "event_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "safeguarding_concern",
+        "missing_from_home",
+        "police_attendance",
+        "serious_injury",
+        "medical_emergency",
+        "fire_or_evacuation",
+        "physical_intervention",
+        "serious_complaint",
+        "placement_breakdown",
+        "ofsted_notification_required",
+        "other_significant_event"
+      ]
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id, nullable"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string",
+      "description": "One paragraph summary"
+    },
+    "full_detail": {
+      "type": "string"
+    },
+    "immediate_action_taken": {
+      "type": "string"
+    },
+    "manager_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "manager_notified_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "la_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "la_notified_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ofsted_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "ofsted_notification_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "ofsted_notified_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "police_involved": {
+      "type": "boolean",
+      "default": false
+    },
+    "police_reference": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string"
+    },
+    "follow_up_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "follow_up_actions": {
+      "type": "string"
+    },
+    "review_completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "reviewed_by_name": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "event_datetime",
+    "event_type",
+    "summary",
+    "immediate_action_taken"
+  ]
+}

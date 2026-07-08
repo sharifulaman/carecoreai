@@ -1,0 +1,88 @@
+{
+  "name": "KeyPerson",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "contact_name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "social_worker",
+        "personal_adviser",
+        "independent_reviewing_officer",
+        "lac_nurse",
+        "missing_coordinator",
+        "youth_offending_team",
+        "camhs_worker",
+        "independent_advocate",
+        "parent",
+        "carer",
+        "college_tutor",
+        "solicitor",
+        "other_professional"
+      ]
+    },
+    "organisation": {
+      "type": "string",
+      "description": "Organisation/agency the person works for"
+    },
+    "office_phone": {
+      "type": "string"
+    },
+    "mobile_number": {
+      "type": "string"
+    },
+    "email_address": {
+      "type": "string"
+    },
+    "relationship_type": {
+      "type": "string",
+      "description": "e.g. Professional, Family, Support"
+    },
+    "is_primary_contact": {
+      "type": "boolean",
+      "default": false,
+      "description": "Is this the primary contact for this role?"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "default": "active"
+    },
+    "contact_notes": {
+      "type": "string"
+    },
+    "last_verified_date": {
+      "type": "string",
+      "format": "date",
+      "description": "When was contact information last verified?"
+    },
+    "added_by_name": {
+      "type": "string"
+    },
+    "added_date": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "contact_name",
+    "role"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "name": "StaffServiceAssignment",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "service_type": {
+      "type": "string",
+      "enum": [
+        "outreach",
+        "eighteen_plus",
+        "twenty_four_hours"
+      ]
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ]
+    },
+    "assignment_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "assignment_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "primary_assignment": {
+      "type": "boolean",
+      "description": "Is this the staff member's primary assignment?"
+    },
+    "allocation_percentage": {
+      "type": "number",
+      "description": "% of time allocated to this assignment (0-100)"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "home_id",
+    "service_type",
+    "accommodation_category",
+    "assignment_start_date"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "name": "DataQualityAlert",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id or null for org-level alerts"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id or null for resident-level alerts"
+    },
+    "alert_type": {
+      "type": "string",
+      "enum": [
+        "no_education_status",
+        "education_hours_missing",
+        "education_attendance_missing",
+        "no_employment_status",
+        "employment_hours_missing",
+        "neet_date_missing",
+        "dentist_unknown",
+        "dentist_missing",
+        "healthcare_access_unknown",
+        "gp_registration_missing",
+        "support_service_hours_missing",
+        "accommodation_category_missing",
+        "placement_start_missing"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "warning",
+        "critical"
+      ],
+      "default": "warning"
+    },
+    "description": {
+      "type": "string"
+    },
+    "data_source": {
+      "type": "string",
+      "description": "Entity that triggered the alert (e.g. 'EducationRecord', 'HealthProfile')"
+    },
+    "missing_field": {
+      "type": "string"
+    },
+    "resolved": {
+      "type": "boolean",
+      "default": false
+    },
+    "resolved_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "resolved_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "created_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "requires_manager_review": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_annex_a_reportable": {
+      "type": "boolean",
+      "default": true,
+      "description": "Is this data missing for Annex A purposes?"
+    }
+  },
+  "required": [
+    "org_id",
+    "alert_type",
+    "severity",
+    "created_date"
+  ]
+}

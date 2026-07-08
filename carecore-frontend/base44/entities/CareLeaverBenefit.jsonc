@@ -1,0 +1,181 @@
+{
+  "name": "CareLeaverBenefit",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "uc_claim_submitted": {
+      "type": "boolean",
+      "default": false
+    },
+    "uc_submission_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "uc_reference_number": {
+      "type": "string"
+    },
+    "uc_monthly_amount": {
+      "type": "number"
+    },
+    "uc_payment_date": {
+      "type": "integer",
+      "description": "Day of month (1-31)"
+    },
+    "uc_any_sanctions": {
+      "type": "boolean",
+      "default": false
+    },
+    "uc_sanction_notes": {
+      "type": "string"
+    },
+    "uc_next_review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "housing_benefit_applicable": {
+      "type": "boolean",
+      "default": false
+    },
+    "local_housing_allowance_rate": {
+      "type": "number"
+    },
+    "housing_benefit_amount": {
+      "type": "number"
+    },
+    "rent_amount_weekly": {
+      "type": "number"
+    },
+    "housing_benefit_covers_rent": {
+      "type": "boolean",
+      "default": false
+    },
+    "housing_shortfall_weekly": {
+      "type": "number"
+    },
+    "housing_shortfall_plan": {
+      "type": "string"
+    },
+    "council_tax_exempt": {
+      "type": "boolean",
+      "default": false
+    },
+    "council_tax_exempt_confirmed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "council_tax_exempt_la": {
+      "type": "string"
+    },
+    "free_prescriptions": {
+      "type": "boolean",
+      "default": false
+    },
+    "setting_up_home_grant_applied": {
+      "type": "boolean",
+      "default": false
+    },
+    "setting_up_home_grant_amount": {
+      "type": "number"
+    },
+    "setting_up_home_grant_received": {
+      "type": "boolean",
+      "default": false
+    },
+    "setting_up_home_grant_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "care_leaver_bursary_applied": {
+      "type": "boolean",
+      "default": false
+    },
+    "care_leaver_bursary_amount": {
+      "type": "number"
+    },
+    "care_leaver_bursary_received": {
+      "type": "boolean",
+      "default": false
+    },
+    "education_bursary_applied": {
+      "type": "boolean",
+      "default": false
+    },
+    "education_bursary_amount": {
+      "type": "number"
+    },
+    "id_documents_support_needed": {
+      "type": "boolean",
+      "default": false
+    },
+    "passport_supported": {
+      "type": "boolean",
+      "default": false
+    },
+    "driving_licence_supported": {
+      "type": "boolean",
+      "default": false
+    },
+    "national_insurance_number_obtained": {
+      "type": "boolean",
+      "default": false
+    },
+    "weekly_income_uc": {
+      "type": "number"
+    },
+    "weekly_income_employment": {
+      "type": "number"
+    },
+    "weekly_income_other": {
+      "type": "number"
+    },
+    "weekly_rent": {
+      "type": "number"
+    },
+    "weekly_food_budget": {
+      "type": "number"
+    },
+    "weekly_transport": {
+      "type": "number"
+    },
+    "weekly_phone": {
+      "type": "number"
+    },
+    "weekly_other": {
+      "type": "number"
+    },
+    "budget_notes": {
+      "type": "string"
+    },
+    "last_reviewed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "reviewed_by_id": {
+      "type": "string"
+    },
+    "reviewed_by_name": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id"
+  ]
+}

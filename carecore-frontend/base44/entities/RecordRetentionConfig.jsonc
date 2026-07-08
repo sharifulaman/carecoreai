@@ -1,0 +1,84 @@
+{
+  "name": "RecordRetentionConfig",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string",
+      "description": "Organisation ID"
+    },
+    "child_case_records_years": {
+      "type": "integer",
+      "default": 75,
+      "description": "Regulation 24(2)(b): 75 years from DOB \u2014 statutory minimum, cannot be reduced"
+    },
+    "child_deceased_before_18_years": {
+      "type": "integer",
+      "default": 15,
+      "description": "Regulation 24(2)(a): 15 years from death \u2014 statutory minimum"
+    },
+    "other_records_years": {
+      "type": "integer",
+      "default": 15,
+      "description": "Regulation 25(2)(d): 15 years \u2014 statutory minimum"
+    },
+    "staff_employment_records_years": {
+      "type": "integer",
+      "default": 6,
+      "description": "Employment law minimum"
+    },
+    "payroll_records_years": {
+      "type": "integer",
+      "default": 7,
+      "description": "HMRC requirement"
+    },
+    "incident_records_years": {
+      "type": "integer",
+      "default": 15,
+      "description": "Minimum 15 years"
+    },
+    "complaints_records_years": {
+      "type": "integer",
+      "default": 15,
+      "description": "Minimum 15 years"
+    },
+    "safeguarding_records_years": {
+      "type": "integer",
+      "default": 15,
+      "description": "Minimum 15 years"
+    },
+    "last_reviewed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_reviewed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "last_reviewed_by_name": {
+      "type": "string"
+    },
+    "next_review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "deletion_protection_enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Cannot be set to false \u2014 soft deletes only"
+    },
+    "created_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id"
+  ]
+}

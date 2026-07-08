@@ -1,0 +1,80 @@
+{
+  "name": "HRPolicyAuditEvent",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "Policy Uploaded",
+        "Policy Updated",
+        "Policy Version Created",
+        "PDF Text Extracted",
+        "Manual Policy Text Added",
+        "AI Course Generated",
+        "AI Generation Failed",
+        "Course Edited",
+        "Module Edited",
+        "Quiz Edited",
+        "Submitted for Review",
+        "Changes Requested",
+        "Course Approved",
+        "Course Published",
+        "Course Assigned",
+        "Staff Started Course",
+        "Module Completed",
+        "Quiz Started",
+        "Quiz Submitted",
+        "Quiz Passed",
+        "Quiz Failed",
+        "Policy Acknowledged",
+        "Reminder Sent",
+        "Report Exported",
+        "Course Archived",
+        "Policy Superseded"
+      ]
+    },
+    "entity_type": {
+      "type": "string"
+    },
+    "entity_id": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_title": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "course_title": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "performed_by": {
+      "type": "string"
+    },
+    "event_description": {
+      "type": "string"
+    },
+    "old_value": {
+      "type": "string"
+    },
+    "new_value": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "event_type"
+  ]
+}

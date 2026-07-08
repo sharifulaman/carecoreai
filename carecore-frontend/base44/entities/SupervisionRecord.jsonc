@@ -1,0 +1,55 @@
+{
+  "name": "SupervisionRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "supervisee_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "supervisee_name": {
+      "type": "string"
+    },
+    "supervisor_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "supervisor_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "session_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "action_points": {
+      "type": "string"
+    },
+    "next_supervision_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "scheduled",
+        "missed"
+      ],
+      "default": "completed"
+    }
+  },
+  "required": [
+    "org_id",
+    "supervisee_id",
+    "supervisor_id",
+    "session_date"
+  ]
+}

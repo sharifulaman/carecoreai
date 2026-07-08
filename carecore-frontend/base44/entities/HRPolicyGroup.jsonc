@@ -1,0 +1,67 @@
+{
+  "name": "HRPolicyGroup",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "group_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "department_filters": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "role_filters": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "home_filters": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "member_staff_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "member_staff_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_by_staff_id": {
+      "type": "string"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Active",
+        "Inactive"
+      ],
+      "default": "Active"
+    },
+    "member_count": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "org_id",
+    "group_name"
+  ]
+}

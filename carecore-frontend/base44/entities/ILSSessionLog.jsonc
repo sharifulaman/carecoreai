@@ -1,0 +1,187 @@
+{
+  "name": "ILSSessionLog",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "session_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "worker_id": {
+      "type": "string"
+    },
+    "worker_name": {
+      "type": "string"
+    },
+    "session_type": {
+      "type": "string",
+      "enum": [
+        "one_to_one",
+        "group",
+        "community_activity",
+        "home_visit",
+        "phone",
+        "other"
+      ]
+    },
+    "duration_minutes": {
+      "type": "number"
+    },
+    "domains_covered": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "skills_worked_on": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "young_person_engagement": {
+      "type": "string",
+      "enum": [
+        "excellent",
+        "good",
+        "reluctant",
+        "refused",
+        "partial"
+      ]
+    },
+    "session_notes": {
+      "type": "string"
+    },
+    "achievements_this_session": {
+      "type": "string"
+    },
+    "next_session_plan": {
+      "type": "string"
+    },
+    "next_session_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "skill_area": {
+      "type": "string",
+      "enum": [
+        "cooking",
+        "budgeting",
+        "cleaning",
+        "personal_hygiene",
+        "laundry",
+        "travel",
+        "appointments",
+        "education",
+        "employment",
+        "communication",
+        "digital_skills",
+        "healthy_relationships",
+        "safety_awareness",
+        "other"
+      ],
+      "description": "Primary skill area focused on in this session"
+    },
+    "skill_level_before": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "basic",
+        "developing",
+        "confident",
+        "independent"
+      ]
+    },
+    "skill_level_after": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "basic",
+        "developing",
+        "confident",
+        "independent"
+      ]
+    },
+    "skill_level_regression_reason": {
+      "type": "string",
+      "description": "Required when skill_level_after is lower than skill_level_before"
+    },
+    "evidence_of_progress": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "staff_observation, yp_feedback, completed_task, photo_evidence, certificate, external_professional_feedback, other"
+    },
+    "impact_on_young_person": {
+      "type": "string"
+    },
+    "progress_made": {
+      "type": "string"
+    },
+    "support_still_needed": {
+      "type": "string",
+      "enum": [
+        "full_support",
+        "prompting",
+        "occasional_check",
+        "independent"
+      ]
+    },
+    "next_target": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "follow_up_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "follow_up_action": {
+      "type": "string"
+    },
+    "responsible_person_id": {
+      "type": "string"
+    },
+    "responsible_person_name": {
+      "type": "string"
+    },
+    "manager_review_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "changes_requested",
+        "more_evidence_needed",
+        "closed"
+      ],
+      "default": "pending"
+    },
+    "manager_review_note": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "session_date"
+  ]
+}

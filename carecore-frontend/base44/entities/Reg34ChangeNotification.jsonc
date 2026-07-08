@@ -1,0 +1,261 @@
+{
+  "name": "Reg34ChangeNotification",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string",
+      "description": "Organisation ID"
+    },
+    "change_type": {
+      "type": "string",
+      "enum": [
+        "new_person_carrying_on",
+        "person_ceased_carrying_on",
+        "new_person_managing",
+        "person_ceased_managing",
+        "registered_provider_name_change",
+        "trustee_in_bankruptcy_appointed",
+        "composition_or_arrangement_with_creditors",
+        "partnership_membership_change",
+        "organisation_name_or_address_change",
+        "director_manager_secretary_change",
+        "nominated_individual_change",
+        "company_ownership_change",
+        "liquidator_appointed",
+        "premises_significantly_altered",
+        "premises_extended",
+        "additional_premises_acquired",
+        "premises_no_longer_in_use",
+        "additional_premises_first_use",
+        "premises_returned_to_use_after_temporary_closure"
+      ],
+      "description": "Type of change per Regulation 34(1)-(4)"
+    },
+    "change_type_description": {
+      "type": "string",
+      "description": "Human-readable description of what changed"
+    },
+    "deadline_type": {
+      "type": "string",
+      "enum": [
+        "seventy_two_hours",
+        "ten_working_days",
+        "as_soon_as_practicable",
+        "one_month"
+      ],
+      "description": "Auto-set based on change_type"
+    },
+    "change_event_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the change occurred or will occur"
+    },
+    "change_event_time": {
+      "type": "string",
+      "description": "Time of change if relevant (e.g. first accommodation of child)"
+    },
+    "notification_deadline": {
+      "type": "string",
+      "format": "date",
+      "description": "Auto-calculated based on deadline_type"
+    },
+    "hours_until_deadline": {
+      "type": "number",
+      "description": "Auto-calculated for 72-hour cases"
+    },
+    "is_overdue": {
+      "type": "boolean",
+      "default": false,
+      "description": "Auto-calculated: today > notification_deadline and notification_sent = false"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id (for premises-related changes)"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "home_address": {
+      "type": "string"
+    },
+    "premises_change_details": {
+      "type": "string",
+      "description": "Description of alteration, extension, or new use"
+    },
+    "new_premises_address": {
+      "type": "string",
+      "description": "For Reg 34(3) \u2014 additional premises"
+    },
+    "new_premises_children_characteristics": {
+      "type": "string",
+      "description": "Reg 34(3)(b): age range, number and sex of children"
+    },
+    "new_premises_accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced",
+        "private_residence"
+      ],
+      "description": "Reg 34(3)(c): category of supported accommodation"
+    },
+    "first_accommodation_date": {
+      "type": "string",
+      "format": "date",
+      "description": "For Reg 34(4) \u2014 when first child was accommodated at premises"
+    },
+    "first_accommodation_time": {
+      "type": "string",
+      "description": "Time of first accommodation"
+    },
+    "first_child_name": {
+      "type": "string",
+      "description": "For internal record only, not sent to Ofsted"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id (first resident placed at premises)"
+    },
+    "person_affected_name": {
+      "type": "string",
+      "description": "For organisational changes"
+    },
+    "person_affected_role": {
+      "type": "string",
+      "description": "e.g. Director, Partner, Nominated Individual"
+    },
+    "person_affected_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id if internal"
+    },
+    "change_effective_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date change becomes effective"
+    },
+    "previous_value": {
+      "type": "string",
+      "description": "e.g. previous name, previous director"
+    },
+    "new_value": {
+      "type": "string",
+      "description": "e.g. new name, new director"
+    },
+    "notification_sent": {
+      "type": "boolean",
+      "default": false
+    },
+    "notification_sent_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "notification_sent_time": {
+      "type": "string"
+    },
+    "notification_sent_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "notification_sent_by_name": {
+      "type": "string"
+    },
+    "notification_method": {
+      "type": "string",
+      "enum": [
+        "ofsted_portal",
+        "email",
+        "letter",
+        "phone_confirmed_in_writing"
+      ]
+    },
+    "ofsted_reference_number": {
+      "type": "string"
+    },
+    "notification_confirmed_by_ofsted": {
+      "type": "boolean",
+      "default": false
+    },
+    "notification_confirmed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "notification_within_deadline": {
+      "type": "boolean",
+      "description": "Auto-calculated on notification_sent_date vs notification_deadline"
+    },
+    "notification_late": {
+      "type": "boolean"
+    },
+    "notification_late_reason": {
+      "type": "string",
+      "description": "Required if late, to document why"
+    },
+    "notification_content": {
+      "type": "string",
+      "description": "Draft or record of what was sent to Ofsted"
+    },
+    "notification_document_url": {
+      "type": "string",
+      "description": "Upload of the actual notification sent"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "pending_notification",
+        "notified_on_time",
+        "notified_late",
+        "overdue",
+        "not_required"
+      ],
+      "default": "draft"
+    },
+    "submitted_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "submitted_by_name": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "reviewed_by_name": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "approved_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "approved_by_name": {
+      "type": "string"
+    },
+    "approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "change_type",
+    "change_event_date",
+    "deadline_type"
+  ]
+}

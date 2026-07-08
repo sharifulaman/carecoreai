@@ -1,0 +1,76 @@
+{
+  "name": "HandoverYPSummary",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "handover_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "resident_initials": {
+      "type": "string"
+    },
+    "resident_display": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "doing_well",
+        "needs_monitoring",
+        "concern",
+        "incident_recorded",
+        "medical_attention",
+        "away",
+        "missing",
+        "returned_safely"
+      ],
+      "default": "doing_well"
+    },
+    "mood": {
+      "type": "string",
+      "enum": [
+        "good",
+        "neutral",
+        "low",
+        "anxious",
+        "angry",
+        "upset",
+        "unknown"
+      ],
+      "default": "good"
+    },
+    "key_update": {
+      "type": "string"
+    },
+    "concern_flag": {
+      "type": "boolean",
+      "default": false
+    },
+    "follow_up_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "follow_up_note": {
+      "type": "string"
+    },
+    "created_by_staff_id": {
+      "type": "string"
+    },
+    "created_by_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "handover_id",
+    "resident_id"
+  ]
+}

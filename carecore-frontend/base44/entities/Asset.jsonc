@@ -1,0 +1,313 @@
+{
+  "name": "Asset",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "asset_ref": {
+      "type": "string",
+      "description": "Auto-generated: AST-YYYY-000001"
+    },
+    "asset_name": {
+      "type": "string"
+    },
+    "asset_category": {
+      "type": "string",
+      "enum": [
+        "Medical Equipment",
+        "Fire Safety",
+        "IT Equipment",
+        "Furniture",
+        "White Goods",
+        "Office Equipment",
+        "Health & Safety",
+        "Security",
+        "Cleaning Equipment",
+        "Kitchen Equipment",
+        "Vehicle",
+        "PPE",
+        "Stock / Consumables",
+        "Other"
+      ]
+    },
+    "asset_type": {
+      "type": "string"
+    },
+    "brand_model": {
+      "type": "string"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "barcode": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "number",
+      "default": 1
+    },
+    "unit_of_measure": {
+      "type": "string",
+      "enum": [
+        "Each",
+        "Box",
+        "Pack",
+        "Pair",
+        "Set",
+        "Unit",
+        "Litre",
+        "Kilogram",
+        "Roll",
+        "Other"
+      ],
+      "default": "Each"
+    },
+    "condition": {
+      "type": "string",
+      "enum": [
+        "New",
+        "Good",
+        "Fair",
+        "Poor",
+        "Damaged",
+        "In Repair",
+        "Retired",
+        "Lost",
+        "Disposed"
+      ],
+      "default": "Good"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Draft",
+        "In Stock",
+        "Assigned",
+        "In Use",
+        "In Repair",
+        "Low Stock",
+        "Reserved",
+        "Retired",
+        "Lost",
+        "Disposed",
+        "Pending Approval",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Draft"
+    },
+    "purchase_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "supplier_name": {
+      "type": "string"
+    },
+    "purchase_cost": {
+      "type": "number"
+    },
+    "depreciation_type": {
+      "type": "string",
+      "enum": [
+        "None",
+        "Straight Line",
+        "Reducing Balance",
+        "Manual",
+        "Expensed Immediately"
+      ],
+      "default": "None"
+    },
+    "warranty_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "invoice_reference": {
+      "type": "string"
+    },
+    "funding_source": {
+      "type": "string"
+    },
+    "budget_code": {
+      "type": "string"
+    },
+    "linked_bill_id": {
+      "type": "string"
+    },
+    "linked_home_expense_id": {
+      "type": "string"
+    },
+    "finance_link_status": {
+      "type": "string",
+      "enum": [
+        "Linked",
+        "Not Required",
+        "Pending Link",
+        "Unlinked"
+      ],
+      "default": "Unlinked"
+    },
+    "assigned_home_id": {
+      "type": "string"
+    },
+    "assigned_home_name": {
+      "type": "string"
+    },
+    "assigned_staff_id": {
+      "type": "string"
+    },
+    "assigned_staff_name": {
+      "type": "string"
+    },
+    "room_location": {
+      "type": "string"
+    },
+    "department_team": {
+      "type": "string"
+    },
+    "custodian_owner": {
+      "type": "string"
+    },
+    "issue_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "return_due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_service_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_inspection_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "pat_test_due": {
+      "type": "string",
+      "format": "date"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ],
+      "default": "Low"
+    },
+    "replacement_due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "maintenance_notes": {
+      "type": "string"
+    },
+    "pat_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "fire_safety_critical": {
+      "type": "boolean",
+      "default": false
+    },
+    "manual_handling": {
+      "type": "boolean",
+      "default": false
+    },
+    "data_protection": {
+      "type": "boolean",
+      "default": false
+    },
+    "coshh_related": {
+      "type": "boolean",
+      "default": false
+    },
+    "infection_control": {
+      "type": "boolean",
+      "default": false
+    },
+    "health_safety_critical": {
+      "type": "boolean",
+      "default": false
+    },
+    "requires_annual_inspection": {
+      "type": "boolean",
+      "default": false
+    },
+    "requires_staff_training": {
+      "type": "boolean",
+      "default": false
+    },
+    "warranty_monitored": {
+      "type": "boolean",
+      "default": false
+    },
+    "photo_url": {
+      "type": "string"
+    },
+    "document_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "internal_notes": {
+      "type": "string"
+    },
+    "handover_notes": {
+      "type": "string"
+    },
+    "approval_status": {
+      "type": "string",
+      "enum": [
+        "Draft",
+        "Submitted",
+        "Approved",
+        "Rejected",
+        "Changes Requested",
+        "Archived"
+      ],
+      "default": "Draft"
+    },
+    "submitted_by": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "approved_by": {
+      "type": "string"
+    },
+    "approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "current_book_value": {
+      "type": "number"
+    },
+    "replacement_value": {
+      "type": "number"
+    },
+    "disposal_value": {
+      "type": "number"
+    },
+    "write_off_reason": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "asset_name",
+    "asset_category"
+  ]
+}

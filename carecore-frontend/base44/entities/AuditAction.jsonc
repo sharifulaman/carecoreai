@@ -1,0 +1,82 @@
+{
+  "name": "AuditAction",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "audit_submission_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "action_required": {
+      "type": "string"
+    },
+    "responsible_person_id": {
+      "type": "string"
+    },
+    "responsible_person_name": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "in_progress",
+        "completed",
+        "overdue"
+      ],
+      "default": "pending"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completion_notes": {
+      "type": "string"
+    },
+    "completion_evidence": {
+      "type": "string",
+      "description": "File URL or link to evidence of completion"
+    },
+    "issue_previously_identified": {
+      "type": "boolean",
+      "description": "Was this issue identified in a previous audit?"
+    },
+    "previous_audit_id": {
+      "type": "string",
+      "description": "If recurring issue, link to previous audit"
+    },
+    "how_previously_solved": {
+      "type": "string"
+    },
+    "delays_recorded": {
+      "type": "number",
+      "description": "Number of days overdue"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "audit_submission_id",
+    "home_id",
+    "action_required"
+  ]
+}

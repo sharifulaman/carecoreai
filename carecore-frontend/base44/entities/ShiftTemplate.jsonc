@@ -1,0 +1,55 @@
+{
+  "name": "ShiftTemplate",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "e.g. Morning Shift"
+    },
+    "shift_type": {
+      "type": "string",
+      "enum": [
+        "morning",
+        "afternoon",
+        "night",
+        "sleeping"
+      ],
+      "default": "morning"
+    },
+    "time_start": {
+      "type": "string",
+      "description": "e.g. 07:00"
+    },
+    "time_end": {
+      "type": "string",
+      "description": "e.g. 15:00"
+    },
+    "staff_required": {
+      "type": "integer",
+      "default": 1,
+      "description": "Number of staff required"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "name",
+    "shift_type"
+  ]
+}

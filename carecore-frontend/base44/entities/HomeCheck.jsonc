@@ -1,0 +1,94 @@
+{
+  "name": "HomeCheck",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "check_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "check_type": {
+      "type": "string",
+      "enum": [
+        "daily",
+        "weekly",
+        "monthly"
+      ]
+    },
+    "checked_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "checked_by_name": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "item_name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pass",
+              "fail",
+              "advisory",
+              "na"
+            ]
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "overall_result": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "fail",
+        "advisory"
+      ]
+    },
+    "any_fails": {
+      "type": "boolean",
+      "default": false
+    },
+    "maintenance_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "signed_off_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "check_date",
+    "check_type",
+    "checked_by_id"
+  ]
+}

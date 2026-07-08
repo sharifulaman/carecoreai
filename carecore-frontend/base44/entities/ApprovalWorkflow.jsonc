@@ -1,0 +1,233 @@
+{
+  "name": "ApprovalWorkflow",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "entity_type": {
+      "type": "string",
+      "enum": [
+        "bill",
+        "visit_report",
+        "support_plan",
+        "expense_claim",
+        "leave_request",
+        "new_staff_entry",
+        "staff_movement",
+        "incident_report",
+        "missing_episode"
+      ],
+      "description": "Type of record being approved"
+    },
+    "entity_id": {
+      "type": "string",
+      "description": "FK to the related entity record"
+    },
+    "entity_reference": {
+      "type": "string",
+      "description": "Human-readable reference (bill number, etc)"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number",
+      "description": "For bills and expense claims"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "high",
+        "critical"
+      ],
+      "default": "normal",
+      "description": "Priority level for time-sensitive approvals"
+    },
+    "deadline_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "For time-critical approvals like Reg 27"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending_tl",
+        "pending_tm",
+        "pending_rm",
+        "pending_rsm",
+        "pending_admin",
+        "pending_finance",
+        "pending_fo",
+        "pending_fm",
+        "pending_ho",
+        "pending_hm",
+        "pending_ro",
+        "pending_rkm",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending_tl"
+    },
+    "current_step": {
+      "type": "integer",
+      "default": 1,
+      "description": "1=TL review, 2=Admin review, 3=Finance review"
+    },
+    "submitted_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "submitted_by_name": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tl_approved_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "tl_approved_by_name": {
+      "type": "string"
+    },
+    "tl_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tm_approved_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "tm_approved_by_name": {
+      "type": "string"
+    },
+    "tm_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rm_approved_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "rm_approved_by_name": {
+      "type": "string"
+    },
+    "rm_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rsm_approved_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "rsm_approved_by_name": {
+      "type": "string"
+    },
+    "rsm_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "admin_approved_by": {
+      "type": "string"
+    },
+    "admin_approved_by_name": {
+      "type": "string"
+    },
+    "admin_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "fo_approved_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id (Finance Officer)"
+    },
+    "fo_approved_by_name": {
+      "type": "string"
+    },
+    "fo_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "fm_approved_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id (Finance Manager)"
+    },
+    "fm_approved_by_name": {
+      "type": "string"
+    },
+    "fm_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ho_approved_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id (HR Officer)"
+    },
+    "ho_approved_by_name": {
+      "type": "string"
+    },
+    "ho_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "hm_approved_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id (HR Manager)"
+    },
+    "hm_approved_by_name": {
+      "type": "string"
+    },
+    "hm_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "finance_approved_by": {
+      "type": "string"
+    },
+    "finance_approved_by_name": {
+      "type": "string"
+    },
+    "finance_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rejection_reason": {
+      "type": "string"
+    },
+    "rejected_by": {
+      "type": "string"
+    },
+    "rejected_by_name": {
+      "type": "string"
+    },
+    "rejected_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "posted_to_expenses": {
+      "type": "boolean",
+      "default": false
+    },
+    "expense_reference": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "entity_type",
+    "entity_id",
+    "home_id",
+    "submitted_by",
+    "submitted_at"
+  ]
+}

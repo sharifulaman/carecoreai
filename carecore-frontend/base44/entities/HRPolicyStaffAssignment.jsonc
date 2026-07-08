@@ -1,0 +1,112 @@
+{
+  "name": "HRPolicyStaffAssignment",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "assignment_batch_id": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_title": {
+      "type": "string"
+    },
+    "policy_version_id": {
+      "type": "string"
+    },
+    "policy_version_number": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "staff_role": {
+      "type": "string"
+    },
+    "staff_department": {
+      "type": "string"
+    },
+    "staff_home_id": {
+      "type": "string"
+    },
+    "staff_home_name": {
+      "type": "string"
+    },
+    "assigned_by_staff_id": {
+      "type": "string"
+    },
+    "assigned_by_name": {
+      "type": "string"
+    },
+    "assigned_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Assigned",
+        "Viewed",
+        "Acknowledged",
+        "Overdue",
+        "Exempted",
+        "Cancelled"
+      ],
+      "default": "Assigned"
+    },
+    "viewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "acknowledged_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "acknowledgement_required": {
+      "type": "boolean",
+      "default": true
+    },
+    "acknowledgement_text": {
+      "type": "string"
+    },
+    "exempted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "exempted_by_staff_id": {
+      "type": "string"
+    },
+    "exemption_reason": {
+      "type": "string"
+    },
+    "last_reminder_sent_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reminder_count": {
+      "type": "number",
+      "default": 0
+    },
+    "file_url": {
+      "type": "string"
+    },
+    "file_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "policy_id",
+    "staff_id"
+  ]
+}

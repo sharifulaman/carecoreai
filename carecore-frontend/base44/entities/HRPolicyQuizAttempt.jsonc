@@ -1,0 +1,63 @@
+{
+  "name": "HRPolicyQuizAttempt",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "assignment_id": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "attempt_number": {
+      "type": "number"
+    },
+    "started_at": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string"
+    },
+    "score_percentage": {
+      "type": "number"
+    },
+    "total_questions": {
+      "type": "number"
+    },
+    "correct_answers": {
+      "type": "number"
+    },
+    "incorrect_answers": {
+      "type": "number"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "time_taken_minutes": {
+      "type": "number"
+    },
+    "answers": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "required": [
+    "org_id",
+    "assignment_id",
+    "course_id",
+    "staff_id"
+  ]
+}

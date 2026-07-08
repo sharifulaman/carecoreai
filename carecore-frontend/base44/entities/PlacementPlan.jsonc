@@ -1,0 +1,185 @@
+{
+  "name": "PlacementPlan",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "created_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "default": 1
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "reason_for_placement": {
+      "type": "string"
+    },
+    "placement_type": {
+      "type": "string"
+    },
+    "previous_placement": {
+      "type": "string"
+    },
+    "number_of_placements_12_months": {
+      "type": "integer"
+    },
+    "emergency_placement": {
+      "type": "boolean",
+      "default": false
+    },
+    "planned_duration": {
+      "type": "string"
+    },
+    "planned_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "goals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "goal_area": {
+            "type": "string",
+            "enum": [
+              "safety",
+              "education",
+              "health",
+              "relationships",
+              "independence",
+              "emotional_wellbeing",
+              "behaviour",
+              "other"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "target_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "responsible_person": {
+            "type": "string"
+          },
+          "progress": {
+            "type": "string",
+            "enum": [
+              "not_started",
+              "in_progress",
+              "achieved",
+              "not_achieved"
+            ]
+          },
+          "progress_notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "risk_of_breakdown": {
+      "type": "boolean",
+      "default": false
+    },
+    "breakdown_risk_notes": {
+      "type": "string"
+    },
+    "contingency_plan": {
+      "type": "string"
+    },
+    "key_worker_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "social_worker_name": {
+      "type": "string"
+    },
+    "social_worker_contact": {
+      "type": "string"
+    },
+    "iro_name": {
+      "type": "string"
+    },
+    "iro_contact": {
+      "type": "string"
+    },
+    "la_area": {
+      "type": "string"
+    },
+    "child_consulted": {
+      "type": "boolean",
+      "default": false
+    },
+    "child_agrees": {
+      "type": "boolean"
+    },
+    "child_comments": {
+      "type": "string"
+    },
+    "parent_consulted": {
+      "type": "boolean",
+      "default": false
+    },
+    "parent_comments": {
+      "type": "string"
+    },
+    "la_agreed": {
+      "type": "boolean",
+      "default": false
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "reviewed",
+        "ended"
+      ],
+      "default": "draft"
+    },
+    "ended_reason": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "effective_date",
+    "review_date",
+    "reason_for_placement"
+  ]
+}

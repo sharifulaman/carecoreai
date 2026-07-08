@@ -1,0 +1,94 @@
+{
+  "name": "AdvocacyRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "informed_of_right": {
+      "type": "boolean",
+      "default": false
+    },
+    "informed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "informed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "informed_by_name": {
+      "type": "string"
+    },
+    "advocate_requested": {
+      "type": "boolean",
+      "default": false
+    },
+    "advocate_name": {
+      "type": "string"
+    },
+    "advocate_organisation": {
+      "type": "string"
+    },
+    "advocate_contact": {
+      "type": "string"
+    },
+    "first_meeting_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "sessions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "duration_minutes": {
+            "type": "number"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "child_feedback": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": false
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "KPIOption",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "visit_type",
+        "presentation",
+        "placement_condition",
+        "primary_purpose",
+        "college_status",
+        "life_skills",
+        "liaison",
+        "engagement_level",
+        "risk_level",
+        "independence_progress",
+        "health_adherence"
+      ]
+    },
+    "value": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "order": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "org_id",
+    "category",
+    "value",
+    "label"
+  ]
+}

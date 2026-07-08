@@ -1,0 +1,168 @@
+{
+  "name": "EducationRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ],
+      "description": "Auto-filled from Resident"
+    },
+    "age_at_record_date": {
+      "type": "number",
+      "description": "Auto-calculated from Resident DOB"
+    },
+    "placement_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Auto-filled from Resident.placement_start"
+    },
+    "placing_local_authority": {
+      "type": "string",
+      "description": "Auto-filled from Resident"
+    },
+    "education_status": {
+      "type": "string",
+      "enum": [
+        "full_time_education",
+        "part_time_education",
+        "alternative_provision",
+        "not_in_education",
+        "unknown"
+      ]
+    },
+    "education_provider_name": {
+      "type": "string"
+    },
+    "is_main_provider": {
+      "type": "boolean",
+      "description": "Is this the main education provider?"
+    },
+    "course_programme_name": {
+      "type": "string"
+    },
+    "course_level": {
+      "type": "string",
+      "enum": [
+        "gcse",
+        "a_level",
+        "vocational_btec",
+        "apprenticeship",
+        "elt",
+        "alternative_curriculum",
+        "sen",
+        "other"
+      ]
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "hours_per_week_provided": {
+      "type": "number",
+      "description": "Contracted hours of education per week"
+    },
+    "hours_per_week_attended": {
+      "type": "number",
+      "description": "Actual hours attended per week"
+    },
+    "attendance_period_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "attendance_period_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "attendance_concerns": {
+      "type": "boolean"
+    },
+    "attendance_concerns_notes": {
+      "type": "string"
+    },
+    "attendance_percentage": {
+      "type": "number",
+      "description": "Calculated as (hours_attended / hours_provided) * 100"
+    },
+    "education_contact_name": {
+      "type": "string"
+    },
+    "education_contact_phone": {
+      "type": "string"
+    },
+    "education_contact_email": {
+      "type": "string"
+    },
+    "neet_risk": {
+      "type": "boolean",
+      "description": "Is there a risk of NEET if this education ends?"
+    },
+    "support_needed": {
+      "type": "boolean"
+    },
+    "support_notes": {
+      "type": "string"
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "record_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_updated_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "last_updated_by_name": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "ended",
+        "paused"
+      ],
+      "default": "active"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "education_status",
+    "record_date"
+  ]
+}

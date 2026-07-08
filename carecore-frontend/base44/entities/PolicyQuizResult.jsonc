@@ -1,0 +1,93 @@
+{
+  "name": "PolicyQuizResult",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "quiz_id": {
+      "type": "string",
+      "description": "Identifier of the quiz taken e.g. safeguarding_children_v1"
+    },
+    "quiz_title": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string",
+      "description": "FK \u2192 HRPolicy.id (optional)"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "staff_role": {
+      "type": "string"
+    },
+    "assigned_by_id": {
+      "type": "string"
+    },
+    "assigned_by_name": {
+      "type": "string"
+    },
+    "score": {
+      "type": "number",
+      "description": "Percentage score 0-100"
+    },
+    "correct_answers": {
+      "type": "number"
+    },
+    "total_questions": {
+      "type": "number"
+    },
+    "passed": {
+      "type": "boolean",
+      "default": false
+    },
+    "pass_threshold": {
+      "type": "number",
+      "default": 80
+    },
+    "answers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_index": {
+            "type": "number"
+          },
+          "selected": {
+            "type": "number"
+          },
+          "correct": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "attempt_number": {
+      "type": "number",
+      "default": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "assigned",
+        "in_progress",
+        "completed"
+      ],
+      "default": "assigned"
+    }
+  },
+  "required": [
+    "org_id",
+    "quiz_id",
+    "staff_id"
+  ]
+}

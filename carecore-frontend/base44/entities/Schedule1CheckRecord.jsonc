@@ -1,0 +1,514 @@
+{
+  "name": "Schedule1CheckRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "staff_role": {
+      "type": "string"
+    },
+    "home_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Denormalised from StaffProfile"
+    },
+    "employment_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "identity_check_completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "identity_check_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "identity_check_document_type": {
+      "type": "string",
+      "enum": [
+        "passport",
+        "driving_licence",
+        "birth_certificate_plus_photo",
+        "biometric_residence_permit",
+        "other"
+      ]
+    },
+    "identity_check_document_reference": {
+      "type": "string"
+    },
+    "identity_photo_on_file": {
+      "type": "boolean",
+      "default": false
+    },
+    "identity_document_url": {
+      "type": "string"
+    },
+    "identity_check_completed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "identity_check_notes": {
+      "type": "string"
+    },
+    "dbs_check_completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "dbs_check_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "dbs_certificate_type": {
+      "type": "string",
+      "enum": [
+        "enhanced_with_children_barred_list",
+        "enhanced_without_barred_list",
+        "standard",
+        "basic"
+      ]
+    },
+    "dbs_certificate_number": {
+      "type": "string"
+    },
+    "dbs_issue_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "dbs_expiry_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "dbs_outcome": {
+      "type": "string",
+      "enum": [
+        "clear",
+        "information_disclosed",
+        "risk_assessed_acceptable",
+        "risk_assessed_unacceptable"
+      ]
+    },
+    "dbs_disclosure_details": {
+      "type": "string"
+    },
+    "dbs_document_url": {
+      "type": "string"
+    },
+    "dbs_update_service_enrolled": {
+      "type": "boolean",
+      "default": false
+    },
+    "dbs_update_service_id": {
+      "type": "string"
+    },
+    "dbs_check_completed_by_id": {
+      "type": "string"
+    },
+    "reference_1_obtained": {
+      "type": "boolean",
+      "default": false
+    },
+    "reference_1_referee_name": {
+      "type": "string"
+    },
+    "reference_1_referee_organisation": {
+      "type": "string"
+    },
+    "reference_1_referee_role": {
+      "type": "string"
+    },
+    "reference_1_is_most_recent_employer": {
+      "type": "boolean",
+      "default": false
+    },
+    "reference_1_date_received": {
+      "type": "string",
+      "format": "date"
+    },
+    "reference_1_method": {
+      "type": "string",
+      "enum": [
+        "written",
+        "email",
+        "telephone_confirmed_written"
+      ]
+    },
+    "reference_1_outcome": {
+      "type": "string",
+      "enum": [
+        "satisfactory",
+        "unsatisfactory",
+        "concerns_noted"
+      ]
+    },
+    "reference_1_document_url": {
+      "type": "string"
+    },
+    "reference_1_notes": {
+      "type": "string"
+    },
+    "reference_2_obtained": {
+      "type": "boolean",
+      "default": false
+    },
+    "reference_2_referee_name": {
+      "type": "string"
+    },
+    "reference_2_referee_organisation": {
+      "type": "string"
+    },
+    "reference_2_referee_role": {
+      "type": "string"
+    },
+    "reference_2_is_most_recent_employer": {
+      "type": "boolean",
+      "default": false
+    },
+    "reference_2_date_received": {
+      "type": "string",
+      "format": "date"
+    },
+    "reference_2_method": {
+      "type": "string",
+      "enum": [
+        "written",
+        "email",
+        "telephone_confirmed_written"
+      ]
+    },
+    "reference_2_outcome": {
+      "type": "string",
+      "enum": [
+        "satisfactory",
+        "unsatisfactory",
+        "concerns_noted"
+      ]
+    },
+    "reference_2_document_url": {
+      "type": "string"
+    },
+    "reference_2_notes": {
+      "type": "string"
+    },
+    "most_recent_employer_reference_obtained": {
+      "type": "boolean",
+      "default": false
+    },
+    "previous_work_with_children_or_vulnerable_adults": {
+      "type": "boolean",
+      "default": false
+    },
+    "previous_work_verification_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "previous_work_verification_completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "previous_work_verification_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "previous_positions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "employer_name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "reason_for_leaving": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean",
+            "default": false
+          },
+          "verification_method": {
+            "type": "string"
+          },
+          "verification_notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "previous_work_verification_notes": {
+      "type": "string"
+    },
+    "previous_work_verification_by_id": {
+      "type": "string"
+    },
+    "qualifications_check_completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "qualifications_required_for_role": {
+      "type": "boolean",
+      "default": false
+    },
+    "required_qualifications": {
+      "type": "string"
+    },
+    "qualifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "qualification_name": {
+            "type": "string"
+          },
+          "awarding_body": {
+            "type": "string"
+          },
+          "date_obtained": {
+            "type": "string",
+            "format": "date"
+          },
+          "certificate_number": {
+            "type": "string"
+          },
+          "document_url": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean",
+            "default": false
+          },
+          "verified_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "verified_by_id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "qualifications_check_completed_by_id": {
+      "type": "string"
+    },
+    "qualifications_notes": {
+      "type": "string"
+    },
+    "employment_history_obtained": {
+      "type": "boolean",
+      "default": false
+    },
+    "employment_history_complete": {
+      "type": "boolean",
+      "default": false
+    },
+    "employment_history_gaps_identified": {
+      "type": "boolean",
+      "default": false
+    },
+    "employment_gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "gap_start": {
+            "type": "string",
+            "format": "date"
+          },
+          "gap_end": {
+            "type": "string",
+            "format": "date"
+          },
+          "gap_duration_months": {
+            "type": "number"
+          },
+          "explanation_provided": {
+            "type": "string"
+          },
+          "explanation_satisfactory": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "employment_history_document_url": {
+      "type": "string"
+    },
+    "employment_history_check_completed_by_id": {
+      "type": "string"
+    },
+    "employment_history_notes": {
+      "type": "string"
+    },
+    "all_checks_complete": {
+      "type": "boolean",
+      "default": false
+    },
+    "checks_complete_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "outstanding_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exceptional_circumstances_applied": {
+      "type": "boolean",
+      "default": false
+    },
+    "exceptional_circumstances_approved_by_id": {
+      "type": "string"
+    },
+    "exceptional_circumstances_approved_by_name": {
+      "type": "string"
+    },
+    "exceptional_circumstances_approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "exceptional_circumstances_reason": {
+      "type": "string"
+    },
+    "exceptional_circumstances_supervision_arrangements": {
+      "type": "string"
+    },
+    "exceptional_circumstances_review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "all_reasonable_steps_taken": {
+      "type": "boolean",
+      "default": false
+    },
+    "paras_1_and_2_satisfied": {
+      "type": "boolean",
+      "default": false
+    },
+    "induction_completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "induction_completion_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "induction_completed_by_id": {
+      "type": "string"
+    },
+    "job_description_provided": {
+      "type": "boolean",
+      "default": false
+    },
+    "job_description_provided_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "job_description_document_url": {
+      "type": "string"
+    },
+    "probation_period_set": {
+      "type": "boolean",
+      "default": false
+    },
+    "probation_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "probation_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "probation_outcome": {
+      "type": "string",
+      "enum": [
+        "passed",
+        "extended",
+        "failed",
+        "pending"
+      ],
+      "default": "pending"
+    },
+    "probation_review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "probation_outcome_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "probation_outcome_notes": {
+      "type": "string"
+    },
+    "record_status": {
+      "type": "string",
+      "enum": [
+        "incomplete",
+        "exceptional_circumstances_active",
+        "complete",
+        "flagged"
+      ],
+      "default": "incomplete"
+    },
+    "created_by_id": {
+      "type": "string"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_updated_by_id": {
+      "type": "string"
+    },
+    "last_updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "name": "RiskAssessment",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "suicide_self_harm",
+        "harm_to_others",
+        "vulnerability",
+        "criminal_exploitation",
+        "sexual_exploitation",
+        "missing_from_care",
+        "substance_misuse",
+        "communication_language",
+        "online_safety"
+      ]
+    },
+    "is_present": {
+      "type": "string",
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "likelihood": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "consequence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "overall_rating": {
+      "type": "string",
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "background": {
+      "type": "string"
+    },
+    "triggers": {
+      "type": "string"
+    },
+    "management_strategy": {
+      "type": "string"
+    },
+    "protective_factors": {
+      "type": "string"
+    },
+    "yp_consulted": {
+      "type": "boolean",
+      "default": false
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_reviewed_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "last_reviewed_by_name": {
+      "type": "string"
+    },
+    "last_reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "category"
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "name": "InternalAuditSubmission",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "audit_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "audit_time": {
+      "type": "string"
+    },
+    "auditor_id": {
+      "type": "string"
+    },
+    "auditor_name": {
+      "type": "string"
+    },
+    "registered_manager_id": {
+      "type": "string"
+    },
+    "registered_manager_name": {
+      "type": "string"
+    },
+    "visit_type": {
+      "type": "string",
+      "enum": [
+        "planned",
+        "unannounced"
+      ]
+    },
+    "staff_on_duty": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "young_people_present": {
+      "type": "number"
+    },
+    "previous_audit_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "section_1_environment": {
+      "type": "object",
+      "description": "Environment & Property Standards"
+    },
+    "section_2_health_safety": {
+      "type": "object",
+      "description": "Health & Safety Checks"
+    },
+    "section_3_yp_records": {
+      "type": "object",
+      "description": "Young People Records & Care Planning"
+    },
+    "section_4_staff_compliance": {
+      "type": "object",
+      "description": "Staff Compliance & Practice"
+    },
+    "section_5_safeguarding": {
+      "type": "object",
+      "description": "Safeguarding & Behaviour Management"
+    },
+    "section_6_yp_feedback": {
+      "type": "object",
+      "description": "Young People Feedback responses"
+    },
+    "section_7_documentation": {
+      "type": "object",
+      "description": "Documentation & Compliance Review"
+    },
+    "overall_strengths": {
+      "type": "string"
+    },
+    "areas_improvement": {
+      "type": "string"
+    },
+    "immediate_concerns": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "reviewed",
+        "approved",
+        "archived"
+      ],
+      "default": "draft"
+    },
+    "workflow_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "maker_submitted",
+        "checker_approved",
+        "final_approved"
+      ],
+      "default": "pending"
+    },
+    "submitted_by_id": {
+      "type": "string"
+    },
+    "submitted_by_name": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewed_by_id": {
+      "type": "string"
+    },
+    "reviewed_by_name": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "review_notes": {
+      "type": "string"
+    },
+    "overall_score": {
+      "type": "number",
+      "description": "Calculated audit score out of 100"
+    },
+    "compliance_rating": {
+      "type": "string",
+      "enum": [
+        "outstanding",
+        "good",
+        "requires_improvement",
+        "inadequate"
+      ]
+    },
+    "ofsted_impact": {
+      "type": "number",
+      "description": "Estimated impact on Ofsted score (-5 to +10)"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "audit_date",
+    "auditor_id"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "name": "StaffAvailabilityOverride",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "override_type": {
+      "type": "string",
+      "enum": [
+        "unavailable",
+        "available",
+        "holiday",
+        "sick",
+        "training",
+        "lieu_day",
+        "other"
+      ]
+    },
+    "date_from": {
+      "type": "string",
+      "format": "date"
+    },
+    "date_to": {
+      "type": "string",
+      "format": "date"
+    },
+    "all_day": {
+      "type": "boolean",
+      "default": true
+    },
+    "time_from": {
+      "type": "string"
+    },
+    "time_to": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "approved": {
+      "type": "boolean",
+      "default": false
+    },
+    "approved_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "approved_at": {
+      "type": "string"
+    },
+    "submitted_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "override_type",
+    "date_from",
+    "date_to"
+  ]
+}

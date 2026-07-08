@@ -1,0 +1,400 @@
+{
+  "name": "StorageAudit",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string",
+      "description": "Organisation ID"
+    },
+    "audit_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date audit was conducted"
+    },
+    "audit_year": {
+      "type": "integer",
+      "description": "Year of the audit"
+    },
+    "conducted_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "conducted_by_name": {
+      "type": "string",
+      "description": "Name of person conducting audit"
+    },
+    "approved_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "approved_by_name": {
+      "type": "string",
+      "description": "Name of approver"
+    },
+    "approved_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When audit was approved"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "completed",
+        "approved"
+      ],
+      "default": "draft",
+      "description": "Audit status"
+    },
+    "item1_label": {
+      "type": "string",
+      "default": "Statement of Purpose (Reg 9)",
+      "description": "Item 1 label"
+    },
+    "item1_exists": {
+      "type": "boolean",
+      "description": "Statement of Purpose populated"
+    },
+    "item1_accessible": {
+      "type": "boolean",
+      "default": true,
+      "description": "Item is accessible"
+    },
+    "item1_up_to_date": {
+      "type": "boolean",
+      "description": "OrganisationProfile updated in last 12 months"
+    },
+    "item1_location": {
+      "type": "string",
+      "default": "Compliance Hub \u2014 Reg 9 Statement of Purpose",
+      "description": "Where to find it"
+    },
+    "item1_notes": {
+      "type": "string",
+      "description": "Manual notes"
+    },
+    "item2_label": {
+      "type": "string",
+      "default": "Written Guide for Children (Children's Guide)",
+      "description": "Item 2 label"
+    },
+    "item2_exists": {
+      "type": "boolean",
+      "description": "At least one active WelcomePack exists"
+    },
+    "item2_accessible": {
+      "type": "boolean",
+      "default": true
+    },
+    "item2_up_to_date": {
+      "type": "boolean",
+      "description": "Most recent WelcomePack reviewed in last 12 months"
+    },
+    "item2_location": {
+      "type": "string",
+      "default": "Residents module \u2014 Welcome Pack tab"
+    },
+    "item2_notes": {
+      "type": "string"
+    },
+    "item3_label": {
+      "type": "string",
+      "default": "Safeguarding Policy (Reg 20)"
+    },
+    "item3_exists": {
+      "type": "boolean",
+      "description": "Active safeguarding policy exists"
+    },
+    "item3_accessible": {
+      "type": "boolean",
+      "default": true
+    },
+    "item3_up_to_date": {
+      "type": "boolean",
+      "description": "Review date has not passed"
+    },
+    "item3_location": {
+      "type": "string",
+      "default": "Compliance Hub \u2014 Reg 20 Safeguarding Policy"
+    },
+    "item3_notes": {
+      "type": "string"
+    },
+    "item4_label": {
+      "type": "string",
+      "default": "Missing Child Policy (Reg 21)"
+    },
+    "item4_exists": {
+      "type": "boolean",
+      "description": "Active missing child policy exists"
+    },
+    "item4_accessible": {
+      "type": "boolean",
+      "default": true
+    },
+    "item4_up_to_date": {
+      "type": "boolean"
+    },
+    "item4_location": {
+      "type": "string",
+      "default": "Compliance Hub \u2014 Reg 21 Missing Child Policy"
+    },
+    "item4_notes": {
+      "type": "string"
+    },
+    "item5_label": {
+      "type": "string",
+      "default": "Behaviour Management Policy (Reg 22)"
+    },
+    "item5_exists": {
+      "type": "boolean"
+    },
+    "item5_accessible": {
+      "type": "boolean",
+      "default": true
+    },
+    "item5_up_to_date": {
+      "type": "boolean"
+    },
+    "item5_location": {
+      "type": "string",
+      "default": "Compliance Hub \u2014 Reg 22 Behaviour Management"
+    },
+    "item5_notes": {
+      "type": "string"
+    },
+    "item6_label": {
+      "type": "string",
+      "default": "Records of Restraint Use (Reg 22(2))"
+    },
+    "item6_exists": {
+      "type": "boolean",
+      "default": true,
+      "description": "Always true - system stores these"
+    },
+    "item6_accessible": {
+      "type": "boolean",
+      "default": true
+    },
+    "item6_record_count": {
+      "type": "integer",
+      "description": "Count of RestraintRecord records"
+    },
+    "item6_all_complete": {
+      "type": "boolean",
+      "description": "No restraint records overdue"
+    },
+    "item6_location": {
+      "type": "string",
+      "default": "Compliance Hub \u2014 Reg 22 Restraint Records"
+    },
+    "item6_notes": {
+      "type": "string"
+    },
+    "item7_label": {
+      "type": "string",
+      "default": "Children's Case Records (Reg 24)"
+    },
+    "item7_exists": {
+      "type": "boolean",
+      "default": true
+    },
+    "item7_accessible": {
+      "type": "boolean",
+      "default": true
+    },
+    "item7_average_completeness": {
+      "type": "number",
+      "description": "Average completeness_score"
+    },
+    "item7_below_threshold_count": {
+      "type": "integer",
+      "description": "Count with incomplete or critical band"
+    },
+    "item7_location": {
+      "type": "string",
+      "default": "Residents module \u2014 all resident records"
+    },
+    "item7_notes": {
+      "type": "string"
+    },
+    "item8_label": {
+      "type": "string",
+      "default": "Children's Register and Staff Register (Reg 25, Schedule 3)"
+    },
+    "item8_exists": {
+      "type": "boolean",
+      "default": true
+    },
+    "item8_accessible": {
+      "type": "boolean",
+      "default": true
+    },
+    "item8_children_register_complete": {
+      "type": "boolean",
+      "description": "All active residents have placement basis and LA"
+    },
+    "item8_staff_register_complete": {
+      "type": "boolean",
+      "description": "All active staff have DOB and address"
+    },
+    "item8_location": {
+      "type": "string",
+      "default": "Compliance Hub \u2014 Reg 24/25 Schedule 3 tab"
+    },
+    "item8_notes": {
+      "type": "string"
+    },
+    "item9_label": {
+      "type": "string",
+      "default": "Complaints Procedure (Reg 31)"
+    },
+    "item9_exists": {
+      "type": "boolean",
+      "description": "OrganisationProfile.complaints_procedure populated"
+    },
+    "item9_accessible": {
+      "type": "boolean",
+      "default": true
+    },
+    "item9_up_to_date": {
+      "type": "boolean",
+      "description": "OrganisationProfile updated in last 12 months"
+    },
+    "item9_location": {
+      "type": "string",
+      "default": "Compliance Hub \u2014 Reg 31 Complaints and Representations"
+    },
+    "item9_notes": {
+      "type": "string"
+    },
+    "item10_label": {
+      "type": "string",
+      "default": "Complaints Records (Reg 31)"
+    },
+    "item10_exists": {
+      "type": "boolean",
+      "default": true
+    },
+    "item10_accessible": {
+      "type": "boolean",
+      "default": true
+    },
+    "item10_record_count": {
+      "type": "integer",
+      "description": "Count of Complaint records"
+    },
+    "item10_open_count": {
+      "type": "integer",
+      "description": "Count where status != closed"
+    },
+    "item10_location": {
+      "type": "string",
+      "default": "Compliance Hub \u2014 Reg 31 Complaints and Representations"
+    },
+    "item10_notes": {
+      "type": "string"
+    },
+    "item11_label": {
+      "type": "string",
+      "default": "Quality of Support Review Reports (Reg 32)"
+    },
+    "item11_exists": {
+      "type": "boolean",
+      "description": "At least one Reg32Report submitted"
+    },
+    "item11_accessible": {
+      "type": "boolean",
+      "default": true
+    },
+    "item11_last_review_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Most recent Reg32Report.completed_date"
+    },
+    "item11_next_review_due": {
+      "type": "string",
+      "format": "date",
+      "description": "Last review + 6 months"
+    },
+    "item11_overdue": {
+      "type": "boolean",
+      "description": "Next review due < today"
+    },
+    "item11_location": {
+      "type": "string",
+      "default": "Compliance Hub \u2014 Reg 32 Quality of Support Review"
+    },
+    "item11_notes": {
+      "type": "string"
+    },
+    "item12_label": {
+      "type": "string",
+      "default": "Location Assessment Records (Reg 6(2)(a))"
+    },
+    "item12_exists": {
+      "type": "boolean",
+      "description": "At least one approved LocationAssessment"
+    },
+    "item12_accessible": {
+      "type": "boolean",
+      "default": true
+    },
+    "item12_all_homes_assessed_this_year": {
+      "type": "boolean",
+      "description": "All homes have assessment in current year"
+    },
+    "item12_homes_missing_assessment": {
+      "type": "integer",
+      "description": "Count of homes missing assessment"
+    },
+    "item12_location": {
+      "type": "string",
+      "default": "Compliance Hub \u2014 Reg 6 Location Assessments"
+    },
+    "item12_notes": {
+      "type": "string"
+    },
+    "total_items": {
+      "type": "integer",
+      "default": 12,
+      "description": "Always 12"
+    },
+    "items_fully_compliant": {
+      "type": "integer",
+      "description": "Count of items with all checks passing"
+    },
+    "items_with_issues": {
+      "type": "integer",
+      "description": "Count of items with any failed check"
+    },
+    "overall_compliance_percentage": {
+      "type": "number",
+      "description": "Percentage of items fully compliant"
+    },
+    "audit_summary_notes": {
+      "type": "string",
+      "description": "Overall narrative from auditor"
+    },
+    "auditor_declaration": {
+      "type": "boolean",
+      "default": false,
+      "description": "Confirmed all items reviewed"
+    },
+    "next_audit_due": {
+      "type": "string",
+      "format": "date",
+      "description": "audit_date + 12 months"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "audit_date",
+    "audit_year",
+    "conducted_by_id"
+  ]
+}

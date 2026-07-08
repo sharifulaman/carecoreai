@@ -1,0 +1,34 @@
+{
+  "name": "ResidentSavings",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "current_balance": {
+      "type": "number"
+    },
+    "goal_amount": {
+      "type": "number"
+    },
+    "goal_description": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "current_balance"
+  ]
+}

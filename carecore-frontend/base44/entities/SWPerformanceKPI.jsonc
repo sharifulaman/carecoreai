@@ -1,0 +1,125 @@
+{
+  "name": "SWPerformanceKPI",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "worker_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id or user email"
+    },
+    "worker_name": {
+      "type": "string"
+    },
+    "employee_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "week_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "month": {
+      "type": "string",
+      "description": "YYYY-MM"
+    },
+    "activity_type": {
+      "type": "string",
+      "enum": [
+        "visit_report",
+        "key_worker_session",
+        "daily_summary",
+        "cic_report",
+        "support_plan_created",
+        "support_plan_reviewed",
+        "gp_appointment",
+        "hospital_appointment",
+        "ils_plan_updated",
+        "medication_administered",
+        "incident_reported",
+        "home_check_completed",
+        "shift_handover_submitted"
+      ]
+    },
+    "source_entity": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "hours_with_yp": {
+      "type": "number"
+    },
+    "visit_type": {
+      "type": "string"
+    },
+    "presentation": {
+      "type": "string"
+    },
+    "placement_condition": {
+      "type": "string"
+    },
+    "engagement_level": {
+      "type": "string"
+    },
+    "risk_level": {
+      "type": "string"
+    },
+    "independence_progress": {
+      "type": "string"
+    },
+    "health_adherence": {
+      "type": "string"
+    },
+    "life_skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "appointment_type": {
+      "type": "string"
+    },
+    "location_summary": {
+      "type": "string"
+    },
+    "time_of_contact": {
+      "type": "string"
+    },
+    "kw_session_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "cic_report_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "support_plan_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "gp_appointment_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "worker_id",
+    "date",
+    "activity_type"
+  ]
+}

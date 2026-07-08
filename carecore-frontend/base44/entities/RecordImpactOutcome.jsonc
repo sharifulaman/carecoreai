@@ -1,0 +1,165 @@
+{
+  "name": "RecordImpactOutcome",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "record_type": {
+      "type": "string",
+      "enum": [
+        "incident",
+        "missing_episode",
+        "appointment",
+        "ils_session",
+        "key_work_session",
+        "complaint",
+        "safeguarding_concern",
+        "risk_assessment",
+        "other"
+      ]
+    },
+    "record_id": {
+      "type": "string",
+      "description": "FK to the parent record"
+    },
+    "record_reference": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "immediate_outcome": {
+      "type": "string"
+    },
+    "impact_on_young_person": {
+      "type": "string"
+    },
+    "risk_change": {
+      "type": "string",
+      "enum": [
+        "increased",
+        "reduced",
+        "unchanged",
+        "not_applicable"
+      ],
+      "default": "unchanged"
+    },
+    "progress_made": {
+      "type": "string"
+    },
+    "learning_identified": {
+      "type": "string"
+    },
+    "follow_up_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "follow_up_action": {
+      "type": "string"
+    },
+    "responsible_person_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "responsible_person_name": {
+      "type": "string"
+    },
+    "target_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completion_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "debrief_completed": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "yp_declined",
+        "not_appropriate"
+      ],
+      "description": "Incident only: was a debrief completed with the young person?"
+    },
+    "risk_assessment_updated": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "not_required"
+      ],
+      "description": "Incident only"
+    },
+    "support_plan_updated": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "not_required"
+      ],
+      "description": "Incident only"
+    },
+    "safeguarding_referral_required": {
+      "type": "boolean",
+      "description": "Incident only"
+    },
+    "reg27_notification_required": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "pending"
+      ],
+      "description": "Incident only: Reg 27 Ofsted notification decision"
+    },
+    "manager_review_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "changes_requested",
+        "escalated",
+        "closed"
+      ],
+      "default": "pending"
+    },
+    "manager_review_note": {
+      "type": "string"
+    },
+    "reviewed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "reviewed_by_name": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "record_type",
+    "record_id"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "name": "ComplianceActivityEvent",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "compliance_item_id": {
+      "type": "string"
+    },
+    "compliance_item_name": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "item_created",
+        "item_updated",
+        "evidence_uploaded",
+        "expiry_changed",
+        "renewal_requested",
+        "task_assigned",
+        "task_completed",
+        "note_added",
+        "audit_review_run",
+        "export_generated",
+        "item_closed",
+        "item_escalated"
+      ],
+      "default": "item_updated"
+    },
+    "event_title": {
+      "type": "string"
+    },
+    "event_description": {
+      "type": "string"
+    },
+    "performed_by_name": {
+      "type": "string"
+    },
+    "event_datetime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "event_title",
+    "event_type"
+  ]
+}

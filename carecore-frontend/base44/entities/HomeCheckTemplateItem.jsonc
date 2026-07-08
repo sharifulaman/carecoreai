@@ -1,0 +1,43 @@
+{
+  "name": "HomeCheckTemplateItem",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "template_id": {
+      "type": "string"
+    },
+    "item_title": {
+      "type": "string"
+    },
+    "item_question": {
+      "type": "string"
+    },
+    "display_order": {
+      "type": "number",
+      "default": 0
+    },
+    "is_required": {
+      "type": "boolean",
+      "default": true
+    },
+    "requires_note_on_fail": {
+      "type": "boolean",
+      "default": false
+    },
+    "requires_photo_on_fail": {
+      "type": "boolean",
+      "default": false
+    },
+    "allows_na": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "org_id",
+    "template_id",
+    "item_title"
+  ]
+}

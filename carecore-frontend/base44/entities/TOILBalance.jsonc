@@ -1,0 +1,45 @@
+{
+  "name": "TOILBalance",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "hours_accrued": {
+      "type": "number",
+      "default": 0
+    },
+    "hours_taken": {
+      "type": "number",
+      "default": 0
+    },
+    "hours_remaining": {
+      "type": "number",
+      "default": 0
+    },
+    "last_accrual_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Calculated from last accrual + toil_expiry_months"
+    },
+    "flagged_for_review": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id"
+  ]
+}

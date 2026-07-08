@@ -1,0 +1,284 @@
+{
+  "name": "Home",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "outreach",
+        "24_hours",
+        "care",
+        "18_plus"
+      ],
+      "default": "outreach",
+      "description": "Home classification"
+    },
+    "care_model": {
+      "type": "string",
+      "enum": [
+        "outreach",
+        "residential",
+        "both"
+      ]
+    },
+    "address": {
+      "type": "string"
+    },
+    "postcode": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "team_leader_id": {
+      "type": "string",
+      "description": "Primary team leader assigned to this home"
+    },
+    "privacy_mode": {
+      "type": "boolean",
+      "default": false
+    },
+    "compliance_framework": {
+      "type": "string",
+      "enum": [
+        "ofsted",
+        "cqc",
+        "custom"
+      ],
+      "default": "ofsted"
+    },
+    "default_language": {
+      "type": "string",
+      "default": "en"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "archived",
+        "vacant",
+        "maintenance"
+      ],
+      "default": "active"
+    },
+    "min_morning_staff": {
+      "type": "number",
+      "default": 0
+    },
+    "min_afternoon_staff": {
+      "type": "number",
+      "default": 0
+    },
+    "min_night_staff": {
+      "type": "number",
+      "default": 0
+    },
+    "lease_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "lease_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "monthly_rent": {
+      "type": "number"
+    },
+    "landlord_name": {
+      "type": "string"
+    },
+    "landlord_contact": {
+      "type": "string"
+    },
+    "landlord_email": {
+      "type": "string"
+    },
+    "property_notes": {
+      "type": "string"
+    },
+    "document_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rent_due_day": {
+      "type": "number"
+    },
+    "rent_paid_to_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "rent_status": {
+      "type": "string",
+      "enum": [
+        "current",
+        "overdue",
+        "due_soon"
+      ],
+      "default": "current"
+    },
+    "deposit_amount": {
+      "type": "number"
+    },
+    "deposit_held_by": {
+      "type": "string"
+    },
+    "next_rent_review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "premises_currently_in_use": {
+      "type": "boolean"
+    },
+    "date_added_to_registration": {
+      "type": "string",
+      "format": "date"
+    },
+    "premises_not_in_use": {
+      "type": "boolean"
+    },
+    "reason_not_in_use": {
+      "type": "string"
+    },
+    "date_stopped_being_used": {
+      "type": "string",
+      "format": "date"
+    },
+    "substantial_alteration_since_registration": {
+      "type": "boolean"
+    },
+    "alteration_details": {
+      "type": "string"
+    },
+    "alteration_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "number_of_beds_capacity": {
+      "type": "number"
+    },
+    "gas_safety_certificate_applicable": {
+      "type": "boolean"
+    },
+    "gas_safety_last_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "gas_safety_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "gas_safety_evidence_url": {
+      "type": "string"
+    },
+    "electrical_cert_last_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "electrical_cert_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "pat_testing_last_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "pat_testing_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "electrical_pat_evidence_url": {
+      "type": "string"
+    },
+    "fire_risk_assessment_last_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "fire_risk_assessment_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "fire_risk_assessment_evidence_url": {
+      "type": "string"
+    },
+    "environmental_health_visit_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "environmental_health_outcome": {
+      "type": "string"
+    },
+    "environmental_health_evidence_url": {
+      "type": "string"
+    },
+    "epc_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "insurance_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "water_hygiene_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_inspection_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_inspection_due": {
+      "type": "string",
+      "format": "date"
+    },
+    "compliance_last_reviewed_by_id": {
+      "type": "string"
+    },
+    "compliance_last_reviewed_by_name": {
+      "type": "string"
+    },
+    "compliance_review_status": {
+      "type": "string",
+      "enum": [
+        "current",
+        "due_for_review",
+        "overdue"
+      ],
+      "default": "current"
+    },
+    "latest_location_assessment_id": {
+      "type": "string",
+      "description": "FK \u2192 LocationAssessment.id"
+    },
+    "latest_location_assessment_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "latest_location_assessment_status": {
+      "type": "string",
+      "description": "suitable / suitable_with_conditions / unsuitable"
+    },
+    "next_location_assessment_due": {
+      "type": "string",
+      "format": "date"
+    },
+    "location_assessment_overdue": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "name",
+    "org_id",
+    "team_leader_id"
+  ]
+}

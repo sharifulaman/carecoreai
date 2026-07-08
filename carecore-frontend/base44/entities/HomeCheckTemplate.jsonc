@@ -1,0 +1,50 @@
+{
+  "name": "HomeCheckTemplate",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "area": {
+      "type": "string"
+    },
+    "frequency": {
+      "type": "string",
+      "enum": [
+        "daily",
+        "weekly",
+        "monthly",
+        "as_needed"
+      ],
+      "default": "daily"
+    },
+    "default_due_time": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "requires_manager_review": {
+      "type": "boolean",
+      "default": true
+    },
+    "display_order": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "org_id",
+    "title"
+  ]
+}

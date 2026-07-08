@@ -1,0 +1,241 @@
+{
+  "name": "Incident",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id (primary involved resident)"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ],
+      "description": "Auto-filled from resident but editable by manager"
+    },
+    "incident_type": {
+      "type": "string",
+      "enum": [
+        "restraint",
+        "police_behaviour_management",
+        "police_victim_of_crime",
+        "police_missing",
+        "serious_injury",
+        "safeguarding_concern",
+        "medical_emergency",
+        "fire_evacuation",
+        "other"
+      ]
+    },
+    "incident_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "recorded_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "recorded_by_name": {
+      "type": "string"
+    },
+    "narrative": {
+      "type": "string",
+      "description": "Worker narrative - locked after submission"
+    },
+    "restraint_used": {
+      "type": "boolean",
+      "description": "Was restraint used?"
+    },
+    "restraint_type": {
+      "type": "string",
+      "enum": [
+        "physical_hold",
+        "positional_control",
+        "emergency_safety",
+        "other"
+      ]
+    },
+    "restraint_reason": {
+      "type": "string",
+      "description": "Why was restraint used?"
+    },
+    "restraint_duration_minutes": {
+      "type": "number"
+    },
+    "injury_occurred": {
+      "type": "boolean",
+      "description": "Did any injury occur?"
+    },
+    "injury_description": {
+      "type": "string"
+    },
+    "medical_attention_required": {
+      "type": "boolean"
+    },
+    "police_called": {
+      "type": "boolean"
+    },
+    "police_callout_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "police_callout_reason": {
+      "type": "string",
+      "enum": [
+        "behaviour_management",
+        "missing_person",
+        "victim_of_crime",
+        "allegation_against_staff",
+        "other"
+      ],
+      "description": "Annex A distinguishes behaviour_management from others"
+    },
+    "police_reference_number": {
+      "type": "string"
+    },
+    "child_arrested": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "not_yet_known"
+      ],
+      "description": "Was child arrested?"
+    },
+    "child_convicted": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "not_yet_known"
+      ],
+      "description": "Was child convicted?"
+    },
+    "exclude_from_annex_a_police_count": {
+      "type": "boolean",
+      "default": false,
+      "description": "Exclude this police call-out from Annex A behaviour management count?"
+    },
+    "exclusion_reason": {
+      "type": "string",
+      "description": "Why excluded from Annex A count"
+    },
+    "external_notification_required": {
+      "type": "boolean"
+    },
+    "local_authority_notified": {
+      "type": "boolean"
+    },
+    "local_authority_notified_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "safeguarding_referral_made": {
+      "type": "boolean"
+    },
+    "safeguarding_referral_id": {
+      "type": "string",
+      "description": "FK \u2192 SafeguardingRecord.id if applicable"
+    },
+    "closure_outcome": {
+      "type": "string"
+    },
+    "reg27_trigger": {
+      "type": "boolean",
+      "default": false,
+      "description": "Does this incident require Reg 27 Ofsted notification within 24h?"
+    },
+    "reg27_notification_id": {
+      "type": "string",
+      "description": "FK \u2192 OfstedNotification.id \u2014 linked Reg 27 notification record"
+    },
+    "manager_review_status": {
+      "type": "string",
+      "enum": [
+        "submitted",
+        "pending_tl",
+        "pending_tm",
+        "pending_rsm",
+        "reviewed",
+        "returned_for_changes"
+      ],
+      "default": "submitted",
+      "description": "Reg 27 flow: submitted \u2192 pending_tl \u2192 pending_tm \u2192 pending_rsm \u2192 reviewed"
+    },
+    "manager_review_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "manager_review_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "manager_review_notes": {
+      "type": "string",
+      "description": "Manager adds review notes - does not alter worker narrative"
+    },
+    "tl_review_notes": {
+      "type": "string"
+    },
+    "tl_reviewed_by_id": {
+      "type": "string"
+    },
+    "tl_reviewed_by_name": {
+      "type": "string"
+    },
+    "tl_reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tm_review_notes": {
+      "type": "string"
+    },
+    "tm_reviewed_by_id": {
+      "type": "string"
+    },
+    "tm_reviewed_by_name": {
+      "type": "string"
+    },
+    "tm_reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "under_review",
+        "closed"
+      ],
+      "default": "draft"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "incident_datetime",
+    "incident_type"
+  ]
+}

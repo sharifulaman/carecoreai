@@ -1,0 +1,145 @@
+{
+  "name": "ExternalSupportService",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "service_ref": {
+      "type": "string",
+      "description": "Auto-generated reference: SVC-YYYY-000001"
+    },
+    "agency_organisation_name": {
+      "type": "string"
+    },
+    "contact_name": {
+      "type": "string"
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "contact_address": {
+      "type": "string"
+    },
+    "service_type": {
+      "type": "string",
+      "enum": [
+        "education",
+        "employment_training",
+        "mental_health",
+        "substance_misuse",
+        "sexual_health",
+        "disability_support",
+        "youth_offending_team",
+        "camhs",
+        "social_services",
+        "health_nhs",
+        "housing_support",
+        "financial_advice",
+        "advocacy",
+        "family_support",
+        "other"
+      ]
+    },
+    "service_description": {
+      "type": "string"
+    },
+    "hours_per_week_provided": {
+      "type": "number"
+    },
+    "number_of_children_receiving_service": {
+      "type": "number",
+      "description": "How many children in our service receive from this agency?"
+    },
+    "linked_resident_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of FK \u2192 Resident.id"
+    },
+    "linked_home_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of FK \u2192 Home.id"
+    },
+    "accommodation_categories": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "self_contained",
+          "shared_ring_fenced",
+          "shared_non_ring_fenced"
+        ]
+      }
+    },
+    "contract_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "contract_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "renewal_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "cost_per_month": {
+      "type": "number"
+    },
+    "funding_source": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Contract, SLA, agreement documents"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "expired",
+        "archived"
+      ],
+      "default": "active"
+    },
+    "added_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "added_by_name": {
+      "type": "string"
+    },
+    "added_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_updated_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "last_updated_by_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "agency_organisation_name",
+    "service_type",
+    "status"
+  ]
+}

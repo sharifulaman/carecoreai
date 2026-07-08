@@ -1,0 +1,209 @@
+{
+  "name": "AdmissionDischargeNotice",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "home_address": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "notice_type": {
+      "type": "string",
+      "enum": [
+        "admission",
+        "discharge"
+      ]
+    },
+    "child_name": {
+      "type": "string"
+    },
+    "child_dob": {
+      "type": "string",
+      "format": "date"
+    },
+    "accommodation_basis": {
+      "type": "string",
+      "enum": [
+        "section_22c_6d",
+        "section_23b_8b",
+        "other"
+      ],
+      "description": "Whether child is accommodated under s22C(6)(d) or s23B(8)(b) of Children Act 1989"
+    },
+    "subject_to_care_order": {
+      "type": "boolean",
+      "default": false
+    },
+    "care_order_type": {
+      "type": "string",
+      "enum": [
+        "care_order_s31",
+        "interim_care_order_s38",
+        "supervision_order",
+        "none"
+      ],
+      "default": "none"
+    },
+    "iro_or_pa_name": {
+      "type": "string",
+      "description": "Name of IRO (looked after) or Personal Adviser (care leaver)"
+    },
+    "iro_or_pa_contact": {
+      "type": "string"
+    },
+    "accommodating_authority_name": {
+      "type": "string"
+    },
+    "accommodating_authority_contact": {
+      "type": "string"
+    },
+    "has_ehc_plan": {
+      "type": "boolean",
+      "default": false
+    },
+    "ehc_plan_la": {
+      "type": "string"
+    },
+    "has_sen_statement": {
+      "type": "boolean",
+      "default": false
+    },
+    "sen_statement_la": {
+      "type": "string"
+    },
+    "receiving_la_name": {
+      "type": "string"
+    },
+    "receiving_la_contact_name": {
+      "type": "string"
+    },
+    "receiving_la_email": {
+      "type": "string"
+    },
+    "receiving_la_address": {
+      "type": "string"
+    },
+    "is_same_as_accommodating_authority": {
+      "type": "boolean",
+      "default": false
+    },
+    "notification_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "notification_method": {
+      "type": "string",
+      "enum": [
+        "email",
+        "letter",
+        "portal",
+        "hand_delivered"
+      ]
+    },
+    "notification_sent_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "notification_sent_by_name": {
+      "type": "string"
+    },
+    "notification_confirmed_received": {
+      "type": "boolean",
+      "default": false
+    },
+    "confirmation_received_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "confirmation_reference": {
+      "type": "string"
+    },
+    "admission_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "discharge_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "discharge_destination": {
+      "type": "string"
+    },
+    "discharge_reason": {
+      "type": "string",
+      "enum": [
+        "planned_move",
+        "placement_breakdown",
+        "age_18_transition",
+        "move_to_independence",
+        "return_to_family",
+        "transfer_to_other_provider",
+        "other"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "sent",
+        "confirmed",
+        "overdue"
+      ],
+      "default": "draft"
+    },
+    "days_since_placement_change": {
+      "type": "number"
+    },
+    "notified_within_required_period": {
+      "type": "boolean"
+    },
+    "created_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "reviewed_by_id": {
+      "type": "string"
+    },
+    "reviewed_by_name": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "resident_id",
+    "notice_type",
+    "child_name",
+    "child_dob",
+    "receiving_la_name"
+  ]
+}

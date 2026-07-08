@@ -1,0 +1,86 @@
+{
+  "name": "PettyCashTransaction",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "petty_cash_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "transaction_type": {
+      "type": "string",
+      "enum": [
+        "cash_in",
+        "cash_out"
+      ]
+    },
+    "amount": {
+      "type": "number"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "groceries",
+        "activities",
+        "transport",
+        "clothing",
+        "toiletries",
+        "cleaning",
+        "maintenance",
+        "resident_personal",
+        "other"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "receipt_reference": {
+      "type": "string"
+    },
+    "receipt_photo_url": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "recorded_by": {
+      "type": "string"
+    },
+    "approved_by": {
+      "type": "string"
+    },
+    "approval_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "approved_at": {
+      "type": "string"
+    },
+    "balance_after": {
+      "type": "number"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "petty_cash_id",
+    "home_id",
+    "transaction_type",
+    "amount",
+    "category",
+    "description",
+    "date",
+    "recorded_by",
+    "balance_after"
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "name": "VisitReport",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "worker_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id or user email"
+    },
+    "worker_name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "time_start": {
+      "type": "string",
+      "description": "HH:mm format"
+    },
+    "time_end": {
+      "type": "string",
+      "description": "HH:mm format"
+    },
+    "duration_minutes": {
+      "type": "number"
+    },
+    "action_text": {
+      "type": "string"
+    },
+    "outcome_text": {
+      "type": "string"
+    },
+    "recommendations_text": {
+      "type": "string"
+    },
+    "kpi_data": {
+      "type": "object",
+      "description": "KPI metrics for this visit"
+    },
+    "daily_log_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "DailyLogs that informed this visit report"
+    },
+    "is_key_worker_session": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this is a key worker session (not a reportable visit)"
+    },
+    "is_daily_summary": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this report also appears in Daily Summary tab"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "reviewed",
+        "approved"
+      ],
+      "default": "draft"
+    },
+    "kw_session_topic": {
+      "type": "string",
+      "enum": [
+        "placement_progress",
+        "emotional_wellbeing",
+        "education",
+        "health",
+        "family_contact",
+        "behaviour",
+        "safety",
+        "independence",
+        "finance",
+        "immigration_asylum",
+        "move_on_planning",
+        "other"
+      ],
+      "description": "Key work session topic"
+    },
+    "kw_yp_voice": {
+      "type": "string",
+      "description": "Young person's view / voice"
+    },
+    "kw_staff_observation": {
+      "type": "string",
+      "description": "Staff observation"
+    },
+    "kw_immediate_outcome": {
+      "type": "string",
+      "description": "Immediate outcome of the session"
+    },
+    "kw_impact_on_yp": {
+      "type": "string",
+      "description": "Impact on young person"
+    },
+    "kw_progress_made": {
+      "type": "string",
+      "description": "Progress made"
+    },
+    "kw_concern_identified": {
+      "type": "boolean",
+      "default": false,
+      "description": "Was a concern identified?"
+    },
+    "kw_concern_escalated": {
+      "type": "boolean",
+      "default": false,
+      "description": "Has the concern been escalated?"
+    },
+    "kw_escalation_note": {
+      "type": "string",
+      "description": "Escalation / safeguarding note"
+    },
+    "kw_follow_up_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "kw_follow_up_action": {
+      "type": "string"
+    },
+    "kw_responsible_person_id": {
+      "type": "string"
+    },
+    "kw_responsible_person_name": {
+      "type": "string"
+    },
+    "kw_target_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "kw_support_plan_update": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "not_required"
+      ],
+      "default": "not_required",
+      "description": "Link to support plan update"
+    },
+    "kw_risk_assessment_update": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "not_required"
+      ],
+      "default": "not_required",
+      "description": "Link to risk assessment update"
+    },
+    "kw_manager_review_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "kw_manager_review_note": {
+      "type": "string"
+    },
+    "kw_locked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Locks record from silent editing once submitted"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "worker_id",
+    "date"
+  ]
+}

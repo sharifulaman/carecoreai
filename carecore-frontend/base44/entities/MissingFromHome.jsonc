@@ -1,0 +1,244 @@
+{
+  "name": "MissingFromHome",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string",
+      "description": "Denormalised for quick reference"
+    },
+    "resident_initials": {
+      "type": "string",
+      "description": "Auto-generated from Resident"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string",
+      "description": "Denormalised for quick reference"
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ],
+      "description": "Auto-filled from resident placement"
+    },
+    "reported_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "reported_by_name": {
+      "type": "string"
+    },
+    "last_seen_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When was child last confirmed to be present"
+    },
+    "last_seen_location": {
+      "type": "string"
+    },
+    "last_seen_by": {
+      "type": "string",
+      "description": "Who last saw them"
+    },
+    "where_child_expected_to_be": {
+      "type": "string",
+      "description": "Where child was supposed to be"
+    },
+    "reported_missing_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When was absence noticed and reported"
+    },
+    "reported_to_police": {
+      "type": "boolean",
+      "default": false
+    },
+    "police_report_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "police_reference_number": {
+      "type": "string"
+    },
+    "police_station": {
+      "type": "string"
+    },
+    "areas_searched": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of locations already searched"
+    },
+    "people_contacted": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of people/services already contacted"
+    },
+    "risk_level_at_time": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "description": "Risk assessment when reported missing"
+    },
+    "known_associates_checked": {
+      "type": "boolean",
+      "default": false
+    },
+    "cse_risk_considered": {
+      "type": "boolean",
+      "default": false,
+      "description": "Child Sexual Exploitation risk assessed"
+    },
+    "returned_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "location_found": {
+      "type": "string",
+      "description": "Where child was found / returned from"
+    },
+    "returned_to": {
+      "type": "string",
+      "description": "Who the child returned to"
+    },
+    "condition_on_return": {
+      "type": "string",
+      "enum": [
+        "well",
+        "distressed",
+        "intoxicated",
+        "injured",
+        "other"
+      ]
+    },
+    "condition_notes": {
+      "type": "string"
+    },
+    "rhi_offered_by_la": {
+      "type": "boolean",
+      "description": "Return-home interview offered by local authority? (Mandatory for Annex A)"
+    },
+    "rhi_offered_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "return_interview_completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Return-home interview completed by local authority"
+    },
+    "return_interview_completed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "return_interview_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id if interviewed by home staff"
+    },
+    "return_interview_by_name": {
+      "type": "string"
+    },
+    "return_interview_notes": {
+      "type": "string"
+    },
+    "la_notified": {
+      "type": "boolean",
+      "default": false,
+      "description": "Local Authority notified"
+    },
+    "la_notified_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "la_contact_name": {
+      "type": "string"
+    },
+    "parent_carer_notified": {
+      "type": "boolean"
+    },
+    "ofsted_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "ofsted_notified_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "outcome_learning": {
+      "type": "string",
+      "description": "Outcome/learning from episode"
+    },
+    "risk_assessment_updated": {
+      "type": "boolean",
+      "default": false
+    },
+    "manager_review_status": {
+      "type": "string",
+      "enum": [
+        "submitted",
+        "pending_review",
+        "reviewed"
+      ],
+      "default": "submitted"
+    },
+    "manager_review_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "manager_review_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "returned",
+        "closed"
+      ],
+      "default": "active"
+    },
+    "total_hours_missing": {
+      "type": "number",
+      "description": "Calculated: (returned_datetime - last_seen_datetime) in hours"
+    },
+    "multi_agency_meeting_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "pattern_identified": {
+      "type": "boolean",
+      "default": false,
+      "description": "3+ episodes in 90 days"
+    },
+    "pattern_notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "last_seen_datetime",
+    "status"
+  ]
+}

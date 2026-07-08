@@ -1,0 +1,78 @@
+{
+  "name": "HRPolicyQuizQuestion",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "module_id": {
+      "type": "string"
+    },
+    "question_type": {
+      "type": "string",
+      "enum": [
+        "Multiple Choice",
+        "Scenario Based",
+        "True or False",
+        "Multi Select"
+      ],
+      "default": "Multiple Choice"
+    },
+    "question_text": {
+      "type": "string"
+    },
+    "scenario_text": {
+      "type": "string"
+    },
+    "option_a": {
+      "type": "string"
+    },
+    "option_b": {
+      "type": "string"
+    },
+    "option_c": {
+      "type": "string"
+    },
+    "option_d": {
+      "type": "string"
+    },
+    "option_e": {
+      "type": "string"
+    },
+    "correct_answer": {
+      "type": "string"
+    },
+    "explanation": {
+      "type": "string"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "default": "Medium"
+    },
+    "points": {
+      "type": "number",
+      "default": 1
+    },
+    "display_order": {
+      "type": "number"
+    },
+    "is_required": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "org_id",
+    "course_id",
+    "question_text",
+    "correct_answer"
+  ]
+}

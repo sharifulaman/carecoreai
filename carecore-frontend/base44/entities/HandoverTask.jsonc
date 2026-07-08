@@ -1,0 +1,71 @@
+{
+  "name": "HandoverTask",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "handover_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ],
+      "default": "medium"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "in_progress",
+        "completed",
+        "passed_to_next_shift",
+        "overdue",
+        "cancelled"
+      ],
+      "default": "open"
+    },
+    "due_at": {
+      "type": "string"
+    },
+    "assigned_to_staff_id": {
+      "type": "string"
+    },
+    "assigned_to_name": {
+      "type": "string"
+    },
+    "passed_to_next_shift": {
+      "type": "boolean",
+      "default": false
+    },
+    "completed_by_name": {
+      "type": "string"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "handover_id",
+    "title"
+  ]
+}

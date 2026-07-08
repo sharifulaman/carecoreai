@@ -1,0 +1,293 @@
+{
+  "name": "RSMAbsenceRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "rsm_staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "rsm_name": {
+      "type": "string"
+    },
+    "rsm_employee_id": {
+      "type": "string"
+    },
+    "absence_type": {
+      "type": "string",
+      "enum": [
+        "planned",
+        "emergency",
+        "unforeseen"
+      ],
+      "description": "planned = known in advance, emergency = sudden illness or personal emergency, unforeseen = could not be anticipated"
+    },
+    "absence_reason": {
+      "type": "string",
+      "enum": [
+        "annual_leave",
+        "maternity_leave",
+        "paternity_leave",
+        "sick_leave",
+        "secondment",
+        "suspension",
+        "resignation_notice_period",
+        "personal_emergency",
+        "bereavement",
+        "other"
+      ]
+    },
+    "absence_reason_detail": {
+      "type": "string",
+      "description": "Additional detail if needed"
+    },
+    "absence_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "absence_end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "May be unknown for emergency absences"
+    },
+    "expected_duration_days": {
+      "type": "integer",
+      "description": "Calculated from start and end date"
+    },
+    "actual_duration_days": {
+      "type": "integer",
+      "description": "Calculated on return"
+    },
+    "is_28_days_or_more": {
+      "type": "boolean",
+      "description": "Auto-calculated: true if expected_duration_days >= 28"
+    },
+    "cover_person_name": {
+      "type": "string",
+      "description": "Required if is_28_days_or_more"
+    },
+    "cover_person_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id if internal"
+    },
+    "cover_person_is_internal": {
+      "type": "boolean",
+      "default": true
+    },
+    "cover_person_job_title": {
+      "type": "string"
+    },
+    "cover_person_qualifications": {
+      "type": "string",
+      "description": "Reg 33(2)(b)(iv) requires qualifications"
+    },
+    "cover_person_experience": {
+      "type": "string"
+    },
+    "cover_person_address": {
+      "type": "string",
+      "description": "Required by Reg 33(2)(b)(iv)"
+    },
+    "cover_person_phone": {
+      "type": "string"
+    },
+    "cover_person_email": {
+      "type": "string"
+    },
+    "cover_arrangements_narrative": {
+      "type": "string",
+      "description": "Reg 33(2)(b)(iii): how will the undertaking be managed"
+    },
+    "proposed_permanent_appointment_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Reg 33(2)(b)(v): proposed date for permanent appointment"
+    },
+    "permanent_appointment_notes": {
+      "type": "string"
+    },
+    "ofsted_notice_required": {
+      "type": "boolean",
+      "description": "True if is_28_days_or_more"
+    },
+    "ofsted_notice_deadline": {
+      "type": "string",
+      "format": "date",
+      "description": "Planned: absence_start_date minus 30 days. Emergency: absence_start_date plus 7 days"
+    },
+    "ofsted_notice_sent": {
+      "type": "boolean",
+      "default": false
+    },
+    "ofsted_notice_sent_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "ofsted_notice_sent_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "ofsted_notice_sent_by_name": {
+      "type": "string"
+    },
+    "ofsted_notice_method": {
+      "type": "string",
+      "enum": [
+        "ofsted_portal",
+        "email",
+        "letter",
+        "phone_confirmed_in_writing"
+      ]
+    },
+    "ofsted_reference_number": {
+      "type": "string"
+    },
+    "ofsted_notice_confirmed": {
+      "type": "boolean",
+      "default": false
+    },
+    "ofsted_notice_confirmed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "ofsted_notice_within_deadline": {
+      "type": "boolean",
+      "description": "Auto-calculated on ofsted_notice_sent_date vs ofsted_notice_deadline"
+    },
+    "ofsted_notice_late": {
+      "type": "boolean",
+      "description": "True if notice sent after deadline"
+    },
+    "ofsted_notice_late_reason": {
+      "type": "string"
+    },
+    "late_notice_explanation": {
+      "type": "string",
+      "description": "Reg 33(4) \u2014 if notice not given as required"
+    },
+    "return_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Actual date RSM returned to duty"
+    },
+    "return_notified_to_ofsted": {
+      "type": "boolean",
+      "default": false
+    },
+    "return_notification_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "return_notification_sent_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "return_notification_sent_by_name": {
+      "type": "string"
+    },
+    "return_notification_method": {
+      "type": "string",
+      "enum": [
+        "ofsted_portal",
+        "email",
+        "letter",
+        "phone_confirmed_in_writing"
+      ]
+    },
+    "return_within_7_days": {
+      "type": "boolean",
+      "description": "Auto-calculated: return_notification_date within 7 days of return_date"
+    },
+    "return_notification_reference": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "upcoming",
+        "active",
+        "returned",
+        "cancelled"
+      ],
+      "default": "draft"
+    },
+    "ofsted_compliance_status": {
+      "type": "string",
+      "enum": [
+        "not_required",
+        "notice_pending",
+        "notice_sent",
+        "notice_overdue",
+        "notice_late",
+        "return_pending",
+        "return_notified",
+        "fully_compliant"
+      ],
+      "default": "not_required"
+    },
+    "disruption_management_plan": {
+      "type": "string",
+      "description": "Reg 33(1)(b) \u2014 how service disruption will be limited"
+    },
+    "staff_communication_plan": {
+      "type": "string",
+      "description": "How staff will be informed"
+    },
+    "la_notification_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "la_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "la_notified_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "recorded_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "recorded_by_name": {
+      "type": "string"
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "reviewed_by_name": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "supporting_document_url": {
+      "type": "string",
+      "description": "URL of uploaded Ofsted notification letter"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "rsm_staff_id",
+    "absence_type",
+    "absence_reason",
+    "absence_start_date",
+    "recorded_by_id"
+  ]
+}

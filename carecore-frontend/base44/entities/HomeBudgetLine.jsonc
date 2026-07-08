@@ -1,0 +1,50 @@
+{
+  "name": "HomeBudgetLine",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "budget_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "rent",
+        "utilities",
+        "council_tax",
+        "insurance",
+        "maintenance",
+        "food",
+        "activities",
+        "staffing",
+        "transport",
+        "training",
+        "contingency",
+        "other"
+      ]
+    },
+    "budgeted_amount": {
+      "type": "number"
+    },
+    "actual_amount": {
+      "type": "number",
+      "default": 0,
+      "description": "Running total of actual spend \u2014 updated automatically when Bills are paid or HomeExpenses approved"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "budget_id",
+    "home_id",
+    "category",
+    "budgeted_amount"
+  ]
+}

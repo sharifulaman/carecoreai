@@ -1,0 +1,66 @@
+{
+  "name": "TimesheetEntry",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "timesheet_id": {
+      "type": "string",
+      "description": "FK \u2192 Timesheet.id"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id (UUID)"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "shift_id": {
+      "type": "string",
+      "description": "FK \u2192 Shift.id (nullable \u2014 auto-populated)"
+    },
+    "entry_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "shift_type": {
+      "type": "string",
+      "enum": [
+        "morning",
+        "afternoon",
+        "night",
+        "sleeping",
+        "manual"
+      ]
+    },
+    "scheduled_hours": {
+      "type": "number",
+      "default": 0
+    },
+    "actual_hours": {
+      "type": "number",
+      "default": 0
+    },
+    "overtime_hours": {
+      "type": "number",
+      "default": 0
+    },
+    "is_manual": {
+      "type": "boolean",
+      "default": false
+    },
+    "adjustment_reason": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "timesheet_id",
+    "staff_id",
+    "entry_date"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "name": "ContractTemplate",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "Template name (e.g., Full-Time Employment Contract)"
+    },
+    "contract_type": {
+      "type": "string",
+      "enum": [
+        "full_time",
+        "part_time",
+        "zero_hours",
+        "variation",
+        "probation_extension",
+        "probation_confirmation"
+      ]
+    },
+    "body_html": {
+      "type": "string",
+      "description": "Rich text HTML with merge fields in double braces: {{field_name}}"
+    },
+    "version": {
+      "type": "integer",
+      "default": 1
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "created_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "created_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "name",
+    "contract_type",
+    "body_html"
+  ]
+}

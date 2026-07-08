@@ -1,0 +1,42 @@
+{
+  "name": "ComplianceNote",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "compliance_item_id": {
+      "type": "string"
+    },
+    "note_type": {
+      "type": "string",
+      "enum": [
+        "general",
+        "risk",
+        "renewal",
+        "escalation",
+        "evidence",
+        "manager_review"
+      ],
+      "default": "general"
+    },
+    "note_text": {
+      "type": "string"
+    },
+    "added_by_name": {
+      "type": "string"
+    },
+    "added_by_staff_id": {
+      "type": "string"
+    },
+    "visibility": {
+      "type": "string",
+      "default": "all_staff"
+    }
+  },
+  "required": [
+    "org_id",
+    "compliance_item_id",
+    "note_text"
+  ]
+}

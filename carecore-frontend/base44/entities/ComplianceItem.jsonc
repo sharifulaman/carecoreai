@@ -1,0 +1,141 @@
+{
+  "name": "ComplianceItem",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "item_name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "gas_safety",
+        "electrical_safety",
+        "fire_safety",
+        "water_safety",
+        "emergency_lighting",
+        "insurance",
+        "property_licence",
+        "local_authority",
+        "health_safety",
+        "risk_assessment",
+        "staff_compliance",
+        "yp_resident_records",
+        "audit_visit",
+        "policy_review",
+        "maintenance_compliance",
+        "other"
+      ],
+      "default": "other"
+    },
+    "description": {
+      "type": "string"
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "issue_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "renewal_frequency": {
+      "type": "string",
+      "enum": [
+        "monthly",
+        "quarterly",
+        "biannually",
+        "annually",
+        "2_yearly",
+        "3_yearly",
+        "5_yearly",
+        "one_off",
+        "other"
+      ],
+      "default": "annually"
+    },
+    "owner_name": {
+      "type": "string"
+    },
+    "owner_staff_id": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "review",
+        "current"
+      ],
+      "default": "medium"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "current",
+        "expired",
+        "due_in_30",
+        "due_in_90",
+        "review_required",
+        "missing_evidence",
+        "renewal_requested",
+        "assigned",
+        "closed"
+      ],
+      "default": "current"
+    },
+    "evidence_status": {
+      "type": "string",
+      "enum": [
+        "uploaded",
+        "missing",
+        "pending_review",
+        "approved"
+      ],
+      "default": "missing"
+    },
+    "linked_maintenance_issue_id": {
+      "type": "string"
+    },
+    "linked_audit_action_id": {
+      "type": "string"
+    },
+    "reminder_days_before": {
+      "type": "number",
+      "default": 30
+    },
+    "manual_status_override": {
+      "type": "boolean",
+      "default": false
+    },
+    "notes": {
+      "type": "string"
+    },
+    "last_reviewed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_reviewed_by": {
+      "type": "string"
+    },
+    "created_by_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "item_name",
+    "category"
+  ]
+}

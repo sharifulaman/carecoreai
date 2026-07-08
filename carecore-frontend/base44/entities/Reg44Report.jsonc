@@ -1,0 +1,203 @@
+{
+  "name": "Reg44Report",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "visit_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "visit_month": {
+      "type": "string",
+      "description": "Month Year e.g. April 2026"
+    },
+    "inspector_name": {
+      "type": "string"
+    },
+    "inspector_organisation": {
+      "type": "string"
+    },
+    "inspector_contact": {
+      "type": "string"
+    },
+    "visit_duration_hours": {
+      "type": "number"
+    },
+    "residents_spoken_to": {
+      "type": "integer"
+    },
+    "staff_spoken_to": {
+      "type": "integer"
+    },
+    "records_reviewed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "quality_standards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "standard_number": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9
+          },
+          "standard_name": {
+            "type": "string"
+          },
+          "rating": {
+            "type": "string",
+            "enum": [
+              "outstanding",
+              "good",
+              "requires_improvement",
+              "inadequate"
+            ]
+          },
+          "evidence": {
+            "type": "string"
+          },
+          "concerns": {
+            "type": "string"
+          },
+          "recommendations": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "overall_rating": {
+      "type": "string",
+      "enum": [
+        "outstanding",
+        "good",
+        "requires_improvement",
+        "inadequate"
+      ]
+    },
+    "strengths": {
+      "type": "string"
+    },
+    "areas_for_improvement": {
+      "type": "string"
+    },
+    "serious_concerns": {
+      "type": "boolean",
+      "default": false
+    },
+    "serious_concern_detail": {
+      "type": "string"
+    },
+    "previous_recommendations_reviewed": {
+      "type": "boolean",
+      "default": false
+    },
+    "previous_recommendations_actioned": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "recommendation": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "actioned",
+              "in_progress",
+              "not_actioned"
+            ]
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "new_recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "recommendation": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "immediate",
+              "high",
+              "medium"
+            ]
+          },
+          "target_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "responsible_person": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "manager_response": {
+      "type": "string"
+    },
+    "manager_response_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "manager_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "manager_name": {
+      "type": "string"
+    },
+    "action_plan": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "manager_responded",
+        "closed"
+      ],
+      "default": "draft"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "visit_date",
+    "visit_month",
+    "inspector_name",
+    "overall_rating",
+    "quality_standards"
+  ]
+}

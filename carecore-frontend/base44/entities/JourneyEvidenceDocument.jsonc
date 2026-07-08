@@ -1,0 +1,50 @@
+{
+  "name": "JourneyEvidenceDocument",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "life_story_id": {
+      "type": "string"
+    },
+    "document_type": {
+      "type": "string"
+    },
+    "document_name": {
+      "type": "string"
+    },
+    "file_url": {
+      "type": "string"
+    },
+    "uploaded": {
+      "type": "boolean",
+      "default": false
+    },
+    "reviewed": {
+      "type": "boolean",
+      "default": false
+    },
+    "linked_section": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "uploaded_by": {
+      "type": "string"
+    },
+    "uploaded_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "document_type"
+  ]
+}

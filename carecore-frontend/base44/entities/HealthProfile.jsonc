@@ -1,0 +1,173 @@
+{
+  "name": "HealthProfile",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ]
+    },
+    "appropriate_healthcare_access": {
+      "type": "boolean",
+      "description": "Does child have appropriate healthcare access?"
+    },
+    "healthcare_access_concern": {
+      "type": "boolean"
+    },
+    "healthcare_access_reason": {
+      "type": "string",
+      "description": "If no healthcare access, reason why"
+    },
+    "gp_registered": {
+      "type": "boolean"
+    },
+    "gp_practice_name": {
+      "type": "string"
+    },
+    "gp_registration_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "gp_contact": {
+      "type": "string"
+    },
+    "dentist_registered": {
+      "type": "boolean"
+    },
+    "dentist_practice_name": {
+      "type": "string"
+    },
+    "dentist_registration_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "dentist_contact": {
+      "type": "string"
+    },
+    "no_dentist_reason": {
+      "type": "string",
+      "enum": [
+        "not_accessible",
+        "child_refuses",
+        "pending_registration",
+        "not_applicable",
+        "unknown"
+      ]
+    },
+    "optician_registered": {
+      "type": "boolean"
+    },
+    "optician_practice_name": {
+      "type": "string"
+    },
+    "optician_registration_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "optician_contact": {
+      "type": "string"
+    },
+    "last_health_appointment": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_health_appointment_due": {
+      "type": "boolean"
+    },
+    "next_health_appointment_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_health_appointment_type": {
+      "type": "string"
+    },
+    "last_dental_appointment": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_dental_appointment_due": {
+      "type": "boolean"
+    },
+    "next_dental_appointment_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_optician_appointment": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_optician_appointment_due": {
+      "type": "boolean"
+    },
+    "next_optician_appointment_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "health_action_plan": {
+      "type": "string"
+    },
+    "responsible_staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "responsible_staff_name": {
+      "type": "string"
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "record_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_updated_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "last_updated_by_name": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "resolved",
+        "on_hold"
+      ],
+      "default": "active"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "record_date"
+  ]
+}

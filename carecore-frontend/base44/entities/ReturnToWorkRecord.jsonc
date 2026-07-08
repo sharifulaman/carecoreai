@@ -1,0 +1,51 @@
+{
+  "name": "ReturnToWorkRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "leave_request_id": {
+      "type": "string",
+      "description": "FK \u2192 LeaveRequest.id"
+    },
+    "return_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "interview_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "conducted_by": {
+      "type": "string",
+      "description": "Name of manager"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "adjustments_needed": {
+      "type": "boolean",
+      "default": false
+    },
+    "adjustments_detail": {
+      "type": "string"
+    },
+    "fit_for_work": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "return_date"
+  ]
+}

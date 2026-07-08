@@ -1,0 +1,127 @@
+{
+  "name": "PolicyAcknowledgement",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string",
+      "description": "Organisation ID"
+    },
+    "policy_id": {
+      "type": "string",
+      "description": "FK \u2192 ChildProtectionPolicy.id"
+    },
+    "policy_type": {
+      "type": "string",
+      "enum": [
+        "safeguarding",
+        "missing_child",
+        "behaviour_management"
+      ],
+      "description": "Type of policy"
+    },
+    "policy_version": {
+      "type": "string",
+      "description": "Version number of the policy"
+    },
+    "policy_title": {
+      "type": "string",
+      "description": "Title of the policy"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string",
+      "description": "Name of staff member"
+    },
+    "staff_role": {
+      "type": "string",
+      "description": "Role of staff member"
+    },
+    "home_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Homes staff member is assigned to"
+    },
+    "acknowledged": {
+      "type": "boolean",
+      "default": false,
+      "description": "Has staff member acknowledged this policy"
+    },
+    "acknowledged_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When policy was acknowledged"
+    },
+    "acknowledgement_method": {
+      "type": "string",
+      "enum": [
+        "in_app",
+        "signed_paper_uploaded",
+        "training_session"
+      ],
+      "description": "Method of acknowledgement"
+    },
+    "acknowledgement_deadline": {
+      "type": "string",
+      "format": "date",
+      "description": "By when staff member must acknowledge"
+    },
+    "is_overdue": {
+      "type": "boolean",
+      "default": false,
+      "description": "Auto-calculated: today > acknowledgement_deadline and acknowledged = false"
+    },
+    "days_overdue": {
+      "type": "number",
+      "description": "Number of days overdue if overdue"
+    },
+    "signed_paper_url": {
+      "type": "string",
+      "description": "URL of scanned signed paper acknowledgement"
+    },
+    "signed_paper_uploaded_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When signed paper was uploaded"
+    },
+    "signed_paper_uploaded_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id of who uploaded it"
+    },
+    "chased": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether manager has chased staff member"
+    },
+    "chased_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When staff member was chased"
+    },
+    "chased_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id of who chased them"
+    },
+    "chase_notes": {
+      "type": "string",
+      "description": "Notes about the chase"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "policy_id",
+    "staff_id",
+    "acknowledgement_deadline"
+  ]
+}

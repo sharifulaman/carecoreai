@@ -1,0 +1,48 @@
+{
+  "name": "HomeBudget",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "period_type": {
+      "type": "string",
+      "enum": [
+        "annual",
+        "quarterly",
+        "monthly"
+      ]
+    },
+    "period_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "period_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "closed"
+      ],
+      "default": "draft"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "period_type",
+    "period_start",
+    "period_end",
+    "created_by"
+  ]
+}

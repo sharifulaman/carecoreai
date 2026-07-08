@@ -1,0 +1,92 @@
+{
+  "name": "CarePlan",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer"
+    },
+    "plan_type": {
+      "type": "string",
+      "enum": [
+        "initial",
+        "review",
+        "emergency_update"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "under_review",
+        "archived"
+      ]
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "reviewed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_frequency_months": {
+      "type": "integer"
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "reviewed_by": {
+      "type": "string"
+    },
+    "approved_by": {
+      "type": "string"
+    },
+    "resident_involved": {
+      "type": "boolean"
+    },
+    "resident_involvement_notes": {
+      "type": "string"
+    },
+    "nok_involved": {
+      "type": "boolean"
+    },
+    "nok_involvement_notes": {
+      "type": "string"
+    },
+    "la_copy_sent": {
+      "type": "boolean"
+    },
+    "la_copy_sent_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "summary": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "version",
+    "plan_type",
+    "status",
+    "effective_date",
+    "review_due_date",
+    "created_by"
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "name": "OrganisationProfile",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "provider_legal_name": {
+      "type": "string",
+      "description": "Registered legal name of organisation"
+    },
+    "trading_name": {
+      "type": "string"
+    },
+    "ofsted_urn": {
+      "type": "string",
+      "description": "Ofsted Unique Reference Number"
+    },
+    "registration_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "organisation_status": {
+      "type": "string",
+      "enum": [
+        "registered",
+        "provisional_registration",
+        "suspended",
+        "de_registered"
+      ],
+      "default": "registered"
+    },
+    "name_status_changed_since_registration": {
+      "type": "boolean"
+    },
+    "change_details": {
+      "type": "string",
+      "description": "Details of any name/status changes"
+    },
+    "change_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "registered_service_manager_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "registered_service_manager_name": {
+      "type": "string"
+    },
+    "registered_manager_qualification_held": {
+      "type": "boolean"
+    },
+    "qualification_name": {
+      "type": "string",
+      "description": "e.g. Level 3 Diploma in Children and Young People's Workforce"
+    },
+    "qualification_code": {
+      "type": "string"
+    },
+    "qualification_issued_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "qualification_evidence_url": {
+      "type": "string"
+    },
+    "nominated_individual_id": {
+      "type": "string",
+      "description": "FK \u2192 OrganisationOfficer.id or external person"
+    },
+    "nominated_individual_name": {
+      "type": "string"
+    },
+    "nominated_individual_contact": {
+      "type": "string"
+    },
+    "company_registration_number": {
+      "type": "string"
+    },
+    "charity_registration_number": {
+      "type": "string"
+    },
+    "parent_organisation_name": {
+      "type": "string",
+      "description": "If part of larger group"
+    },
+    "number_of_premises": {
+      "type": "number"
+    },
+    "number_of_residents": {
+      "type": "number"
+    },
+    "number_of_staff": {
+      "type": "number"
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "contact_address": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "last_ofsted_inspection_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_ofsted_rating": {
+      "type": "string",
+      "enum": [
+        "outstanding",
+        "good",
+        "requires_improvement",
+        "inadequate",
+        "unrated"
+      ],
+      "default": "unrated"
+    },
+    "last_updated_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "last_updated_by_name": {
+      "type": "string"
+    },
+    "last_updated_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "aims_and_objectives": {
+      "type": "string",
+      "description": "Statement of Purpose section 3 \u2014 aims and objectives of the service"
+    },
+    "admission_criteria": {
+      "type": "string",
+      "description": "Statement of Purpose section 5 \u2014 age range and criteria for admission"
+    },
+    "complaints_procedure": {
+      "type": "string",
+      "description": "Statement of Purpose section 7 \u2014 complaints procedure"
+    },
+    "workforce_plan_narrative": {
+      "type": "string",
+      "description": "Workforce plan narrative \u2014 recruitment strategy and succession planning"
+    },
+    "active_contingency_plan_id": {
+      "type": "string",
+      "description": "FK \u2192 ContingencyPlan.id \u2014 active contingency plan policy"
+    }
+  },
+  "required": [
+    "org_id",
+    "provider_legal_name",
+    "organisation_status"
+  ]
+}

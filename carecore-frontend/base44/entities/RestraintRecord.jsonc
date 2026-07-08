@@ -1,0 +1,211 @@
+{
+  "name": "RestraintRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "incident_id": {
+      "type": "string",
+      "description": "FK \u2192 Incident.id (optional)"
+    },
+    "child_name": {
+      "type": "string"
+    },
+    "behaviour_leading_to_restraint": {
+      "type": "string"
+    },
+    "restraint_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "restraint_time": {
+      "type": "string"
+    },
+    "restraint_location": {
+      "type": "string"
+    },
+    "restraint_description": {
+      "type": "string",
+      "description": "Description of the measure and its duration"
+    },
+    "duration_minutes": {
+      "type": "number"
+    },
+    "methods_to_avoid": {
+      "type": "string",
+      "description": "Steps taken to avoid the need to use the measure"
+    },
+    "persons_present": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "staff_id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "effectiveness_and_consequences": {
+      "type": "string"
+    },
+    "injuries_to_child": {
+      "type": "string"
+    },
+    "injuries_to_others": {
+      "type": "string"
+    },
+    "medical_treatment_administered": {
+      "type": "string"
+    },
+    "record_created_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "record_created_by_name": {
+      "type": "string"
+    },
+    "record_created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "record_within_24h": {
+      "type": "boolean",
+      "description": "Auto-calculated: true if record created within 24h of restraint"
+    },
+    "stage1_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "completed"
+      ],
+      "default": "pending"
+    },
+    "rsm_spoken_to_child": {
+      "type": "boolean",
+      "default": false
+    },
+    "rsm_spoken_to_child_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rsm_signed_off_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "rsm_signed_off_by_name": {
+      "type": "string"
+    },
+    "rsm_signed_off_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rsm_confirmed_accurate": {
+      "type": "boolean",
+      "default": false
+    },
+    "rsm_within_48h": {
+      "type": "boolean",
+      "description": "Auto-calculated"
+    },
+    "stage2_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "completed"
+      ],
+      "default": "pending"
+    },
+    "child_spoken_to_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "child_agreed_accuracy": {
+      "type": "boolean",
+      "default": false
+    },
+    "child_agreed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "child_comments": {
+      "type": "string"
+    },
+    "stage3_confirmed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "stage3_confirmed_by_name": {
+      "type": "string"
+    },
+    "stage3_within_5_days": {
+      "type": "boolean",
+      "description": "Auto-calculated"
+    },
+    "stage3_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "completed"
+      ],
+      "default": "pending"
+    },
+    "overall_status": {
+      "type": "string",
+      "enum": [
+        "stage1_pending",
+        "stage2_pending",
+        "stage3_pending",
+        "completed",
+        "overdue"
+      ],
+      "default": "stage1_pending"
+    },
+    "ofsted_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "ofsted_notification_id": {
+      "type": "string",
+      "description": "FK \u2192 OfstedNotification.id"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "resident_id",
+    "child_name",
+    "behaviour_leading_to_restraint",
+    "restraint_date",
+    "restraint_time",
+    "restraint_location",
+    "restraint_description",
+    "methods_to_avoid",
+    "effectiveness_and_consequences"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "RolePermission",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "role_name": {
+      "type": "string"
+    },
+    "enabled_modules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "org_id",
+    "role_name"
+  ]
+}

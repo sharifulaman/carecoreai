@@ -1,0 +1,85 @@
+{
+  "name": "DeprivationOfLiberty",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "subject_to_order": {
+      "type": "boolean",
+      "description": "Is resident currently subject to deprivation of liberty order?"
+    },
+    "order_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "order_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "court_order_reference": {
+      "type": "string",
+      "description": "Court/order reference number"
+    },
+    "responsible_local_authority": {
+      "type": "string"
+    },
+    "address_where_order_applies": {
+      "type": "string"
+    },
+    "order_type": {
+      "type": "string",
+      "enum": [
+        "best_interests_safeguards",
+        "mental_capacity_act",
+        "other"
+      ],
+      "description": "Type of deprivation of liberty order"
+    },
+    "document_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs of order documents"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_review_due": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "expired"
+      ],
+      "default": "active"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id"
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "name": "Payslip",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id (UUID)"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "employee_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "timesheet_id": {
+      "type": "string",
+      "description": "FK \u2192 Timesheet.id"
+    },
+    "pay_period_label": {
+      "type": "string"
+    },
+    "period_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "period_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "gross_pay": {
+      "type": "number",
+      "default": 0
+    },
+    "ni_deduction": {
+      "type": "number",
+      "default": 0
+    },
+    "tax_deduction": {
+      "type": "number",
+      "default": 0
+    },
+    "pension_deduction": {
+      "type": "number",
+      "default": 0
+    },
+    "net_pay": {
+      "type": "number",
+      "default": 0
+    },
+    "ssp_amount": {
+      "type": "number",
+      "default": 0,
+      "description": "SSP included in this payslip"
+    },
+    "expense_lines": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Non-taxable expense reimbursement lines included in this payslip"
+    },
+    "total_expenses": {
+      "type": "number",
+      "default": 0,
+      "description": "Total non-taxable expenses reimbursed"
+    },
+    "employer_name": {
+      "type": "string",
+      "default": "CareCore AI"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "generated_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "tax_code": {
+      "type": "string"
+    },
+    "employer_ni": {
+      "type": "number",
+      "default": 0
+    },
+    "employer_pension": {
+      "type": "number",
+      "default": 0
+    },
+    "total_employer_cost": {
+      "type": "number",
+      "default": 0
+    },
+    "ni_number": {
+      "type": "string"
+    },
+    "emailed_at": {
+      "type": "string",
+      "description": "ISO timestamp when payslip was emailed"
+    },
+    "emailed_to": {
+      "type": "string",
+      "description": "Email address the payslip was sent to"
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "timesheet_id",
+    "pay_period_label"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "name": "ResidentDocument",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "file_url": {
+      "type": "string"
+    },
+    "file_name": {
+      "type": "string"
+    },
+    "document_type": {
+      "type": "string",
+      "enum": [
+        "support_plan",
+        "risk_assessment",
+        "placement_plan",
+        "pathway_plan",
+        "health",
+        "education",
+        "legal",
+        "correspondence",
+        "other"
+      ]
+    },
+    "uploaded_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "uploaded_by_name": {
+      "type": "string"
+    },
+    "uploaded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "file_url",
+    "file_name"
+  ]
+}

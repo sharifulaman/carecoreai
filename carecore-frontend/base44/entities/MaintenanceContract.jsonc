@@ -1,0 +1,76 @@
+{
+  "name": "MaintenanceContract",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "contractor_name": {
+      "type": "string"
+    },
+    "service_type": {
+      "type": "string"
+    },
+    "homes_covered": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contract_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "contract_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "renewal_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "cost_amount": {
+      "type": "number"
+    },
+    "cost_frequency": {
+      "type": "string",
+      "enum": [
+        "monthly",
+        "quarterly",
+        "annually",
+        "one_off"
+      ],
+      "default": "annually"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "expired",
+        "pending_renewal",
+        "cancelled"
+      ],
+      "default": "active"
+    },
+    "contact_name": {
+      "type": "string"
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "document_url": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "contractor_name",
+    "service_type"
+  ]
+}

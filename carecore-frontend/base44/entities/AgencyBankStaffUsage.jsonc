@@ -1,0 +1,110 @@
+{
+  "name": "AgencyBankStaffUsage",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "usage_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "worker_name_or_reference": {
+      "type": "string",
+      "description": "Name or agency reference for temporary worker"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id if staff member record exists"
+    },
+    "agency_bank_type": {
+      "type": "string",
+      "enum": [
+        "agency",
+        "bank",
+        "temporary"
+      ],
+      "description": "Type of non-permanent staffing"
+    },
+    "agency_organisation_name": {
+      "type": "string",
+      "description": "Name of agency/bank supplying worker"
+    },
+    "shift_home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "shift_home_name": {
+      "type": "string"
+    },
+    "service_type": {
+      "type": "string",
+      "enum": [
+        "outreach",
+        "eighteen_plus",
+        "twenty_four_hours"
+      ]
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ]
+    },
+    "hours_worked": {
+      "type": "number"
+    },
+    "shift_start_time": {
+      "type": "string",
+      "description": "HH:mm format"
+    },
+    "shift_end_time": {
+      "type": "string",
+      "description": "HH:mm format"
+    },
+    "role": {
+      "type": "string"
+    },
+    "is_support_role": {
+      "type": "boolean",
+      "description": "Is this a support worker role (not management/admin)?"
+    },
+    "reason_used": {
+      "type": "string",
+      "enum": [
+        "staff_absence",
+        "vacancy_cover",
+        "peak_demand",
+        "specialist_skill",
+        "maternity_cover",
+        "other"
+      ]
+    },
+    "approved_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id (manager approval)"
+    },
+    "approved_by_name": {
+      "type": "string"
+    },
+    "cost_per_hour": {
+      "type": "number"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "usage_date",
+    "worker_name_or_reference",
+    "agency_bank_type",
+    "shift_home_id",
+    "service_type",
+    "accommodation_category",
+    "hours_worked",
+    "is_support_role"
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "name": "RecordCompletenessCheck",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string",
+      "description": "Organisation ID"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "resident_dob": {
+      "type": "string",
+      "format": "date"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "service_type": {
+      "type": "string"
+    },
+    "placement_status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "discharged",
+        "deceased"
+      ]
+    },
+    "retention_expiry_date": {
+      "type": "string",
+      "format": "date",
+      "description": "75 years from DOB or 15 years from death if deceased before 18"
+    },
+    "death_before_18": {
+      "type": "boolean",
+      "default": false
+    },
+    "death_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "years_remaining_on_record": {
+      "type": "number"
+    },
+    "retention_period_expired": {
+      "type": "boolean",
+      "default": false
+    },
+    "check_full_name": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 1: Resident.full_name"
+    },
+    "check_dob_and_sex": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 2: Resident.dob and Resident.gender"
+    },
+    "check_religion": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 3: Resident.religion"
+    },
+    "check_ethnicity_and_language": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 4: Resident.ethnicity and Resident.language"
+    },
+    "check_address_before_admission": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 5: Resident.address"
+    },
+    "check_address_on_discharge": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 6: PlacementRecord.discharge_address"
+    },
+    "check_money_and_valuables": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 7: ResidentSavingsTransaction or ResidentAllowancePayment"
+    },
+    "check_statutory_provision": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 8: Resident.legal_placement_basis"
+    },
+    "check_accommodating_authority_contact": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 9: Resident.placing_local_authority and contact"
+    },
+    "check_parents_details": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 10: FamilyContact with parent relationship"
+    },
+    "check_social_worker_details": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 11: Resident.social_worker_name and phone"
+    },
+    "check_school_or_college": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 12: EducationRecord or education_status = not_applicable"
+    },
+    "check_employer_details": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 13: EmploymentRecord or EETRecord status"
+    },
+    "check_missing_from_home_records": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 14: MissingFromHome complete or none"
+    },
+    "check_restraint_records": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 15: RestraintRecord complete or none"
+    },
+    "check_contact_arrangements": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 16: FamilyContact with restrictions"
+    },
+    "check_sen_statement_or_ehcp": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 17: EducationRecord.ehcp_in_place"
+    },
+    "check_school_reports": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 18: ResidentDocument of type school_report"
+    },
+    "check_relevant_plans": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 19: SupportPlan, PathwayPlan, or PlacementPlan"
+    },
+    "check_plan_review_dates": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 20: All active plans have review_date"
+    },
+    "check_gp_details": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 21: HealthProfile.gp_name and gp_practice"
+    },
+    "check_accident_illness_records": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 22: AccidentReport complete or none"
+    },
+    "check_immunisation_allergy_medical": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 23: HealthProfile.allergies populated"
+    },
+    "check_health_examination_details": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 24: HealthProfile.last_updated_at within 12 months"
+    },
+    "check_medication_details": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 25: MedicationRecord complete or none"
+    },
+    "check_dietary_health_needs": {
+      "type": "boolean",
+      "default": false,
+      "description": "Schedule 2 para 26: HealthProfile health needs field"
+    },
+    "total_checks": {
+      "type": "integer",
+      "default": 26
+    },
+    "checks_passed": {
+      "type": "integer"
+    },
+    "completeness_score": {
+      "type": "number",
+      "description": "Percentage 0-100"
+    },
+    "completeness_band": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "good",
+        "needs_attention",
+        "incomplete",
+        "critical"
+      ]
+    },
+    "missing_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Human-readable list of missing items"
+    },
+    "last_checked_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_checked_by": {
+      "type": "string",
+      "enum": [
+        "nightly_check",
+        "manual_refresh"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    },
+    "manually_reviewed": {
+      "type": "boolean",
+      "default": false
+    },
+    "manually_reviewed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "manually_reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "manual_review_notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id"
+  ]
+}

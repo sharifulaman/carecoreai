@@ -1,0 +1,50 @@
+{
+  "name": "YPViewsRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "yp_views_on_placement": {
+      "type": "string"
+    },
+    "yp_goals_and_wishes": {
+      "type": "string"
+    },
+    "yp_concerns": {
+      "type": "string"
+    },
+    "yp_signature_obtained": {
+      "type": "boolean",
+      "default": false
+    },
+    "date_views_recorded": {
+      "type": "string",
+      "format": "date"
+    },
+    "completed_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "completed_by_name": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id"
+  ]
+}

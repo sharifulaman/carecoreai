@@ -1,0 +1,379 @@
+{
+  "name": "LocationAssessment",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "home_address": {
+      "type": "string"
+    },
+    "home_type": {
+      "type": "string"
+    },
+    "assessment_year": {
+      "type": "integer"
+    },
+    "assessment_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_assessment_due": {
+      "type": "string",
+      "format": "date"
+    },
+    "version_number": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "completed",
+        "approved",
+        "overdue"
+      ],
+      "default": "draft"
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced",
+        "private_residence"
+      ]
+    },
+    "category_appropriate_for_location": {
+      "type": "boolean"
+    },
+    "category_appropriateness_notes": {
+      "type": "string"
+    },
+    "local_services_accessible": {
+      "type": "boolean"
+    },
+    "local_services_notes": {
+      "type": "string"
+    },
+    "education_access": {
+      "type": "string",
+      "enum": [
+        "good",
+        "adequate",
+        "limited",
+        "poor"
+      ]
+    },
+    "education_access_notes": {
+      "type": "string"
+    },
+    "healthcare_access": {
+      "type": "string",
+      "enum": [
+        "good",
+        "adequate",
+        "limited",
+        "poor"
+      ]
+    },
+    "healthcare_access_notes": {
+      "type": "string"
+    },
+    "public_transport_access": {
+      "type": "string",
+      "enum": [
+        "good",
+        "adequate",
+        "limited",
+        "poor"
+      ]
+    },
+    "public_transport_access_notes": {
+      "type": "string"
+    },
+    "community_participation": {
+      "type": "string",
+      "enum": [
+        "good",
+        "adequate",
+        "limited",
+        "poor"
+      ]
+    },
+    "community_participation_notes": {
+      "type": "string"
+    },
+    "stigmatisation_risk": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "stigmatisation_notes": {
+      "type": "string"
+    },
+    "self_esteem_promotion": {
+      "type": "boolean"
+    },
+    "self_esteem_notes": {
+      "type": "string"
+    },
+    "area_safety_rating": {
+      "type": "string",
+      "enum": [
+        "good",
+        "adequate",
+        "concerns",
+        "serious_concerns"
+      ]
+    },
+    "area_safety_notes": {
+      "type": "string"
+    },
+    "known_risks_in_area": {
+      "type": "string"
+    },
+    "risk_mitigation_measures": {
+      "type": "string"
+    },
+    "proximity_to_known_risks": {
+      "type": "boolean"
+    },
+    "proximity_risk_details": {
+      "type": "string"
+    },
+    "premises_suitable_for_category": {
+      "type": "boolean"
+    },
+    "premises_suitability_notes": {
+      "type": "string"
+    },
+    "stability_and_consistency": {
+      "type": "boolean"
+    },
+    "accessibility": {
+      "type": "boolean"
+    },
+    "accessibility_notes": {
+      "type": "string"
+    },
+    "private_bedrooms": {
+      "type": "boolean"
+    },
+    "internet_connectivity": {
+      "type": "boolean"
+    },
+    "physically_secure": {
+      "type": "boolean"
+    },
+    "homely_environment": {
+      "type": "boolean"
+    },
+    "hazards_removed": {
+      "type": "boolean"
+    },
+    "health_safety_compliant": {
+      "type": "boolean"
+    },
+    "consultations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "person_name": {
+            "type": "string"
+          },
+          "person_role": {
+            "type": "string"
+          },
+          "consultation_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "consultation_method": {
+            "type": "string",
+            "enum": [
+              "face_to_face",
+              "phone",
+              "email",
+              "written",
+              "group_meeting"
+            ]
+          },
+          "views_summary": {
+            "type": "string"
+          },
+          "concerns_raised": {
+            "type": "boolean",
+            "default": false
+          },
+          "concerns_detail": {
+            "type": "string"
+          },
+          "how_views_taken_into_account": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "children_consulted": {
+      "type": "boolean"
+    },
+    "children_consultation_summary": {
+      "type": "string"
+    },
+    "children_concerns": {
+      "type": "string"
+    },
+    "overall_suitability": {
+      "type": "string",
+      "enum": [
+        "suitable",
+        "suitable_with_conditions",
+        "unsuitable"
+      ]
+    },
+    "overall_suitability_notes": {
+      "type": "string"
+    },
+    "conditions_attached": {
+      "type": "string"
+    },
+    "recommended_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "immediate",
+              "within_1_month",
+              "within_3_months",
+              "ongoing"
+            ]
+          },
+          "responsible_person_id": {
+            "type": "string"
+          },
+          "responsible_person_name": {
+            "type": "string"
+          },
+          "target_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "completed": {
+            "type": "boolean",
+            "default": false
+          },
+          "completed_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "completion_notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "unsuitable_action_plan": {
+      "type": "string"
+    },
+    "assessed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "assessed_by_name": {
+      "type": "string"
+    },
+    "assessed_by_role": {
+      "type": "string"
+    },
+    "assessment_notes": {
+      "type": "string"
+    },
+    "reviewed_by_id": {
+      "type": "string"
+    },
+    "reviewed_by_name": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "approved_by_id": {
+      "type": "string"
+    },
+    "approved_by_name": {
+      "type": "string"
+    },
+    "approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "document_url": {
+      "type": "string"
+    },
+    "document_file_name": {
+      "type": "string"
+    },
+    "document_uploaded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ofsted_registration_assessment": {
+      "type": "boolean",
+      "default": false
+    },
+    "shared_with_ofsted": {
+      "type": "boolean",
+      "default": false
+    },
+    "shared_with_ofsted_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "previous_assessment_id": {
+      "type": "string"
+    },
+    "change_from_previous": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "assessment_year",
+    "assessment_date",
+    "accommodation_category",
+    "premises_suitable_for_category",
+    "overall_suitability",
+    "overall_suitability_notes",
+    "assessed_by_id"
+  ]
+}

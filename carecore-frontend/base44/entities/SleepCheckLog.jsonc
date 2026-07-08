@@ -1,0 +1,125 @@
+{
+  "name": "SleepCheckLog",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "shift": {
+      "type": "string",
+      "enum": [
+        "night"
+      ],
+      "default": "night"
+    },
+    "staff_on_duty_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_on_duty_name": {
+      "type": "string"
+    },
+    "sleep_in_staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "sleep_in_staff_name": {
+      "type": "string"
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "check_time": {
+            "type": "string",
+            "description": "HH:MM format"
+          },
+          "resident_checks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "resident_id": {
+                  "type": "string"
+                },
+                "resident_name": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "in_room_sleeping",
+                    "in_room_awake",
+                    "out_of_room",
+                    "not_in_home",
+                    "could_not_check"
+                  ]
+                },
+                "notes": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "checked_by_id": {
+            "type": "string",
+            "description": "FK \u2192 StaffProfile.id"
+          },
+          "checked_by_name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "all_residents_accounted": {
+      "type": "boolean"
+    },
+    "any_concerns": {
+      "type": "boolean",
+      "default": false
+    },
+    "concern_notes": {
+      "type": "string"
+    },
+    "any_disturbances": {
+      "type": "boolean",
+      "default": false
+    },
+    "disturbance_notes": {
+      "type": "string"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "in_progress",
+        "completed"
+      ],
+      "default": "in_progress"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "date"
+  ]
+}

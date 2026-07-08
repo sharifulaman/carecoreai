@@ -1,0 +1,93 @@
+{
+  "name": "LoneWorkingLog",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "visit_address": {
+      "type": "string",
+      "description": "Address where visit is taking place"
+    },
+    "check_in_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expected_duration_minutes": {
+      "type": "number",
+      "description": "Expected visit duration in minutes"
+    },
+    "expected_checkout_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Auto-calculated: check_in + expected_duration"
+    },
+    "actual_checkout_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "checked_in",
+        "completed",
+        "overdue",
+        "welfare_check"
+      ],
+      "default": "checked_in"
+    },
+    "welfare_check_initiated": {
+      "type": "boolean",
+      "default": false
+    },
+    "welfare_check_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "welfare_check_by_name": {
+      "type": "string"
+    },
+    "welfare_check_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "welfare_check_outcome": {
+      "type": "string",
+      "description": "Outcome of welfare check (safe, reached worker, police contacted, etc.)"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "home_id",
+    "resident_id",
+    "visit_address",
+    "check_in_datetime",
+    "expected_duration_minutes"
+  ]
+}

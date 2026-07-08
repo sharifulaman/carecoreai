@@ -1,0 +1,101 @@
+{
+  "name": "SWPAFeedbackTemplate",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "archived"
+      ],
+      "default": "active"
+    },
+    "version_number": {
+      "type": "string",
+      "default": "1.0"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "section_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "questions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "question_id": {
+                  "type": "string"
+                },
+                "question_text": {
+                  "type": "string"
+                },
+                "question_type": {
+                  "type": "string",
+                  "enum": [
+                    "multiple_choice",
+                    "text",
+                    "rating"
+                  ]
+                },
+                "options": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "is_required": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "display_order": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "created_by_id": {
+      "type": "string"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "updated_by_id": {
+      "type": "string"
+    },
+    "updated_by_name": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "name",
+    "sections"
+  ]
+}

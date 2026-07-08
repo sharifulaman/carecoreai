@@ -1,0 +1,53 @@
+{
+  "name": "IncidentPerson",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "incident_id": {
+      "type": "string",
+      "description": "FK \u2192 Incident.id"
+    },
+    "person_type": {
+      "type": "string",
+      "enum": [
+        "resident",
+        "staff",
+        "professional",
+        "visitor",
+        "other"
+      ]
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id if person_type = resident"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id if person_type = staff"
+    },
+    "name_if_external": {
+      "type": "string",
+      "description": "Name if person is external (not in system)"
+    },
+    "role_in_incident": {
+      "type": "string",
+      "description": "e.g. 'Involved resident', 'Witness', 'Staff providing restraint', 'Alleged victim'"
+    },
+    "injured": {
+      "type": "boolean"
+    },
+    "injury_description": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "incident_id",
+    "person_type"
+  ]
+}

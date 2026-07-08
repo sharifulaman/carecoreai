@@ -1,0 +1,70 @@
+{
+  "name": "HRPolicyELearningAck",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "assignment_id": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "policy_version": {
+      "type": "string"
+    },
+    "policy_title": {
+      "type": "string"
+    },
+    "course_title": {
+      "type": "string"
+    },
+    "acknowledgement_type": {
+      "type": "string",
+      "enum": [
+        "PDF Read Only",
+        "E-Learning Completed",
+        "Quiz Passed and Acknowledged"
+      ],
+      "default": "Quiz Passed and Acknowledged"
+    },
+    "acknowledgement_text": {
+      "type": "string"
+    },
+    "quiz_required": {
+      "type": "boolean"
+    },
+    "quiz_passed": {
+      "type": "boolean"
+    },
+    "final_score": {
+      "type": "number"
+    },
+    "acknowledged": {
+      "type": "boolean",
+      "default": false
+    },
+    "acknowledged_at": {
+      "type": "string"
+    },
+    "signature_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "assignment_id",
+    "policy_id",
+    "staff_id"
+  ]
+}

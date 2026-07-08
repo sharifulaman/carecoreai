@@ -1,0 +1,61 @@
+{
+  "name": "StaffDocument",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "document_type": {
+      "type": "string",
+      "enum": [
+        "contract",
+        "dbs_certificate",
+        "right_to_work",
+        "qualification",
+        "id",
+        "payslip",
+        "other"
+      ],
+      "default": "other"
+    },
+    "title": {
+      "type": "string"
+    },
+    "file_url": {
+      "type": "string"
+    },
+    "upload_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "valid",
+        "expired",
+        "pending"
+      ],
+      "default": "valid"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "document_type",
+    "title"
+  ]
+}

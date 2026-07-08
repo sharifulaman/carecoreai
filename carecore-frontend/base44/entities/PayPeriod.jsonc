@@ -1,0 +1,45 @@
+{
+  "name": "PayPeriod",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string",
+      "description": "e.g. April 2026"
+    },
+    "period_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "period_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "frequency": {
+      "type": "string",
+      "enum": [
+        "weekly",
+        "fortnightly",
+        "monthly"
+      ],
+      "default": "monthly"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "closed",
+        "paid"
+      ],
+      "default": "open"
+    }
+  },
+  "required": [
+    "org_id",
+    "label",
+    "period_start",
+    "period_end"
+  ]
+}

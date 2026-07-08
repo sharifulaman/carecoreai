@@ -1,0 +1,180 @@
+{
+  "name": "NEETRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ],
+      "description": "Auto-filled from Resident"
+    },
+    "age_at_record_date": {
+      "type": "number",
+      "description": "Auto-calculated from Resident DOB"
+    },
+    "placing_local_authority": {
+      "type": "string",
+      "description": "Auto-filled from Resident"
+    },
+    "is_currently_neet": {
+      "type": "boolean",
+      "description": "Currently not in education, employment or training?"
+    },
+    "neet_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date NEET status began"
+    },
+    "last_activity_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Last date child received education/training/employment"
+    },
+    "reason_for_neet": {
+      "type": "string",
+      "enum": [
+        "health_reasons",
+        "caring_responsibilities",
+        "pregnancy_parenting",
+        "lacking_qualifications",
+        "unsuitable_provision_locally",
+        "choice",
+        "unknown",
+        "other"
+      ]
+    },
+    "reason_notes": {
+      "type": "string"
+    },
+    "barriers_to_engagement": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "mental_health",
+          "substance_misuse",
+          "school_refusal",
+          "unmet_sen_needs",
+          "literacy_numeracy",
+          "transport_issues",
+          "lack_of_confidence",
+          "caring_responsibilities",
+          "other"
+        ]
+      }
+    },
+    "action_plan": {
+      "type": "string",
+      "description": "Plan to re-engage in education/training/employment"
+    },
+    "responsible_staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "responsible_staff_name": {
+      "type": "string"
+    },
+    "external_support_engaged": {
+      "type": "boolean"
+    },
+    "external_support_agencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of agencies supporting re-engagement (FK \u2192 ExternalSupportService.id)"
+    },
+    "outcome_notes": {
+      "type": "string"
+    },
+    "outcome_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date child re-engaged in EET or exited NEET"
+    },
+    "outcome_type": {
+      "type": "string",
+      "enum": [
+        "re_engaged_education",
+        "re_engaged_employment",
+        "re_engaged_training",
+        "ongoing_neet",
+        "exited_service"
+      ]
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "record_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_updated_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "last_updated_by_name": {
+      "type": "string"
+    },
+    "manager_review_status": {
+      "type": "string",
+      "enum": [
+        "submitted",
+        "pending_review",
+        "reviewed"
+      ],
+      "default": "submitted"
+    },
+    "manager_review_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "manager_review_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "resolved",
+        "closed"
+      ],
+      "default": "active"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "is_currently_neet",
+    "record_date"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "name": "CarePlanSection",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "care_plan_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "personal_care",
+        "mobility",
+        "nutrition",
+        "medication",
+        "communication",
+        "social_activities",
+        "mental_health",
+        "physical_health",
+        "continence",
+        "sleep",
+        "safeguarding",
+        "behaviour_support",
+        "sensory_needs",
+        "end_of_life",
+        "relationships",
+        "employment_education",
+        "finances",
+        "other"
+      ]
+    },
+    "needs_summary": {
+      "type": "string"
+    },
+    "goals": {
+      "type": "string"
+    },
+    "interventions": {
+      "type": "string"
+    },
+    "resident_preferences": {
+      "type": "string"
+    },
+    "risks": {
+      "type": "string"
+    },
+    "review_notes": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "last_updated_by": {
+      "type": "string"
+    },
+    "last_updated_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "care_plan_id",
+    "resident_id",
+    "domain",
+    "resident_preferences"
+  ]
+}

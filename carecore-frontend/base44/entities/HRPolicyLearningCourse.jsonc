@@ -1,0 +1,115 @@
+{
+  "name": "HRPolicyLearningCourse",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_version": {
+      "type": "string"
+    },
+    "course_title": {
+      "type": "string"
+    },
+    "course_summary": {
+      "type": "string"
+    },
+    "target_audience": {
+      "type": "string"
+    },
+    "estimated_duration_minutes": {
+      "type": "number"
+    },
+    "learning_objectives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "key_staff_responsibilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "practical_examples_summary": {
+      "type": "string"
+    },
+    "pass_mark_percentage": {
+      "type": "number",
+      "default": 80
+    },
+    "max_attempts": {
+      "type": "number",
+      "default": 3
+    },
+    "allow_retake": {
+      "type": "boolean",
+      "default": true
+    },
+    "requires_acknowledgement": {
+      "type": "boolean",
+      "default": true
+    },
+    "ai_generated": {
+      "type": "boolean",
+      "default": false
+    },
+    "ai_model_used": {
+      "type": "string"
+    },
+    "ai_generation_notes": {
+      "type": "string"
+    },
+    "reviewer_notes": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Draft",
+        "Under Review",
+        "Changes Requested",
+        "Approved",
+        "Published",
+        "Archived"
+      ],
+      "default": "Draft"
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "reviewed_by": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string"
+    },
+    "approved_by": {
+      "type": "string"
+    },
+    "approved_at": {
+      "type": "string"
+    },
+    "published_by": {
+      "type": "string"
+    },
+    "published_at": {
+      "type": "string"
+    },
+    "policy_title": {
+      "type": "string"
+    },
+    "policy_category": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "policy_id",
+    "course_title"
+  ]
+}

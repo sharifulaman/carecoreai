@@ -1,0 +1,230 @@
+{
+  "name": "SafeguardingRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id (child involved)"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ]
+    },
+    "concern_type": {
+      "type": "string",
+      "enum": [
+        "physical",
+        "emotional",
+        "sexual",
+        "financial",
+        "neglect",
+        "self_neglect",
+        "discriminatory",
+        "institutional",
+        "domestic_abuse",
+        "modern_slavery",
+        "child_protection_referral",
+        "radicalisation_prevent"
+      ]
+    },
+    "date_of_concern": {
+      "type": "string",
+      "format": "date"
+    },
+    "date_reported_internally": {
+      "type": "string",
+      "format": "date"
+    },
+    "reported_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "reported_by_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "immediate_risk": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "immediate_action_taken": {
+      "type": "string"
+    },
+    "allegation_against_staff": {
+      "type": "boolean",
+      "description": "Is this an allegation against a staff member?"
+    },
+    "staff_subject_to_allegation_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id if allegation against staff"
+    },
+    "staff_subject_to_allegation_name": {
+      "type": "string"
+    },
+    "allegation_made_by": {
+      "type": "string",
+      "enum": [
+        "child",
+        "parent_carer",
+        "professional",
+        "staff",
+        "other"
+      ]
+    },
+    "alleged_perpetrator_type": {
+      "type": "string",
+      "enum": [
+        "staff",
+        "visitor",
+        "another_resident",
+        "unknown",
+        "self",
+        "other"
+      ]
+    },
+    "manager_informed": {
+      "type": "boolean",
+      "default": false
+    },
+    "manager_informed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "manager_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "lado_referral": {
+      "type": "boolean",
+      "description": "Local Authority Designated Officer referral made?"
+    },
+    "la_children_services_referral": {
+      "type": "boolean",
+      "description": "Local Authority Children's Services referral made?"
+    },
+    "la_safeguarding_referred": {
+      "type": "boolean",
+      "default": false,
+      "description": "Referred to LA safeguarding?"
+    },
+    "la_reference": {
+      "type": "string"
+    },
+    "la_referral_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "radicalisation_concern": {
+      "type": "boolean"
+    },
+    "prevent_referral": {
+      "type": "boolean"
+    },
+    "section_42_enquiry": {
+      "type": "boolean",
+      "default": false
+    },
+    "cqc_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "cqc_notification_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "police_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "police_reference": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "substantiated",
+        "unsubstantiated",
+        "inconclusive",
+        "under_investigation",
+        "closed_no_further_action"
+      ]
+    },
+    "outcome_notes": {
+      "type": "string"
+    },
+    "investigation_status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "under_investigation",
+        "closed"
+      ]
+    },
+    "manager_review_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "manager_review_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "closure_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "under_investigation",
+        "closed"
+      ]
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "concern_type",
+    "date_of_concern",
+    "date_reported_internally",
+    "reported_by_name",
+    "description",
+    "immediate_risk",
+    "immediate_action_taken"
+  ]
+}

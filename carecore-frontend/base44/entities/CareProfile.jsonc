@@ -1,0 +1,304 @@
+{
+  "name": "CareProfile",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "care_needs_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "complex"
+      ]
+    },
+    "primary_care_category": {
+      "type": "string",
+      "enum": [
+        "elderly",
+        "learning_disability",
+        "mental_health",
+        "physical_disability",
+        "mixed"
+      ]
+    },
+    "primary_diagnosis": {
+      "type": "string"
+    },
+    "secondary_diagnoses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mobility_level": {
+      "type": "string",
+      "enum": [
+        "independent",
+        "supervised",
+        "assisted",
+        "hoist",
+        "bed_bound"
+      ]
+    },
+    "communication_needs": {
+      "type": "string"
+    },
+    "communication_method": {
+      "type": "string",
+      "enum": [
+        "verbal",
+        "non_verbal",
+        "makaton",
+        "picture_symbols",
+        "aac_device",
+        "other"
+      ]
+    },
+    "preferred_name": {
+      "type": "string"
+    },
+    "preferred_language": {
+      "type": "string"
+    },
+    "interpreter_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "cultural_religious_needs": {
+      "type": "string"
+    },
+    "mha_status": {
+      "type": "string",
+      "enum": [
+        "informal",
+        "section_2",
+        "section_3",
+        "section_17_leave",
+        "cto",
+        "not_applicable"
+      ]
+    },
+    "mha_section_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "responsible_clinician": {
+      "type": "string"
+    },
+    "care_coordinator_name": {
+      "type": "string"
+    },
+    "care_coordinator_contact": {
+      "type": "string"
+    },
+    "crisis_plan_in_place": {
+      "type": "boolean",
+      "default": false
+    },
+    "crisis_plan_summary": {
+      "type": "string"
+    },
+    "mental_capacity_assumed": {
+      "type": "boolean",
+      "default": true
+    },
+    "has_dols": {
+      "type": "boolean",
+      "default": false
+    },
+    "dols_reference": {
+      "type": "string"
+    },
+    "dols_expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "dols_purpose": {
+      "type": "string"
+    },
+    "has_lpa": {
+      "type": "boolean",
+      "default": false
+    },
+    "lpa_type": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "health_welfare",
+          "property_finance"
+        ]
+      }
+    },
+    "lpa_holder_name": {
+      "type": "string"
+    },
+    "lpa_holder_contact": {
+      "type": "string"
+    },
+    "has_deputyship": {
+      "type": "boolean",
+      "default": false
+    },
+    "deputy_name": {
+      "type": "string"
+    },
+    "deputy_contact": {
+      "type": "string"
+    },
+    "dnacpr_in_place": {
+      "type": "boolean",
+      "default": false
+    },
+    "dnacpr_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "dnacpr_reviewed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "advance_care_plan": {
+      "type": "boolean",
+      "default": false
+    },
+    "advance_care_plan_url": {
+      "type": "string"
+    },
+    "gp_name": {
+      "type": "string"
+    },
+    "gp_practice": {
+      "type": "string"
+    },
+    "gp_phone": {
+      "type": "string"
+    },
+    "gp_address": {
+      "type": "string"
+    },
+    "nhs_number": {
+      "type": "string"
+    },
+    "hospital_of_choice": {
+      "type": "string"
+    },
+    "community_nurse_name": {
+      "type": "string"
+    },
+    "community_nurse_contact": {
+      "type": "string"
+    },
+    "psychiatrist_name": {
+      "type": "string"
+    },
+    "psychiatrist_contact": {
+      "type": "string"
+    },
+    "nok_name": {
+      "type": "string"
+    },
+    "nok_relationship": {
+      "type": "string"
+    },
+    "nok_phone": {
+      "type": "string"
+    },
+    "nok_email": {
+      "type": "string"
+    },
+    "nok_visiting_arrangements": {
+      "type": "string"
+    },
+    "nok_involved_in_care": {
+      "type": "boolean",
+      "default": true
+    },
+    "nok_information_sharing": {
+      "type": "string",
+      "enum": [
+        "full",
+        "limited",
+        "none"
+      ]
+    },
+    "information_sharing_reason": {
+      "type": "string"
+    },
+    "admission_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "admission_source": {
+      "type": "string",
+      "enum": [
+        "home",
+        "hospital",
+        "other_care_home",
+        "supported_living",
+        "prison",
+        "other"
+      ]
+    },
+    "funding_type": {
+      "type": "string",
+      "enum": [
+        "local_authority",
+        "nhs_chc",
+        "self_funded",
+        "mixed"
+      ]
+    },
+    "funding_authority": {
+      "type": "string"
+    },
+    "funding_reference": {
+      "type": "string"
+    },
+    "funding_notes": {
+      "type": "string"
+    },
+    "contract_review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "hospital",
+        "on_leave",
+        "respite",
+        "end_of_life",
+        "discharged",
+        "deceased"
+      ]
+    },
+    "status_changed_at": {
+      "type": "string"
+    },
+    "status_changed_by": {
+      "type": "string"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "care_needs_level",
+    "primary_care_category",
+    "created_by"
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "name": "ChildProtectionPolicy",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string",
+      "description": "Organisation ID"
+    },
+    "policy_type": {
+      "type": "string",
+      "enum": [
+        "safeguarding",
+        "missing_child",
+        "behaviour_management"
+      ],
+      "description": "Type of policy \u2014 reused for Reg 20/21/22"
+    },
+    "policy_title": {
+      "type": "string",
+      "description": "Title of the policy document"
+    },
+    "version_number": {
+      "type": "string",
+      "description": "Version e.g. v1.0, v1.1"
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date policy becomes effective"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date policy is due for review (default effective_date + 12 months)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "under_review",
+        "superseded"
+      ],
+      "default": "draft",
+      "description": "Current status of the policy"
+    },
+    "saf_purpose_and_scope": {
+      "type": "string",
+      "description": "Reg 20: Purpose and scope of safeguarding policy"
+    },
+    "saf_procedure_on_allegation": {
+      "type": "string",
+      "description": "Reg 20(2): Procedure to follow when allegation is made"
+    },
+    "saf_la_liaison": {
+      "type": "string",
+      "description": "Reg 20(2)(a): Liaison with local authority during child protection enquiry"
+    },
+    "saf_current_abuse_referral": {
+      "type": "string",
+      "description": "Reg 20(2)(b): Prompt referral of current/ongoing abuse to accommodating authority and LA"
+    },
+    "saf_past_abuse_referral": {
+      "type": "string",
+      "description": "Reg 20(2)(c): Referral of past abuse to accommodating authority and LA"
+    },
+    "saf_record_keeping": {
+      "type": "string",
+      "description": "Reg 20(2)(d): Records to be kept of allegations and action taken"
+    },
+    "saf_protective_measures": {
+      "type": "string",
+      "description": "Reg 20(2)(e): Measures necessary to protect children following allegation"
+    },
+    "saf_staff_reporting": {
+      "type": "string",
+      "description": "Reg 20(2)(f): How and to whom staff report concerns about abuse or neglect"
+    },
+    "mis_purpose_and_scope": {
+      "type": "string",
+      "description": "Reg 21: Overall purpose of missing child policy"
+    },
+    "mis_prevention_steps": {
+      "type": "string",
+      "description": "Reg 21(1)(a): Steps taken to prevent children from going missing"
+    },
+    "mis_procedures_when_missing": {
+      "type": "string",
+      "description": "Reg 21(1)(b): Procedures to follow when a child is or has been missing"
+    },
+    "mis_roles_and_responsibilities": {
+      "type": "string",
+      "description": "Reg 21(1)(b): Roles and responsibilities of persons working for the undertaking"
+    },
+    "mis_la_police_protocols": {
+      "type": "string",
+      "description": "Reg 21(2)(b): Regard to relevant local authority and police protocols"
+    },
+    "mis_return_interview_procedure": {
+      "type": "string",
+      "description": "Procedure for conducting return interviews after missing episodes"
+    },
+    "mis_risk_escalation": {
+      "type": "string",
+      "description": "How risk is escalated for repeat missing episodes"
+    },
+    "mis_exploitation_link": {
+      "type": "string",
+      "description": "How the policy connects to exploitation risk assessment"
+    },
+    "mis_record_keeping": {
+      "type": "string",
+      "description": "How missing episodes are recorded"
+    },
+    "beh_purpose_and_scope": {
+      "type": "string",
+      "description": "Reg 22: Overall purpose of behaviour management policy"
+    },
+    "beh_approach_to_behaviour": {
+      "type": "string",
+      "description": "Reg 22(1)(a): Approach to supporting children to maintain reasonable standard of behaviour"
+    },
+    "beh_expectations": {
+      "type": "string",
+      "description": "Reg 22(1)(b): Expectations of children, what happens if not met, how children are made aware"
+    },
+    "beh_promoting_appropriate_behaviour": {
+      "type": "string",
+      "description": "Reg 22(1)(c): How appropriate behaviour will be promoted in the premises"
+    },
+    "beh_challenging_behaviour_approach": {
+      "type": "string",
+      "description": "Reg 22(1)(d): How challenging behaviour will be dealt with"
+    },
+    "beh_deescalation_methods": {
+      "type": "string",
+      "description": "Reg 22(1)(d)(i): Methods of de-escalation"
+    },
+    "beh_proportionate_authority_involvement": {
+      "type": "string",
+      "description": "Reg 22(1)(d)(ii): Taking proportionate approach to involving other authorities"
+    },
+    "beh_positive_relationships": {
+      "type": "string",
+      "description": "Reg 22(1)(e): How positive and respectful relationships between children and staff will be promoted"
+    },
+    "beh_restraint_conditions": {
+      "type": "string",
+      "description": "Reg 22(1)(f): Measures of restraint which may be used exceptionally"
+    },
+    "beh_restraint_legal_basis": {
+      "type": "string",
+      "description": "Reg 22(1)(f)(i) and (ii): Explicit statement of legal basis and limits of restraint"
+    },
+    "beh_post_restraint_support": {
+      "type": "string",
+      "description": "What support is provided to children after restraint"
+    },
+    "beh_prohibited_measures": {
+      "type": "string",
+      "description": "Explicit list of measures that are prohibited and must never be used"
+    },
+    "beh_record_keeping": {
+      "type": "string",
+      "description": "How restraint records are made, referencing Reg 22(2) statutory requirements"
+    },
+    "beh_staff_training": {
+      "type": "string",
+      "description": "What training staff receive in behaviour management and physical intervention"
+    },
+    "consultation_required": {
+      "type": "boolean",
+      "default": true,
+      "description": "Reg 21(2): Mandatory consultation before implementation or amendment (Reg 20/21 only)"
+    },
+    "pre_implementation_consultation_completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Has pre-implementation consultation been completed"
+    },
+    "consultation_completed_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date consultation was marked complete"
+    },
+    "consultation_persons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "person_name": {
+            "type": "string"
+          },
+          "person_role": {
+            "type": "string"
+          },
+          "organisation": {
+            "type": "string"
+          },
+          "consultation_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "consultation_method": {
+            "type": "string",
+            "enum": [
+              "face_to_face",
+              "phone",
+              "email",
+              "written",
+              "group_meeting"
+            ]
+          },
+          "views_summary": {
+            "type": "string"
+          },
+          "concerns_raised": {
+            "type": "boolean",
+            "default": false
+          },
+          "concerns_detail": {
+            "type": "string"
+          },
+          "views_incorporated": {
+            "type": "boolean",
+            "default": false
+          },
+          "how_views_incorporated": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "consultation_summary": {
+      "type": "string",
+      "description": "Overall summary of consultation process and outcomes"
+    },
+    "consultation_document_url": {
+      "type": "string",
+      "description": "Upload of written consultation records or responses"
+    },
+    "is_amendment": {
+      "type": "boolean",
+      "default": false,
+      "description": "Is this version an amendment to a previous policy"
+    },
+    "amendment_reason": {
+      "type": "string",
+      "description": "What triggered the amendment"
+    },
+    "amendment_consultation_completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Has consultation been completed for this amendment"
+    },
+    "applicable_to_all_homes": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether policy applies to all homes"
+    },
+    "applicable_home_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Specific home IDs if applicable_to_all_homes = false"
+    },
+    "requires_staff_acknowledgement": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether staff must acknowledge this policy"
+    },
+    "acknowledgement_deadline_days": {
+      "type": "integer",
+      "default": 14,
+      "description": "Days staff have to acknowledge after policy activation"
+    },
+    "policy_document_url": {
+      "type": "string",
+      "description": "URL of uploaded policy document"
+    },
+    "policy_document_file_name": {
+      "type": "string",
+      "description": "Name of uploaded policy document"
+    },
+    "policy_document_uploaded_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When policy document was uploaded"
+    },
+    "policy_document_uploaded_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id of who uploaded it"
+    },
+    "last_reviewed_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date policy was last reviewed"
+    },
+    "last_reviewed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id of who last reviewed it"
+    },
+    "last_reviewed_by_name": {
+      "type": "string"
+    },
+    "review_notes": {
+      "type": "string",
+      "description": "Notes from the last review"
+    },
+    "prepared_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id of who prepared the policy"
+    },
+    "prepared_by_name": {
+      "type": "string"
+    },
+    "prepared_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When policy was prepared"
+    },
+    "reviewed_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id of who reviewed it"
+    },
+    "reviewed_by_name": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When policy was reviewed"
+    },
+    "approved_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id of RSM/nominated individual who approved"
+    },
+    "approved_by_name": {
+      "type": "string"
+    },
+    "approved_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When policy was approved"
+    },
+    "previous_version_id": {
+      "type": "string",
+      "description": "FK \u2192 ChildProtectionPolicy.id of previous version"
+    },
+    "superseded_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this policy was superseded"
+    },
+    "superseded_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id of who superseded it"
+    },
+    "change_summary": {
+      "type": "string",
+      "description": "Summary of changes from previous version"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "policy_type",
+    "policy_title",
+    "version_number",
+    "effective_date",
+    "review_date",
+    "prepared_by_id"
+  ]
+}

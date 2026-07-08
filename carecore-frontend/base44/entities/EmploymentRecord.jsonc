@@ -1,0 +1,138 @@
+{
+  "name": "EmploymentRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ],
+      "description": "Auto-filled from Resident"
+    },
+    "age_at_record_date": {
+      "type": "number",
+      "description": "Auto-calculated from Resident DOB"
+    },
+    "placement_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Auto-filled from Resident.placement_start"
+    },
+    "placing_local_authority": {
+      "type": "string",
+      "description": "Auto-filled from Resident"
+    },
+    "employer_or_provider_name": {
+      "type": "string"
+    },
+    "employment_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "employment_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "nature_of_employment": {
+      "type": "string",
+      "enum": [
+        "employed_part_time",
+        "employed_full_time",
+        "self_employed",
+        "apprenticeship",
+        "internship",
+        "work_experience",
+        "traineeship",
+        "other"
+      ]
+    },
+    "is_apprenticeship": {
+      "type": "boolean"
+    },
+    "apprenticeship_framework": {
+      "type": "string",
+      "description": "Apprenticeship programme/framework name"
+    },
+    "hours_per_week": {
+      "type": "number"
+    },
+    "training_provider_name": {
+      "type": "string"
+    },
+    "training_provider_contact": {
+      "type": "string"
+    },
+    "wage_or_allowance_per_week": {
+      "type": "number"
+    },
+    "employment_status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "ended",
+        "paused",
+        "unknown"
+      ],
+      "default": "active"
+    },
+    "supervisor_name": {
+      "type": "string"
+    },
+    "supervisor_contact": {
+      "type": "string"
+    },
+    "support_needed": {
+      "type": "boolean"
+    },
+    "support_notes": {
+      "type": "string"
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "record_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_updated_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "last_updated_by_name": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "nature_of_employment",
+    "record_date"
+  ]
+}

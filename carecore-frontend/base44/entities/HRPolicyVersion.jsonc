@@ -1,0 +1,62 @@
+{
+  "name": "HRPolicyVersion",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_title": {
+      "type": "string"
+    },
+    "version_number": {
+      "type": "string"
+    },
+    "file_url": {
+      "type": "string"
+    },
+    "file_name": {
+      "type": "string"
+    },
+    "file_type": {
+      "type": "string"
+    },
+    "uploaded_by_staff_id": {
+      "type": "string"
+    },
+    "uploaded_by_name": {
+      "type": "string"
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "change_summary": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Active",
+        "Superseded",
+        "Archived"
+      ],
+      "default": "Active"
+    }
+  },
+  "required": [
+    "org_id",
+    "policy_id",
+    "version_number"
+  ]
+}

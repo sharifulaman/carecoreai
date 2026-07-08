@@ -1,0 +1,57 @@
+{
+  "name": "YPFeedbackTemplate",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "voice_feedback",
+        "meeting_record",
+        "questionnaire"
+      ],
+      "default": "voice_feedback"
+    },
+    "frequency": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "archived"
+      ],
+      "default": "active"
+    },
+    "active_version_number": {
+      "type": "string",
+      "default": "1.0"
+    },
+    "created_by_id": {
+      "type": "string"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "updated_by_id": {
+      "type": "string"
+    },
+    "updated_by_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "name",
+    "category"
+  ]
+}

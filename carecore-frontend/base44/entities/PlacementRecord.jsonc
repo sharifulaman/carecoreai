@@ -1,0 +1,101 @@
+{
+  "name": "PlacementRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "placement_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date child came to live at the provision"
+    },
+    "placement_end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date child left the provision"
+    },
+    "placement_status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "ended",
+        "planned"
+      ],
+      "default": "active"
+    },
+    "is_current_placement": {
+      "type": "boolean",
+      "description": "Is this the current placement?"
+    },
+    "reason_for_leaving": {
+      "type": "string",
+      "description": "Why did the child leave (e.g. moved to independence, returned home)"
+    },
+    "address_at_placement": {
+      "type": "string",
+      "description": "Home/address at time of placement"
+    },
+    "service_type_at_placement": {
+      "type": "string",
+      "enum": [
+        "outreach",
+        "eighteen_plus",
+        "twenty_four_hours"
+      ]
+    },
+    "accommodation_category_at_placement": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ]
+    },
+    "placing_local_authority": {
+      "type": "string"
+    },
+    "date_turned_18": {
+      "type": "string",
+      "format": "date"
+    },
+    "accommodated_after_18": {
+      "type": "boolean",
+      "description": "Was the child still accommodated after 18th birthday?"
+    },
+    "continuation_reason": {
+      "type": "string",
+      "description": "Reason for continuation after 18"
+    },
+    "manager_review_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Manager review/sign-off date"
+    },
+    "manager_review_by": {
+      "type": "string",
+      "description": "Staff member who approved the placement record"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "placement_start_date"
+  ]
+}

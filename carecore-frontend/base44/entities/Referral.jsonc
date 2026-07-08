@@ -1,0 +1,141 @@
+{
+  "name": "Referral",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "referral_id": {
+      "type": "string",
+      "description": "Auto-generated reference"
+    },
+    "referral_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "resident_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "resident_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "referral_type": {
+      "type": "string",
+      "enum": [
+        "child_protection",
+        "safeguarding",
+        "radicalisation_prevent",
+        "other"
+      ]
+    },
+    "local_authority_children_services_referral": {
+      "type": "boolean",
+      "default": false
+    },
+    "la_reference": {
+      "type": "string"
+    },
+    "la_referral_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "radicalisation_concern": {
+      "type": "boolean",
+      "default": false
+    },
+    "prevent_referral": {
+      "type": "boolean",
+      "default": false
+    },
+    "prevent_reference": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ]
+    },
+    "referral_details": {
+      "type": "string"
+    },
+    "outcome_status": {
+      "type": "string",
+      "enum": [
+        "referred",
+        "under_assessment",
+        "supported",
+        "closed",
+        "pending"
+      ],
+      "default": "pending"
+    },
+    "outcome_notes": {
+      "type": "string"
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "manager_review_status": {
+      "type": "string",
+      "enum": [
+        "submitted",
+        "pending_review",
+        "reviewed"
+      ],
+      "default": "submitted"
+    },
+    "manager_review_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "manager_review_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "manager_review_notes": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "closed"
+      ],
+      "default": "open"
+    },
+    "created_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    }
+  },
+  "required": [
+    "org_id",
+    "referral_date",
+    "resident_ids",
+    "referral_type",
+    "home_id"
+  ]
+}

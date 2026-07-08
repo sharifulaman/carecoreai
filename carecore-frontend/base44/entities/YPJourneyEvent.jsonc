@@ -1,0 +1,111 @@
+{
+  "name": "YPJourneyEvent",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "entry_to_home",
+        "gp_registration",
+        "dentist_registration",
+        "optician_registration",
+        "solicitor_registration",
+        "special_appointment",
+        "incident",
+        "achievement",
+        "ils_completed",
+        "yp_comment",
+        "exit_move_on",
+        "review",
+        "education",
+        "health",
+        "legal",
+        "other"
+      ],
+      "default": "other"
+    },
+    "event_category": {
+      "type": "string"
+    },
+    "event_title": {
+      "type": "string"
+    },
+    "event_description": {
+      "type": "string"
+    },
+    "event_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "event_time": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "default": "recorded"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "source_entity_type": {
+      "type": "string"
+    },
+    "source_entity_id": {
+      "type": "string"
+    },
+    "linked_staff_id": {
+      "type": "string"
+    },
+    "linked_professional_name": {
+      "type": "string"
+    },
+    "linked_provider_name": {
+      "type": "string"
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "yp_comment": {
+      "type": "string"
+    },
+    "is_direct_yp_quote": {
+      "type": "boolean",
+      "default": false
+    },
+    "visibility": {
+      "type": "string",
+      "default": "all_staff"
+    },
+    "evidence_file_url": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "created_by_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "event_type",
+    "event_title",
+    "event_date"
+  ]
+}

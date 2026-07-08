@@ -1,0 +1,41 @@
+{
+  "name": "LocationTrackingConsent",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string"
+    },
+    "user_email": {
+      "type": "string"
+    },
+    "consented": {
+      "type": "boolean",
+      "default": false
+    },
+    "consented_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "revoked_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "consent_version": {
+      "type": "string",
+      "default": "1.0"
+    },
+    "ip_address": {
+      "type": "string"
+    },
+    "user_agent": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id"
+  ]
+}

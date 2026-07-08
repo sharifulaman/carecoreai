@@ -1,0 +1,38 @@
+{
+  "name": "MaintenanceNote",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "maintenance_id": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "note_type": {
+      "type": "string",
+      "enum": [
+        "general",
+        "assignment",
+        "status_change",
+        "contractor_update",
+        "completion",
+        "cancellation"
+      ],
+      "default": "general"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "created_by_staff_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "maintenance_id",
+    "note"
+  ]
+}

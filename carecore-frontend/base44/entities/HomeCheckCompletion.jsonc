@@ -1,0 +1,78 @@
+{
+  "name": "HomeCheckCompletion",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "instance_id": {
+      "type": "string"
+    },
+    "template_id": {
+      "type": "string"
+    },
+    "submitted_by_staff_id": {
+      "type": "string"
+    },
+    "submitted_by_name": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completion_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "overall_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted_for_review",
+        "approved_as_recorded",
+        "changes_requested",
+        "escalated",
+        "closed"
+      ],
+      "default": "draft"
+    },
+    "general_note": {
+      "type": "string"
+    },
+    "evidence_file_url": {
+      "type": "string"
+    },
+    "manager_review_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "changes_requested",
+        "escalated"
+      ],
+      "default": "pending"
+    },
+    "reviewed_by_staff_id": {
+      "type": "string"
+    },
+    "reviewed_by_name": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "manager_notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "template_id"
+  ]
+}

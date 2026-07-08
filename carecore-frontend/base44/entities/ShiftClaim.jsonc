@@ -1,0 +1,47 @@
+{
+  "name": "ShiftClaim",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "shift_id": {
+      "type": "string",
+      "description": "FK \u2192 Shift.id"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "claimed_at": {
+      "type": "string",
+      "description": "ISO timestamp"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending"
+    },
+    "reviewed_by": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "shift_id",
+    "staff_id"
+  ]
+}

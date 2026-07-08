@@ -1,0 +1,156 @@
+{
+  "name": "Allegation",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "allegation_id": {
+      "type": "string",
+      "description": "Auto-generated reference"
+    },
+    "allegation_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "allegation_made_by": {
+      "type": "string",
+      "enum": [
+        "child",
+        "parent_carer",
+        "professional",
+        "staff",
+        "other"
+      ]
+    },
+    "is_allegation_against_staff": {
+      "type": "boolean",
+      "default": false
+    },
+    "resident_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Residents making the allegation"
+    },
+    "resident_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "staff_subject_to_allegation_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_subject_to_allegation_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "accommodation_category": {
+      "type": "string",
+      "enum": [
+        "self_contained",
+        "shared_ring_fenced",
+        "shared_non_ring_fenced"
+      ]
+    },
+    "allegation_details": {
+      "type": "string"
+    },
+    "lado_notified": {
+      "type": "boolean",
+      "default": false,
+      "description": "Local Authority Designated Officer notified?"
+    },
+    "lado_notified_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "local_authority_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "la_notified_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "investigation_status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "under_investigation",
+        "closed"
+      ],
+      "default": "open"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "substantiated",
+        "unsubstantiated",
+        "inconclusive",
+        "pending"
+      ],
+      "default": "pending"
+    },
+    "outcome_notes": {
+      "type": "string"
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "manager_review_status": {
+      "type": "string",
+      "enum": [
+        "submitted",
+        "pending_review",
+        "reviewed"
+      ],
+      "default": "submitted"
+    },
+    "manager_review_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "manager_review_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "manager_review_notes": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "closed"
+      ],
+      "default": "open"
+    },
+    "created_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    }
+  },
+  "required": [
+    "org_id",
+    "allegation_date",
+    "allegation_made_by",
+    "home_id"
+  ]
+}

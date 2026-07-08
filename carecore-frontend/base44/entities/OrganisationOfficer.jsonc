@@ -1,0 +1,61 @@
+{
+  "name": "OrganisationOfficer",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "director",
+        "officer",
+        "partner",
+        "trustee",
+        "nominated_individual",
+        "company_secretary",
+        "chair"
+      ]
+    },
+    "is_nominated_individual": {
+      "type": "boolean",
+      "description": "Is this person the nominated individual?"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "company_number": {
+      "type": "string",
+      "description": "Company House reference if applicable"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "name",
+    "role"
+  ]
+}

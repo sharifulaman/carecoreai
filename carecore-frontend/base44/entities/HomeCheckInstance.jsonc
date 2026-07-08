@@ -1,0 +1,62 @@
+{
+  "name": "HomeCheckInstance",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "template_id": {
+      "type": "string"
+    },
+    "template_title": {
+      "type": "string"
+    },
+    "template_area": {
+      "type": "string"
+    },
+    "template_frequency": {
+      "type": "string"
+    },
+    "scheduled_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "due_at": {
+      "type": "string"
+    },
+    "assigned_to_staff_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "due",
+        "overdue",
+        "in_progress",
+        "submitted_for_review",
+        "completed",
+        "changes_requested",
+        "cancelled",
+        "archived"
+      ],
+      "default": "due"
+    },
+    "cancelled_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "archived_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "template_id",
+    "scheduled_date"
+  ]
+}

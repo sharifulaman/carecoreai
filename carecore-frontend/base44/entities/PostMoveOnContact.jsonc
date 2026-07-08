@@ -1,0 +1,68 @@
+{
+  "name": "PostMoveOnContact",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "move_on_plan_id": {
+      "type": "string"
+    },
+    "contact_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "contact_type": {
+      "type": "string",
+      "enum": [
+        "visit",
+        "phone",
+        "text",
+        "email",
+        "drop_in",
+        "other"
+      ]
+    },
+    "worker_id": {
+      "type": "string"
+    },
+    "worker_name": {
+      "type": "string"
+    },
+    "tenancy_stable": {
+      "type": "boolean"
+    },
+    "employment_maintained": {
+      "type": "boolean"
+    },
+    "any_crisis": {
+      "type": "boolean",
+      "default": false
+    },
+    "crisis_notes": {
+      "type": "string"
+    },
+    "support_provided": {
+      "type": "string"
+    },
+    "next_contact_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "contact_date"
+  ]
+}

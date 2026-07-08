@@ -1,0 +1,144 @@
+{
+  "name": "EETRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "recorded_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "recorded_by_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "recorded_by_name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "employed_full_time",
+        "employed_part_time",
+        "self_employed",
+        "education_full_time",
+        "education_part_time",
+        "apprenticeship",
+        "traineeship",
+        "volunteering",
+        "caring_responsibilities",
+        "neet",
+        "unknown"
+      ]
+    },
+    "employer_or_institution": {
+      "type": "string"
+    },
+    "course_or_role": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "hours_per_week": {
+      "type": "number"
+    },
+    "salary_or_bursary": {
+      "type": "string"
+    },
+    "is_current": {
+      "type": "boolean",
+      "default": true
+    },
+    "barriers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "mental_health",
+          "no_qualifications",
+          "caring_responsibilities",
+          "housing_instability",
+          "substance_use",
+          "offending_history",
+          "lack_of_confidence",
+          "transport",
+          "other"
+        ]
+      },
+      "description": "If status = neet"
+    },
+    "barrier_notes": {
+      "type": "string"
+    },
+    "support_needed": {
+      "type": "string"
+    },
+    "support_provided_by": {
+      "type": "string"
+    },
+    "support_notes": {
+      "type": "string"
+    },
+    "la_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "la_notified_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "action_plan": {
+      "type": "string",
+      "description": "If status = neet"
+    },
+    "target_status": {
+      "type": "string",
+      "description": "If status = neet"
+    },
+    "target_date": {
+      "type": "string",
+      "format": "date",
+      "description": "If status = neet"
+    },
+    "responsible_worker_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id, if status = neet"
+    },
+    "responsible_worker_name": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date",
+      "description": "If status = neet"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "recorded_date",
+    "status"
+  ]
+}

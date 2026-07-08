@@ -1,0 +1,167 @@
+{
+  "name": "HandoverRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "handover_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "shift": {
+      "type": "string",
+      "enum": [
+        "morning",
+        "afternoon",
+        "night"
+      ]
+    },
+    "outgoing_staff_id": {
+      "type": "string"
+    },
+    "outgoing_staff_name": {
+      "type": "string"
+    },
+    "outgoing_shift_start": {
+      "type": "string"
+    },
+    "outgoing_shift_end": {
+      "type": "string"
+    },
+    "incoming_staff_id": {
+      "type": "string"
+    },
+    "incoming_staff_name": {
+      "type": "string"
+    },
+    "incoming_shift_start": {
+      "type": "string"
+    },
+    "incoming_shift_end": {
+      "type": "string"
+    },
+    "daily_overview": {
+      "type": "string"
+    },
+    "highlights": {
+      "type": "string"
+    },
+    "points_to_note": {
+      "type": "string"
+    },
+    "concerns_summary": {
+      "type": "string"
+    },
+    "requests_summary": {
+      "type": "string"
+    },
+    "no_incidents_confirmed": {
+      "type": "boolean",
+      "default": false
+    },
+    "no_medication_issues_confirmed": {
+      "type": "boolean",
+      "default": false
+    },
+    "no_environment_concerns_confirmed": {
+      "type": "boolean",
+      "default": false
+    },
+    "progress_percent": {
+      "type": "number",
+      "default": 0
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "acknowledged",
+        "manager_review_required",
+        "manager_signed_off",
+        "changes_requested",
+        "escalated",
+        "closed"
+      ],
+      "default": "draft"
+    },
+    "submitted_by_staff_id": {
+      "type": "string"
+    },
+    "submitted_by_name": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "outgoing_declaration": {
+      "type": "boolean",
+      "default": false
+    },
+    "acknowledged_by_staff_id": {
+      "type": "string"
+    },
+    "acknowledged_by_name": {
+      "type": "string"
+    },
+    "acknowledged_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "incoming_declaration": {
+      "type": "boolean",
+      "default": false
+    },
+    "reviewed_by_staff_id": {
+      "type": "string"
+    },
+    "reviewed_by_name": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "manager_review_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved_as_recorded",
+        "changes_requested",
+        "escalated",
+        "safeguarding_follow_up",
+        "no_further_action"
+      ],
+      "default": "pending"
+    },
+    "manager_notes": {
+      "type": "string"
+    },
+    "has_high_risk_items": {
+      "type": "boolean",
+      "default": false
+    },
+    "locked_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "closed_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "handover_date",
+    "shift"
+  ]
+}

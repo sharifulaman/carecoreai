@@ -1,0 +1,80 @@
+{
+  "name": "DisciplinaryRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "record_type": {
+      "type": "string",
+      "enum": [
+        "disciplinary",
+        "grievance"
+      ],
+      "default": "disciplinary"
+    },
+    "incident_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "disciplinary_type": {
+      "type": "string",
+      "enum": [
+        "verbal_warning",
+        "written_warning",
+        "final_warning",
+        "dismissal"
+      ]
+    },
+    "incident_summary": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string"
+    },
+    "issued_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "issued_by_name": {
+      "type": "string"
+    },
+    "nature": {
+      "type": "string",
+      "description": "For grievances"
+    },
+    "resolved_by": {
+      "type": "string"
+    },
+    "resolution_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "confidential": {
+      "type": "boolean",
+      "default": true
+    },
+    "modified_by": {
+      "type": "string"
+    },
+    "modified_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "incident_date",
+    "record_type"
+  ]
+}

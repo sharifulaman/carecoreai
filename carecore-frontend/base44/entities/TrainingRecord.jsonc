@@ -1,0 +1,84 @@
+{
+  "name": "TrainingRecord",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string",
+      "description": "Organization ID"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string",
+      "description": "FK \u2192 TrainingRequirement.id or training course ID"
+    },
+    "course_name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "in_progress",
+        "completed",
+        "overdue"
+      ],
+      "default": "not_started"
+    },
+    "completion_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date training was completed"
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date training expires"
+    },
+    "certificate_url": {
+      "type": "string",
+      "description": "URL to certificate document"
+    },
+    "linked_policy_id": {
+      "type": "string",
+      "description": "FK \u2192 HRPolicy.id"
+    },
+    "linked_policy_name": {
+      "type": "string"
+    },
+    "policy_acknowledged": {
+      "type": "boolean",
+      "default": false
+    },
+    "policy_acknowledged_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "quiz_passed": {
+      "type": "boolean",
+      "default": false
+    },
+    "quiz_score": {
+      "type": "number",
+      "description": "Quiz score as percentage (0-100)"
+    },
+    "quiz_passed_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "course_id",
+    "status"
+  ]
+}

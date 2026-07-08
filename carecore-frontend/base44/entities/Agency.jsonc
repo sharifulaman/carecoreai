@@ -1,0 +1,72 @@
+{
+  "name": "Agency",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "staffing",
+        "specialist_support",
+        "therapeutic",
+        "educational",
+        "health",
+        "other"
+      ],
+      "default": "staffing"
+    },
+    "contact_name": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "registration_number": {
+      "type": "string"
+    },
+    "specialisms": {
+      "type": "string"
+    },
+    "lead_worker": {
+      "type": "string"
+    },
+    "contract_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "contract_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "hourly_rate": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "on_hold",
+        "terminated"
+      ],
+      "default": "active"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "name"
+  ]
+}

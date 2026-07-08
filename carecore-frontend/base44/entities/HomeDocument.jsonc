@@ -1,0 +1,79 @@
+{
+  "name": "HomeDocument",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id"
+    },
+    "property_id": {
+      "type": "string",
+      "description": "FK \u2192 Property.id (optional)"
+    },
+    "title": {
+      "type": "string",
+      "description": "e.g. Gas Safety Certificate"
+    },
+    "document_type": {
+      "type": "string",
+      "enum": [
+        "gas_safety",
+        "electric_cert",
+        "eicr",
+        "fire_risk",
+        "insurance",
+        "lease",
+        "planning",
+        "dbs_bulk",
+        "ofsted_report",
+        "cqc_report",
+        "reg32",
+        "policy",
+        "procedure",
+        "other"
+      ],
+      "default": "other"
+    },
+    "file_url": {
+      "type": "string"
+    },
+    "issue_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "reminder_days": {
+      "type": "integer",
+      "default": 30
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "current",
+        "expiring_soon",
+        "expired",
+        "not_applicable"
+      ],
+      "default": "current"
+    },
+    "uploaded_by": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "title",
+    "document_type"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "name": "AttendanceLog",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "FK \u2192 StaffProfile.id"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id (nullable)"
+    },
+    "shift_id": {
+      "type": "string",
+      "description": "FK \u2192 Shift.id (nullable \u2014 auto-linked)"
+    },
+    "clock_in_time": {
+      "type": "string",
+      "description": "ISO datetime"
+    },
+    "clock_out_time": {
+      "type": "string",
+      "description": "ISO datetime, nullable"
+    },
+    "total_hours": {
+      "type": "number",
+      "description": "Calculated on clock-out"
+    },
+    "clock_in_method": {
+      "type": "string",
+      "enum": [
+        "app",
+        "manual"
+      ],
+      "default": "app"
+    },
+    "manual_reason": {
+      "type": "string",
+      "description": "Required for manual entries"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "staff_id",
+    "clock_in_time"
+  ]
+}

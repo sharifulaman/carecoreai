@@ -1,0 +1,65 @@
+{
+  "name": "HRPolicyActivityEvent",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "Policy Uploaded",
+        "Policy Version Uploaded",
+        "Policy Assigned",
+        "Policy Viewed",
+        "Policy Acknowledged",
+        "Reminder Sent",
+        "Policy Archived",
+        "Assignment Cancelled",
+        "Staff Exempted"
+      ]
+    },
+    "event_title": {
+      "type": "string"
+    },
+    "event_description": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_title": {
+      "type": "string"
+    },
+    "policy_version_id": {
+      "type": "string"
+    },
+    "staff_assignment_id": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "performed_by_staff_id": {
+      "type": "string"
+    },
+    "performed_by_name": {
+      "type": "string"
+    },
+    "event_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "org_id",
+    "event_type",
+    "event_title"
+  ]
+}

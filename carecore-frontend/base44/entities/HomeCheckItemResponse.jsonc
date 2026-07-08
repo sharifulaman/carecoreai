@@ -1,0 +1,55 @@
+{
+  "name": "HomeCheckItemResponse",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "completion_id": {
+      "type": "string"
+    },
+    "instance_id": {
+      "type": "string"
+    },
+    "template_item_id": {
+      "type": "string"
+    },
+    "item_title": {
+      "type": "string"
+    },
+    "response_status": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "fail",
+        "na"
+      ],
+      "default": "pass"
+    },
+    "note": {
+      "type": "string"
+    },
+    "evidence_file_url": {
+      "type": "string"
+    },
+    "issue_created": {
+      "type": "boolean",
+      "default": false
+    },
+    "completed_by_staff_id": {
+      "type": "string"
+    },
+    "completed_by_name": {
+      "type": "string"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "org_id",
+    "completion_id",
+    "template_item_id"
+  ]
+}

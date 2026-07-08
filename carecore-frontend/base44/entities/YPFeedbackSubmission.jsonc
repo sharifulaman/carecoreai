@@ -1,0 +1,93 @@
+{
+  "name": "YPFeedbackSubmission",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "template_id": {
+      "type": "string"
+    },
+    "template_name": {
+      "type": "string"
+    },
+    "template_category": {
+      "type": "string",
+      "enum": [
+        "voice_feedback",
+        "meeting_record",
+        "questionnaire"
+      ]
+    },
+    "template_version": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "resident_name": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "submitted_by_id": {
+      "type": "string"
+    },
+    "submitted_by_name": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "in_review",
+        "signed_off",
+        "changes_requested",
+        "archived"
+      ],
+      "default": "draft"
+    },
+    "response_json": {
+      "type": "object"
+    },
+    "review_notes": {
+      "type": "string"
+    },
+    "reviewed_by_id": {
+      "type": "string"
+    },
+    "reviewed_by_name": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "concern_flagged": {
+      "type": "boolean",
+      "default": false
+    },
+    "action_required": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "template_id",
+    "template_name"
+  ]
+}

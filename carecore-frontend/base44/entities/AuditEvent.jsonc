@@ -1,0 +1,134 @@
+{
+  "name": "AuditEvent",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "event_reference": {
+      "type": "string"
+    },
+    "actor_user_id": {
+      "type": "string"
+    },
+    "actor_staff_id": {
+      "type": "string"
+    },
+    "actor_name": {
+      "type": "string"
+    },
+    "actor_role": {
+      "type": "string"
+    },
+    "action_type": {
+      "type": "string",
+      "enum": [
+        "created",
+        "updated",
+        "submitted",
+        "approved",
+        "rejected",
+        "changes_requested",
+        "escalated",
+        "closed",
+        "posted",
+        "paid",
+        "assigned",
+        "reassigned",
+        "uploaded",
+        "downloaded",
+        "exported",
+        "viewed",
+        "deleted",
+        "restored",
+        "archived",
+        "login",
+        "logout",
+        "permission_changed",
+        "role_changed",
+        "system_event"
+      ]
+    },
+    "module_name": {
+      "type": "string"
+    },
+    "entity_type": {
+      "type": "string"
+    },
+    "entity_id": {
+      "type": "string"
+    },
+    "record_reference": {
+      "type": "string"
+    },
+    "record_title": {
+      "type": "string"
+    },
+    "related_home_id": {
+      "type": "string"
+    },
+    "related_resident_id": {
+      "type": "string"
+    },
+    "related_staff_id": {
+      "type": "string"
+    },
+    "related_workflow_id": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "low"
+    },
+    "reason_comment": {
+      "type": "string"
+    },
+    "old_values": {
+      "type": "object"
+    },
+    "new_values": {
+      "type": "object"
+    },
+    "changed_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "workflow_stage_from": {
+      "type": "string"
+    },
+    "workflow_stage_to": {
+      "type": "string"
+    },
+    "ip_address": {
+      "type": "string"
+    },
+    "device_info": {
+      "type": "string"
+    },
+    "session_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "actor_name",
+    "actor_role",
+    "action_type",
+    "module_name",
+    "severity"
+  ],
+  "rls": {
+    "create": true,
+    "read": true,
+    "update": true,
+    "delete": true
+  }
+}

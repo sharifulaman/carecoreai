@@ -1,0 +1,68 @@
+{
+  "name": "AuditTrail",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "module": {
+      "type": "string"
+    },
+    "record_type": {
+      "type": "string"
+    },
+    "record_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string",
+      "description": "FK \u2192 Home.id (nullable)"
+    },
+    "resident_id": {
+      "type": "string",
+      "description": "FK \u2192 Resident.id (nullable)"
+    },
+    "old_value": {
+      "type": "object"
+    },
+    "new_value": {
+      "type": "object"
+    },
+    "ip_address": {
+      "type": "string"
+    },
+    "device_type": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "retention_category": {
+      "type": "string",
+      "enum": [
+        "payroll",
+        "employment",
+        "care_record",
+        "system"
+      ],
+      "default": "system",
+      "description": "Data retention category: payroll=7yrs, employment=6yrs, care_record=75yrs, system=2yrs"
+    }
+  },
+  "required": [
+    "org_id",
+    "action"
+  ]
+}

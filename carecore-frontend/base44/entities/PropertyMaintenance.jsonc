@@ -1,0 +1,142 @@
+{
+  "name": "PropertyMaintenance",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "home_name": {
+      "type": "string"
+    },
+    "issue_reference": {
+      "type": "string"
+    },
+    "issue_title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "heating_boiler",
+        "plumbing",
+        "garden_external",
+        "security",
+        "fire_safety",
+        "electrical",
+        "pest_control",
+        "structural",
+        "cleaning_hygiene",
+        "appliance",
+        "internet_utilities",
+        "furniture_fixtures",
+        "gas",
+        "other"
+      ],
+      "default": "other"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ],
+      "default": "medium"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "reported",
+        "assigned",
+        "in_progress",
+        "awaiting_contractor",
+        "awaiting_parts",
+        "planned",
+        "completed",
+        "cancelled"
+      ],
+      "default": "reported"
+    },
+    "reported_by_name": {
+      "type": "string"
+    },
+    "reported_by_staff_id": {
+      "type": "string"
+    },
+    "assigned_to_name": {
+      "type": "string"
+    },
+    "assigned_to_staff_id": {
+      "type": "string"
+    },
+    "contractor_name": {
+      "type": "string"
+    },
+    "contractor_contact": {
+      "type": "string"
+    },
+    "estimated_cost": {
+      "type": "number"
+    },
+    "actual_cost": {
+      "type": "number"
+    },
+    "reported_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "due_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completed_by_name": {
+      "type": "string"
+    },
+    "linked_bill_id": {
+      "type": "string"
+    },
+    "source_entity_type": {
+      "type": "string"
+    },
+    "source_entity_id": {
+      "type": "string"
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_recurring": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_planned": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org_id",
+    "home_id",
+    "issue_title",
+    "category",
+    "priority",
+    "status",
+    "reported_at"
+  ]
+}

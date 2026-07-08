@@ -1,0 +1,58 @@
+{
+  "name": "HRPolicyReminder",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "staff_assignment_id": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_title": {
+      "type": "string"
+    },
+    "staff_id": {
+      "type": "string"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "sent_by_staff_id": {
+      "type": "string"
+    },
+    "sent_by_name": {
+      "type": "string"
+    },
+    "sent_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reminder_type": {
+      "type": "string",
+      "enum": [
+        "Manual",
+        "Automatic"
+      ],
+      "default": "Manual"
+    },
+    "message": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Sent",
+        "Failed"
+      ],
+      "default": "Sent"
+    }
+  },
+  "required": [
+    "org_id",
+    "policy_id",
+    "staff_id"
+  ]
+}

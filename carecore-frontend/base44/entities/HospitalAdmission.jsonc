@@ -1,0 +1,96 @@
+{
+  "name": "HospitalAdmission",
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "string"
+    },
+    "resident_id": {
+      "type": "string"
+    },
+    "home_id": {
+      "type": "string"
+    },
+    "admission_datetime": {
+      "type": "string"
+    },
+    "admission_reason": {
+      "type": "string"
+    },
+    "hospital_name": {
+      "type": "string"
+    },
+    "ward": {
+      "type": "string"
+    },
+    "nok_informed": {
+      "type": "boolean",
+      "default": false
+    },
+    "nok_informed_at": {
+      "type": "string"
+    },
+    "la_informed": {
+      "type": "boolean",
+      "default": false
+    },
+    "la_informed_at": {
+      "type": "string"
+    },
+    "cqc_notification_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "cqc_notified": {
+      "type": "boolean",
+      "default": false
+    },
+    "discharge_datetime": {
+      "type": "string"
+    },
+    "discharge_destination": {
+      "type": "string",
+      "enum": [
+        "returned_to_home",
+        "other_care_home",
+        "own_home",
+        "deceased",
+        "other"
+      ]
+    },
+    "discharge_summary_received": {
+      "type": "boolean",
+      "default": false
+    },
+    "discharge_notes": {
+      "type": "string"
+    },
+    "medication_changes_on_discharge": {
+      "type": "boolean",
+      "default": false
+    },
+    "medication_review_completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "bed_held": {
+      "type": "boolean",
+      "default": false
+    },
+    "bed_held_rate": {
+      "type": "number"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "org_id",
+    "resident_id",
+    "home_id",
+    "admission_datetime",
+    "admission_reason",
+    "hospital_name",
+    "created_by"
+  ]
+}
