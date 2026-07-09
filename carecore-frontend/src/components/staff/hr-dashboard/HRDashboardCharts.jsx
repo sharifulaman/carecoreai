@@ -7,6 +7,10 @@ export default function HRDashboardCharts({
   roleBreakdownData,
   onHomeClick,
 }) {
+  const totalTrainingItems = trainingCompletionData?.reduce((sum, d) => sum + d.value, 0) || 0;
+  const completedTrainingItems = trainingCompletionData?.find(d => d.name === "Completed")?.value || 0;
+  const completionPct = totalTrainingItems > 0 ? Math.round((completedTrainingItems / totalTrainingItems) * 100) : 0;
+
   return (
     <>
     <div className="grid lg:grid-cols-3 gap-4">
@@ -32,8 +36,9 @@ export default function HRDashboardCharts({
           </PieChart>
         </ResponsiveContainer>
         <div className="mt-3 text-xs text-center text-muted-foreground">
-          <p className="font-semibold text-foreground text-sm">85% Complete</p>
-          <p>Last updated: 21 May 2026, 15:30</p>
+          <p className="font-semibold text-foreground text-sm">
+            {totalTrainingItems > 0 ? `${completionPct}% Complete` : "No training data yet"}
+          </p>
         </div>
         <div className="mt-3 grid grid-cols-3 gap-2 text-xs">
           {trainingCompletionData?.map((d) => (
@@ -64,7 +69,7 @@ export default function HRDashboardCharts({
         <h3 className="text-sm font-semibold mb-4">Monthly Training Progress</h3>
         <ResponsiveContainer width="100%" height={200}>
           <LineChart data={monthlyProgressData}>
-            <XAxis dataKey="month" tick={{ fontSize: 11 }} />
+            <XAxis dataKey="label" tick={{ fontSize: 11 }} />
             <YAxis tick={{ fontSize: 11 }} />
             <Tooltip />
             <ReferenceLine y={90} stroke="#cbd5e1" strokeDasharray="5 5" label={{ value: "Target 90%", position: "right", offset: 10, fontSize: 11 }} />

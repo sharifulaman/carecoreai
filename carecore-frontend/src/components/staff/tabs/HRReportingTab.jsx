@@ -250,7 +250,7 @@ export default function HRReportingTab({ staff = [], homes = [] }) {
       {/* RTW Compliance Report */}
       <RTWComplianceReport staff={staff} />
 
-      {/* Payroll */}
+      {/* Payroll
       <div className="grid md:grid-cols-2 gap-4">
         <Section title="Total Wage Cost by Month"
           onExport={() => exportCSV("payroll_trend.csv", payrollByMonth, ["label", "total"])}>
@@ -275,7 +275,7 @@ export default function HRReportingTab({ staff = [], homes = [] }) {
             </BarChart>
           </ResponsiveContainer>
         </Section>
-      </div>
+      </div> */}
     </div>
   );
 }

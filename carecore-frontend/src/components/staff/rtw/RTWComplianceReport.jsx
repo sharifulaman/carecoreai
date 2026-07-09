@@ -14,7 +14,7 @@ const DOC_LABELS = {
   other: "Other",
 };
 
-function getRTWStatus(s) {
+export function getRTWStatus(s) {
   if (!s.rtw_checked) return { label: "Not Checked", color: "red", sort: 0 };
   if (s.rtw_expiry_date) {
     const days = differenceInDays(parseISO(s.rtw_expiry_date), new Date());

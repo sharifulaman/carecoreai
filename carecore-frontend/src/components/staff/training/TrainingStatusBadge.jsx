@@ -28,7 +28,7 @@ export function calcTrainingStatus(record) {
     const diff = (exp - today) / (1000 * 60 * 60 * 24);
     if (diff <= 60) return "expiring_soon";
   }
-  if (completion_date || status === "completed") return expiry_date ? "completed" : "valid";
+  if ((completion_date && new Date(completion_date) <= today) || status === "completed") return expiry_date ? "completed" : "valid";
   if (status === "in_progress" || training_status === "in_progress") return "in_progress";
   return "not_started";
 }

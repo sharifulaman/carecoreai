@@ -104,8 +104,12 @@ export function useTrainingData({ filterHome, filterRole, filterStatus, staffPro
       } else if (status === "expiring_soon" || status === "in_progress") {
         hasAtRisk = true;
       } else if (status === "completed" || status === "valid") {
-        // Compliant only if: training completed AND policy acknowledged AND (quiz exists → quiz passed)
-        if (!rec?.policy_acknowledged || (c.has_quiz && !rec?.quiz_passed)) {
+        // Compliant once training is completed; only additionally requires policy
+        // acknowledgment when a policy is actually linked to this record, and quiz
+        // pass when the course actually has a quiz.
+        const needsPolicyAck = rec?.linked_policy_id && !rec?.policy_acknowledged;
+        const needsQuizPass = c.has_quiz && !rec?.quiz_passed;
+        if (needsPolicyAck || needsQuizPass) {
           hasAtRisk = true;
         }
       }

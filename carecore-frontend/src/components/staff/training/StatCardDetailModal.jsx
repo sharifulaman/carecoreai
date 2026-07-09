@@ -1,6 +1,13 @@
 import { X } from "lucide-react";
 import { calcTrainingStatus } from "./TrainingStatusBadge";
+import { getRTWStatus } from "../rtw/RTWComplianceReport";
 import { differenceInDays, parseISO } from "date-fns";
+
+const RTW_BADGE_CLASS = {
+  green: "bg-green-100 text-green-700",
+  amber: "bg-amber-100 text-amber-700",
+  red: "bg-red-100 text-red-700",
+};
 
 const STATUS_COLORS = {
   "Compliant": "bg-green-100 text-green-700",
@@ -70,6 +77,37 @@ export default function StatCardDetailModal({ type, stats, staffWithStatus, allT
       badge: s.overallStatus,
       badgeClass: STATUS_COLORS[s.overallStatus],
     }));
+  } else if (type === "rtw") {
+    title = "Right to Work Status";
+    rows = staffWithStatus.map(s => {
+      const rtw = getRTWStatus(s);
+      return {
+        name: s.full_name,
+        sub: s.homeName || "No Home",
+        badge: rtw.label,
+        badgeClass: RTW_BADGE_CLASS[rtw.color],
+      };
+    });
+  } else if (type === "policies") {
+    title = "Policy Acknowledgements";
+    rows = allTrainingForScope
+      .filter(r => r.policy_acknowledged)
+      .map(r => ({
+        name: r.staff_name || r.staff_id,
+        sub: r.course_name,
+        badge: "Acknowledged",
+        badgeClass: STATUS_COLORS["Compliant"],
+      }));
+  } else if (type === "quizzes") {
+    title = "Quiz Passes";
+    rows = allTrainingForScope
+      .filter(r => r.quiz_passed)
+      .map(r => ({
+        name: r.staff_name || r.staff_id,
+        sub: r.course_name,
+        badge: r.quiz_score != null ? `${r.quiz_score}%` : "Passed",
+        badgeClass: STATUS_COLORS["Compliant"],
+      }));
   }
 
   return (

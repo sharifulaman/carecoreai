@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function HRDashboardComplianceInsights({
   workingTimeCompliance,
+  runningWTR,
   rtwAlerts,
   dbsExpiringTop5,
   dbsExpiringTotal,
@@ -21,21 +22,31 @@ export default function HRDashboardComplianceInsights({
         </h3>
         <div className="space-y-3">
           <div>
-            <p className="text-3xl font-bold text-green-600">{workingTimeCompliance.complianceScore}%</p>
-            <p className="text-xs text-muted-foreground mt-1">
-              {workingTimeCompliance.compliantCount} / {workingTimeCompliance.totalStaff} staff compliant
-            </p>
-            <p className="text-xs text-muted-foreground">
-              Checked {new Date().toLocaleDateString('en-GB')}, {new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}
-            </p>
+            {workingTimeCompliance ? (
+              <>
+                <p className="text-3xl font-bold text-green-600">{workingTimeCompliance.complianceScore}%</p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {workingTimeCompliance.compliantCount} / {workingTimeCompliance.totalStaff} staff compliant
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Checked {new Date(workingTimeCompliance.checkedAt).toLocaleDateString('en-GB')}, {new Date(workingTimeCompliance.checkedAt).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="text-3xl font-bold text-muted-foreground">—</p>
+                <p className="text-xs text-muted-foreground mt-1">Not yet run</p>
+              </>
+            )}
           </div>
           <Button
             variant="outline"
             size="sm"
             className="w-full"
             onClick={onRunWTRCheck}
+            disabled={runningWTR}
           >
-            Run full compliance check
+            {runningWTR ? "Running check…" : "Run full compliance check"}
           </Button>
         </div>
       </div>

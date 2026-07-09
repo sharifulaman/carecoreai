@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { secureGateway } from "@/lib/secureGateway";
+import { base44 } from "@/api/base44Client";
+import { toast } from "sonner";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Filter, X, Search, Download } from "lucide-react";
-import { differenceInDays, parseISO, format, subMonths, startOfMonth, endOfMonth } from "date-fns";
+import { differenceInDays, parseISO, format, subMonths, subWeeks } from "date-fns";
 import HRDashboardKPICards from "./HRDashboardKPICards";
 import HRDashboardCharts from "./HRDashboardCharts";
 import HRDashboardTrainingMatrix from "./HRDashboardTrainingMatrix";
@@ -54,6 +56,8 @@ export default function HRDashboardTabNew({ user, staffProfile: propStaffProfile
     trainingStatuses: [],
   });
   const [statModal, setStatModal] = useState(null);
+  const [wtrCheck, setWtrCheck] = useState(null); // null = not yet run
+  const [runningWTR, setRunningWTR] = useState(false);
 
   // Training data hook (refetch key changes on modal close to force refresh)
   const trainingDataKey = [
@@ -78,38 +82,71 @@ export default function HRDashboardTabNew({ user, staffProfile: propStaffProfile
   const activeStaff = staff.filter(s => s.status === "active");
   const totalStaff = activeStaff.length;
 
-  // Calculate KPI stats
+  // Right to Work — computed from each staff member's real rtw_checked/rtw_expiry_date/rtw_follow_up_date
+  const rtwCompliantCount = activeStaff.filter(s => s.rtw_checked).length;
+  const rtwCompliance = totalStaff > 0 ? Math.round((rtwCompliantCount / totalStaff) * 100) : 0;
+
+  const rtwAlerts = (() => {
+    let notChecked = 0, expired = 0, expiringSoon = 0, recheckDue = 0;
+    activeStaff.forEach(s => {
+      if (!s.rtw_checked) { notChecked++; return; }
+      if (s.rtw_expiry_date) {
+        const days = differenceInDays(parseISO(s.rtw_expiry_date), today);
+        if (days < 0) expired++;
+        else if (days <= 60) expiringSoon++;
+        return;
+      }
+      if (s.rtw_follow_up_date && differenceInDays(parseISO(s.rtw_follow_up_date), today) <= 30) recheckDue++;
+    });
+    return [
+      { severity: "Critical", count: notChecked, description: "Never verified — immediate action required" },
+      { severity: "High", count: expired, description: "Right to work document has expired" },
+      { severity: "Medium", count: expiringSoon + recheckDue, description: "Expiring or recheck due within 60 days" },
+    ].filter(a => a.count > 0);
+  })();
+
+  // Calculate KPI stats — all fields sourced from useTrainingData's real stats object
   const kpiStats = {
     totalStaff,
     completionPct: stats.completionPct || 0,
-    completeCount: stats.completeCount || 0,
+    completeCount: stats.compliantStaff || 0,
     overdueCount: stats.overdueCount || 0,
     overduePercent: totalStaff > 0 ? Math.round((stats.overdueCount / totalStaff) * 100) : 0,
     expiringSoonCount: stats.expiringSoonCount || 0,
-    rtwCompliance: 98,
-    rtwCompliantCount: Math.round((totalStaff * 98) / 100),
+    rtwCompliance,
+    rtwCompliantCount,
+    policyAcknowledgements: stats.policyAcknowledgements || 0,
+    quizPasses: stats.quizPasses || 0,
+    avgQuizScore: stats.avgQuizScore || 0,
   };
 
-  // Prepare chart data
-  const trainingCompletionData = charts.donutData || [
-    { name: "Complete", value: 65, color: "#10b981" },
-    { name: "In Progress", value: 6, color: "#3b82f6" },
-    { name: "Overdue", value: 5, color: "#ef4444" },
-  ];
+  // Run the real Working Time Regulations compliance check (same function used by
+  // WorkingTimeComplianceSection) rather than showing a fabricated score.
+  const handleRunWTRCheck = async () => {
+    setRunningWTR(true);
+    try {
+      const dateFrom = format(subWeeks(new Date(), 17), "yyyy-MM-dd");
+      const dateTo = format(new Date(), "yyyy-MM-dd");
+      const res = await base44.functions.invoke("checkWorkingTimeCompliance", { date_from: dateFrom, date_to: dateTo });
+      const breachedStaffIds = new Set((res?.data?.breaches || []).map(b => b.staff_id));
+      const compliantCount = activeStaff.filter(s => !breachedStaffIds.has(s.id)).length;
+      setWtrCheck({
+        complianceScore: totalStaff > 0 ? Math.round((compliantCount / totalStaff) * 100) : 0,
+        compliantCount,
+        totalStaff,
+        checkedAt: new Date().toISOString(),
+      });
+    } catch (e) {
+      toast.error(e.message || "Failed to run WTR compliance check");
+    } finally {
+      setRunningWTR(false);
+    }
+  };
 
-  const homeCompletionData = charts.homeCompletion || homes.map(h => ({
-    name: h.name,
-    completion: Math.random() * 40 + 60,
-  }));
-
-  const monthlyProgressData = charts.monthlyData || [
-    { month: "Dec '25", completion: 72 },
-    { month: "Jan '26", completion: 75 },
-    { month: "Feb '26", completion: 78 },
-    { month: "Mar '26", completion: 81 },
-    { month: "Apr '26", completion: 84 },
-    { month: "May '26", completion: 85 },
-  ];
+  // Prepare chart data — real values only, no dummy fallbacks
+  const trainingCompletionData = charts.donutData;
+  const homeCompletionData = charts.homeCompletion;
+  const monthlyProgressData = charts.monthlyData;
 
   const roleBreakdownData = Object.entries(
     activeStaff.reduce((acc, s) => {
@@ -138,21 +175,6 @@ export default function HRDashboardTabNew({ user, staffProfile: propStaffProfile
     expiryDate: s.dbs_expiry,
     daysRemaining: s.daysRemaining,
   }));
-
-  // RTW alerts summary
-  const rtwAlerts = [
-    { severity: "Critical", count: 2, description: "Immediate action required" },
-    { severity: "High", count: 2, description: "Action required within 7 days" },
-    { severity: "Medium", count: 2, description: "Action required within 30 days" },
-    { severity: "Low", count: 0, description: "For information only" },
-  ].filter(a => a.count > 0);
-
-  // Working time compliance
-  const workingTimeCompliance = {
-    complianceScore: 98,
-    compliantCount: Math.round((totalStaff * 98) / 100),
-    totalStaff,
-  };
 
   const togglePanelFilter = (key, value) => {
     setPanelFilters(prev => {
@@ -375,13 +397,14 @@ export default function HRDashboardTabNew({ user, staffProfile: propStaffProfile
 
       {/* Compliance Insights */}
       <HRDashboardComplianceInsights
-        workingTimeCompliance={workingTimeCompliance}
+        workingTimeCompliance={wtrCheck}
+        runningWTR={runningWTR}
         rtwAlerts={rtwAlerts}
         dbsExpiringTop5={dbsExpiringTop5}
         dbsExpiringTotal={dbsExpiring.length}
-        onViewRTWAlerts={() => {}}
-        onViewDBSAlerts={() => {}}
-        onRunWTRCheck={() => {}}
+        onViewRTWAlerts={() => onNavigate?.("hr-reporting")}
+        onViewDBSAlerts={() => onNavigate?.("active")}
+        onRunWTRCheck={handleRunWTRCheck}
       />
     </div>
   );
